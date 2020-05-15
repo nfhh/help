@@ -9,13 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -39,19 +32,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                        @auth
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -66,15 +50,38 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endauth
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="container pt-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group" id="a-box">
+                        <a href="{{ route('admin.category.index')  }}" class="list-group-item list-group-item-action">
+                            分类管理
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $('#a-box a').each(function () {
+            if (location.href == $(this).attr('href')) {
+                $(this).addClass('active');
+            }
+            if (location.search == $(this).attr('href')) {
+                $(this).addClass('active');
+            }
+        });
+    </script>
+    @yield('js')
 </body>
 </html>

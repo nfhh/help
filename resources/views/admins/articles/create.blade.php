@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.category.store') }}">
+            <form method="POST" action="{{ route('admin.article.store') }}">
                 @csrf
                 <div class="form-group">
                     <label for="name">所属分类</label>
@@ -22,8 +22,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <label for="exampleFormControlFile1">上传</label>
+                    <input type="file" class="form-control-file" id="file" name="file"
+                           accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                </div>
+                <div class="form-group">
+                    <label for="variable">设置变量</label>
+                    <textarea class="form-control" id="variable" rows="10" name="variable"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="template">作用样式</label>
+
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>
