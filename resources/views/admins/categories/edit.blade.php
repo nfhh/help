@@ -26,11 +26,11 @@
                 </div>
                 <div class="form-group">
                     <label for="name">分类名</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}" required>
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>
-                    <input type="text" class="form-control" id="sort" name="sort" value="{{ $category->sort }}">
+                    <input type="text" class="form-control" id="sort" name="sort" value="{{ $category->sort }}" required>
                 </div>
                 <button type="submit" class="btn btn-primary">确定</button>
             </form>

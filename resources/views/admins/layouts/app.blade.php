@@ -42,7 +42,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        退出
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -62,6 +62,9 @@
                     <div class="list-group" id="a-box">
                         <a href="{{ route('admin.category.index')  }}" class="list-group-item list-group-item-action">
                             分类管理
+                        </a>
+                        <a href="{{ route('admin.article.index')  }}" class="list-group-item list-group-item-action">
+                            文章管理
                         </a>
                     </div>
                 </div>
