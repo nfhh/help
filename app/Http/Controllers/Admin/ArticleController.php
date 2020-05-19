@@ -8,7 +8,6 @@ use App\Models\Category;
 use App\Models\Excel;
 use App\Models\Template;
 use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ArticleController extends Controller
 {
@@ -33,7 +32,7 @@ class ArticleController extends Controller
             'category_id' => $form_data['category_id'],
         ]);
 
-        $excel_data = $this->readExcel($request->file);
+        $excel_data = readExcel($request->file);
         Excel::create([
             'text' => json_encode($excel_data),
             'article_id' => $article->id
@@ -55,8 +54,8 @@ class ArticleController extends Controller
         $article->category_id = $request->category_id;
         $article->save();
 
-        if ($request->file) {
-            $excel_data = $this->readExcel($request->file);
+        if ($request->hasFile('file')) {
+            $excel_data = readExcel($request->file);
             $excel = Excel::where('article_id', $article->id)->first();
             $excel->text = json_encode($excel_data);
             $excel->save();
@@ -68,34 +67,5 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    protected function readExcel($file)
-    {
-        $sh = [];
-        $arr = [];
-        $spreadsheet = IOFactory::load($file);
-        foreach ($spreadsheet->getWorksheetIterator() as $sheet) {
-            $excel_data = [];
-            foreach ($sheet->getRowIterator() as $key1 => $row) {
-                $ce = array();
-                if ($key1 == 1) {
-                    $a = $row->getCellIterator();
-                    foreach ($a as $aa) {
-                        $arr[] = $aa->getValue();
-                    }
-                    continue;
-                }
-                $k = 0;
-                foreach ($row->getCellIterator() as $key2 => $cell) {
-                    $data = $cell->getValue();
-                    $ce[$arr[$k]] = $data;
-                    $k++;
-                }
-                $excel_data[$ce[$arr[2]]] = $ce;
-            }
-            $sh[] = $excel_data;
-        }
-        return $sh[0];
     }
 }

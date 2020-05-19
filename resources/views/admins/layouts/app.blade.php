@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <strong>{{ config('app.name', 'Laravel') }}</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -61,10 +61,22 @@
                 <div class="col-md-3">
                     <div class="list-group" id="a-box">
                         <a href="{{ route('admin.category.index')  }}" class="list-group-item list-group-item-action">
-                            分类管理
+                            TOS帮助目录管理
                         </a>
                         <a href="{{ route('admin.article.index')  }}" class="list-group-item list-group-item-action">
-                            文章管理
+                            TOS帮助文章管理
+                        </a>
+                        <a href="{{ route('admin.product.index')  }}" class="list-group-item list-group-item-action">
+                            安装指南型号管理
+                        </a>
+                        <a href="{{ route('admin.step.index')  }}" class="list-group-item list-group-item-action">
+                            安装指南文章管理
+                        </a>
+                        <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
+                            文件目录管理
+                        </a>
+                        <a href="{{ route('admin.file.index')  }}" class="list-group-item list-group-item-action">
+                            文件管理
                         </a>
                     </div>
                 </div>
@@ -77,10 +89,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         $('#a-box a').each(function () {
-            if (location.href == $(this).attr('href')) {
-                $(this).addClass('active');
-            }
-            if (location.search == $(this).attr('href')) {
+            if (location.href.includes($(this).attr('href'))) {
                 $(this).addClass('active');
             }
         });

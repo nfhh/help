@@ -3,12 +3,12 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-0">添加TOS帮助文章</h2>
+            <h2 class="h5 mb-0">添加安装指南文章</h2>
         </div>
         <div class="card-body">
-            <art route="{{ route('admin.article.store') }}"
-                 :categories="{{ $categories }}"
-                 :templates="{{ $templates }}"></art>
+            <step route="{{ route('admin.step.store') }}"
+                 :products="{{ $products }}"
+                 :templates="{{ $templates }}"></step>
         </div>
     </div>
 @endsection

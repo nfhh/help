@@ -2,15 +2,10 @@
     <form method="POST" :action="route" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="token">
         <div class="form-group">
-            <label for="category_id">所属分类</label>
-            <select class="form-control" name="category_id" id="category_id" v-model="category_id">
-                <template v-for="category of categories">
-                    <template v-if="category.children.length">
-                        <option :value="category.id" disabled>{{ category.name }}</option>
-                        <option v-for="child of category.children" :value="child.id">--{{ child.name }}
-                        </option>
-                    </template>
-                    <option v-else :value="category.id" disabled>{{ category.name }}</option>
+            <label for="product_id">所属产品</label>
+            <select class="form-control" name="product_id" id="product_id" v-model="product_id">
+                <template v-for="product of products">
+                    <option :value="product.id">{{ product.name }}</option>
                 </template>
             </select>
         </div>
@@ -43,6 +38,10 @@
             </div>
         </div>
         <textarea name="body" cols="30" rows="10" class="d-none">{{ variables }}</textarea>
+        <div class="form-group">
+            <label for="sortx">排序</label>
+            <input class="form-control" id="sortx" name="sort" required/>
+        </div>
         <button type="submit" class="btn btn-primary">确定</button>
     </form>
 </template>
@@ -51,13 +50,13 @@
     export default {
         props: {
             route: String,
-            categories: Array,
+            products: Array,
             templates: Array
         },
         data() {
             return {
                 token: document.head.querySelector('meta[name="csrf-token"]').content,
-                category_id: this.categories[0].id,
+                product_id: this.products[0].id,
                 variables: [
                     {'variables': '', 'template_id': '1', 'sort': 0}
                 ],

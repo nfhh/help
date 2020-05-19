@@ -1,16 +1,12 @@
 <template>
     <form method="POST" :action="route" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="token">
+        <input type="hidden" name="_method" value="put">
         <div class="form-group">
-            <label for="category_id">所属分类</label>
-            <select class="form-control" name="category_id" id="category_id" v-model="category_id">
-                <template v-for="category of categories">
-                    <template v-if="category.children.length">
-                        <option :value="category.id" disabled>{{ category.name }}</option>
-                        <option v-for="child of category.children" :value="child.id">--{{ child.name }}
-                        </option>
-                    </template>
-                    <option v-else :value="category.id" disabled>{{ category.name }}</option>
+            <label for="product_id">所属产品</label>
+            <select class="form-control" name="product_id" id="product_id" v-model="product_id">
+                <template v-for="product of products">
+                    <option :value="product.id">{{ product.name }}</option>
                 </template>
             </select>
         </div>
@@ -19,7 +15,8 @@
             <input type="file" class="form-control-file" id="file" name="file"
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
-        <div v-for="n in variables">
+
+        <div v-for="n of variables">
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -43,6 +40,10 @@
             </div>
         </div>
         <textarea name="body" cols="30" rows="10" class="d-none">{{ variables }}</textarea>
+        <div class="form-group">
+            <label for="sortx">排序</label>
+            <input class="form-control" id="sortx" name="sort" required :value="step.sort"/>
+        </div>
         <button type="submit" class="btn btn-primary">确定</button>
     </form>
 </template>
@@ -51,18 +52,17 @@
     export default {
         props: {
             route: String,
-            categories: Array,
-            templates: Array
+            products: Array,
+            templates: Array,
+            step: Object,
         },
         data() {
             return {
                 token: document.head.querySelector('meta[name="csrf-token"]').content,
-                category_id: this.categories[0].id,
-                variables: [
-                    {'variables': '', 'template_id': '1', 'sort': 0}
-                ],
+                product_id: this.step.product_id,
+                variables: JSON.parse(this.step.body),
                 template_id: 1,
-                m: 0
+                m: JSON.parse(this.step.body).pop().sort
             }
         },
         methods: {
