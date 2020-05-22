@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\ExcelTwo;
 use App\Models\Product;
 use App\Models\Step;
 use App\Models\Template;
@@ -27,16 +26,12 @@ class StepController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $step = Step::create([
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        Step::create([
             'body' => $form_data['body'],
+            'excel' => $excel_data,
             'product_id' => $form_data['product_id'],
             'sort' => $form_data['sort'],
-        ]);
-
-        $excel_data = readExcel($request->file);
-        ExcelTwo::create([
-            'text' => json_encode($excel_data),
-            'step_id' => $step->id
         ]);
 
         return redirect(route('admin.step.index'));
@@ -52,18 +47,14 @@ class StepController extends Controller
     public function update(Request $request, Step $step)
     {
         $step->body = $request->body;
+        if ($request->hasFile('file')) {
+            $excel_data = readExcel($request->file);
+            $step->excel = json_encode($excel_data);
+        }
         $step->product_id = $request->product_id;
         $step->sort = $request->sort;
         $step->save();
-
-        if ($request->hasFile('file')) {
-            $excel_data = readExcel($request->file);
-            $excel = ExcelTwo::where('step_id', $step->id)->first();
-            $excel->text = json_encode($excel_data);
-            $excel->save();
-        }
-
-        return redirect(route('admin.step.index'));
+        return redirect(route('admin.article.index'));
     }
 
     public function destroy($id)

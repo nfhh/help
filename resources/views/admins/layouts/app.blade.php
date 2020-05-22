@@ -17,7 +17,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <strong>{{ config('app.name', 'Laravel') }}</strong>
+                    <strong>
+                        TerraMaster铁威马帮助文档管理后台
+                    </strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -71,6 +73,12 @@
                         </a>
                         <a href="{{ route('admin.step.index')  }}" class="list-group-item list-group-item-action">
                             安装指南文章管理
+                        </a>
+                        <a href="{{ route('admin.subject.index')  }}" class="list-group-item list-group-item-action">
+                            faq分类管理
+                        </a>
+                        <a href="{{ route('admin.faq.index')  }}" class="list-group-item list-group-item-action">
+                            faq问答管理
                         </a>
                         <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
                             文件目录管理

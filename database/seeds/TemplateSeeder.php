@@ -13,16 +13,13 @@ class TemplateSeeder extends Seeder
     public function run()
     {
         return Template::insert([
-            ['name' => '样式1'],
-            ['name' => '样式2'],
-            ['name' => '样式3'],
-            ['name' => '样式4'],
-            ['name' => '样式5'],
-            ['name' => '样式6'],
-            ['name' => '样式7'],
-            ['name' => '样式8'],
-            ['name' => '样式9'],
-            ['name' => '样式10'],
+            ['name' => '普通段落'],
+            ['name' => '说明灰块'],
+            ['name' => '表格'],
+            ['name' => '数字列表'],
+            ['name' => '方块列表'],
+            ['name' => '图片'],
+            ['name' => '标题加粗'],
         ]);
     }
 }

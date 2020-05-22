@@ -6,11 +6,11 @@
             <select class="form-control" name="category_id" id="category_id" v-model="category_id">
                 <template v-for="category of categories">
                     <template v-if="category.children.length">
-                        <option :value="category.id" disabled>{{ category.name }}</option>
-                        <option v-for="child of category.children" :value="child.id">--{{ child.name }}
+                        <option :value="category.id" disabled>{{ category['zh-cn'] }}</option>
+                        <option v-for="child of category.children" :value="child.id">--{{ child['zh-cn'] }}
                         </option>
                     </template>
-                    <option v-else :value="category.id" disabled>{{ category.name }}</option>
+                    <option v-else :value="category.id" disabled>{{ category['zh-cn'] }}</option>
                 </template>
             </select>
         </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="sort">块排序</label>
-                <input class="form-control" id="sort" rows="4" v-model="n.sort"/>
+                <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
         <div class="form-group text-center">

@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->json('body');// json template_id=>variables
+            $table->json('excel');
             $table->unsignedBigInteger('category_id')->default(0);
             $table->timestamps();
         });

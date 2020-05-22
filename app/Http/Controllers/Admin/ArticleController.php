@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Excel;
 use App\Models\Template;
 use Illuminate\Http\Request;
 
@@ -13,7 +12,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::with('category')->paginate(10);
+        $articles = Article::with('category')->paginate(10)->toArray();
         return view('admins.articles.index', compact('articles'));
     }
 
@@ -27,15 +26,11 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $article = Article::create([
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        Article::create([
             'body' => $form_data['body'],
+            'excel' => $excel_data,
             'category_id' => $form_data['category_id'],
-        ]);
-
-        $excel_data = readExcel($request->file);
-        Excel::create([
-            'text' => json_encode($excel_data),
-            'article_id' => $article->id
         ]);
 
         return redirect(route('admin.article.index'));
@@ -51,16 +46,12 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $article->body = $request->body;
-        $article->category_id = $request->category_id;
-        $article->save();
-
         if ($request->hasFile('file')) {
             $excel_data = readExcel($request->file);
-            $excel = Excel::where('article_id', $article->id)->first();
-            $excel->text = json_encode($excel_data);
-            $excel->save();
+            $article->excel = json_encode($excel_data);
         }
-
+        $article->category_id = $request->category_id;
+        $article->save();
         return redirect(route('admin.article.index'));
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExcelsTable extends Migration
+class CreateFaqsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateExcelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('excels', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->json('text');
-            $table->unsignedBigInteger('article_id')->default(0);
+            $table->string('title');
+            $table->json('body');
+            $table->json('excel');
+            $table->unsignedBigInteger('subject_id')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateExcelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('excels');
+        Schema::dropIfExists('faqs');
     }
 }

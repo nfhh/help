@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="sort">块排序</label>
-                <input class="form-control" id="sort" rows="4" v-model="n.sort"/>
+                <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
         <div class="form-group text-center">

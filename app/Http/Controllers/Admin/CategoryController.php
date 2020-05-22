@@ -10,29 +10,25 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('children')->roots()->paginate(10);
+        $categories = Category::with('children')->roots()->paginate(10)->toArray();
         return view('admins.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        $categories = Category::with('children')->roots()->get();
+        $categories = Category::with('children')->roots()->get()->toArray();
         return view('admins.categories.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        Category::create([
-            'parent_id' => $request->parent_id,
-            'name' => $request->name,
-            'sort' => $request->sort
-        ]);
+        Category::create($request->except('_token'));
         return redirect(route('admin.category.index'));
     }
 
     public function edit(Category $category)
     {
-        $categories = Category::with('children')->roots()->get();
+        $categories = Category::with('children')->roots()->get()->toArray();
         return view('admins.categories.edit', compact('category', 'categories'));
     }
 

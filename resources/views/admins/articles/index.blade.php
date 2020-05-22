@@ -15,13 +15,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($articles as $article)
+                @foreach($articles['data'] as $article)
                     <tr>
-                        <td>{{ $article->category->name }}</td>
+                        <td>{{ $article['category']['zh-cn'] }}</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a class="btn btn-secondary"
-                                   href="{{ route('admin.article.edit',$article->id) }}">编辑</a>
+                                   href="{{ route('admin.article.edit',$article['id']) }}">编辑</a>
                                 <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
                             </div>
                         </td>

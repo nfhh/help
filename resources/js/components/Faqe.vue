@@ -1,11 +1,17 @@
 <template>
     <form method="POST" :action="route" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="token">
+        <input type="hidden" name="_method" value="put">
         <div class="form-group">
-            <label for="product_id">所属产品</label>
-            <select class="form-control" name="product_id" id="product_id" v-model="product_id">
-                <template v-for="product of products">
-                    <option :value="product.id">{{ product.name }}</option>
+            <label for="subject_id">faq分类</label>
+            <select class="form-control" name="subject_id" id="subject_id" v-model="subject_id">
+                <template v-for="subject of subjects">
+                    <template v-if="subject.children.length">
+                        <option :value="subject.id" disabled>{{ subject['zh-cn'] }}</option>
+                        <option v-for="child of subject.children" :value="child.id">--{{ child['zh-cn'] }}
+                        </option>
+                    </template>
+                    <option v-else :value="subject.id">{{ subject['zh-cn'] }}</option>
                 </template>
             </select>
         </div>
@@ -14,7 +20,11 @@
             <input type="file" class="form-control-file" id="file" name="file"
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
-        <div v-for="n in variables">
+		<div class="form-group">
+            <label for="title">标题变量</label>
+			<input class="form-control" id="title" name="title" :value="faq.title"/>
+        </div>
+        <div v-for="n of variables">
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -38,10 +48,6 @@
             </div>
         </div>
         <textarea name="body" cols="30" rows="10" class="d-none">{{ variables }}</textarea>
-        <div class="form-group">
-            <label for="sortx">排序</label>
-            <input class="form-control" id="sortx" name="sort" required/>
-        </div>
         <button type="submit" class="btn btn-primary">确定</button>
     </form>
 </template>
@@ -50,18 +56,17 @@
     export default {
         props: {
             route: String,
-            products: Array,
-            templates: Array
+            subjects: Array,
+            templates: Array,
+            faq: Object,
         },
         data() {
             return {
                 token: document.head.querySelector('meta[name="csrf-token"]').content,
-                product_id: this.products[0].id,
-                variables: [
-                    {'variables': '', 'template_id': '1', 'sort': 0}
-                ],
+                subject_id: this.faq.subject_id,
+                variables: JSON.parse(this.faq.body),
                 template_id: 1,
-                m: 0
+                m: JSON.parse(this.faq.body).pop().sort
             }
         },
         methods: {

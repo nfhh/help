@@ -21,9 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', 'IndexController@index');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/faq', 'FaqController@index');
+Route::get('/faq/{faq}', 'FaqController@show');
+Route::get('/toshelp', 'HelpController@index');
 
 
 Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin\Auth')->group(function () {
@@ -39,4 +43,6 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/product', 'ProductController');
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
+    Route::resource('/subject', 'SubjectController');
+    Route::resource('/faq', 'FaqController');
 });
