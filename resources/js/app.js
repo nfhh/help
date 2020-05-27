@@ -19,6 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('art', require('./components/Art.vue').default);
 Vue.component('arte', require('./components/Arte.vue').default);
@@ -26,6 +27,9 @@ Vue.component('step', require('./components/Step.vue').default);
 Vue.component('stepe', require('./components/Stepe.vue').default);
 Vue.component('faq', require('./components/Faq.vue').default);
 Vue.component('faqe', require('./components/Faqe.vue').default);
+Vue.component('product', require('./components/Product.vue').default);
+Vue.component('download', require('./components/Download.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,5 +38,5 @@ Vue.component('faqe', require('./components/Faqe.vue').default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });

@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-0">编辑faq问答</h2>
+            <h2 class="h5 mb-0">编辑FAQ问答</h2>
         </div>
         <div class="card-body">
             <faqe route="{{ route('admin.faq.update',$faq->id) }}"

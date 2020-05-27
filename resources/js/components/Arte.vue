@@ -30,7 +30,7 @@
                 <div class="form-check form-check-inline" v-for="item in templates">
                     <input class="form-check-input" type="radio" :id="'template_id'+item.id"
                            :value="item.id" v-model="n.template_id">
-                    <label class="form-check-label">{{ item.name }}</label>
+                    <label class="form-check-label" :for="'template_id'+item.id">{{ item.name }}</label>
                 </div>
             </div>
             <div class="form-group">

@@ -2,7 +2,7 @@
     <form method="POST" :action="route" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="token">
         <div class="form-group">
-            <label for="subject_id">faq分类</label>
+            <label for="subject_id">FAQ分类</label>
             <select class="form-control" name="subject_id" id="subject_id" v-model="subject_id">
                 <template v-for="subject of subjects">
                     <option>请选择</option>
@@ -33,7 +33,7 @@
                 <div class="form-check form-check-inline" v-for="item in templates">
                     <input class="form-check-input" type="radio" :id="'template_id'+item.id"
                            :value="item.id" v-model="n.template_id">
-                    <label class="form-check-label">{{ item.name }}</label>
+                    <label class="form-check-label" :for="'template_id'+item.id">{{ item.name }}</label>
                 </div>
             </div>
             <div class="form-group">

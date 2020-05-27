@@ -28,7 +28,8 @@ class FaqController extends Controller
     {
         $subject_id = $faq->subject_id;
         $subject = Subject::where('id', $subject_id)->first();
-        $subjects = Subject::where('parent_id', $subject->parent_id)->get();
-        return view('faqs.show', compact('subjects', 'faq'));
+        $parent_id = $subject->parent_id;
+        $subjects = Subject::where('parent_id', $parent_id)->get();
+        return view('faqs.show', compact('subjects', 'faq', 'parent_id'));
     }
 }

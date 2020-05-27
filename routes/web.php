@@ -17,18 +17,21 @@ Route::get('/test', function () {
 
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/', 'IndexController@index');
 
-Auth::routes();
+*/
 
+
+Auth::routes();
 Route::get('/faq', 'FaqController@index');
 Route::get('/faq/{faq}', 'FaqController@show');
 Route::get('/toshelp', 'HelpController@index');
-
+Route::get('/quickguide', 'ProductController@show');
+Route::get('/quickguide/steps', 'ProductController@index');
+Route::get('/search', 'SearchController@index');
 
 Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin\Auth')->group(function () {
     Route::get('login', 'LoginController@showLoginForm')->name('login');
@@ -45,4 +48,7 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/dir', 'DirController');
     Route::resource('/subject', 'SubjectController');
     Route::resource('/faq', 'FaqController');
+    Route::resource('/download', 'DownloadController');
+    Route::post('/upload/check', 'UploadController@check')->name('check');
+    Route::post('/upload/upload', 'UploadController@upload')->name('upload');
 });

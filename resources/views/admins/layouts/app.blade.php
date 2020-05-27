@@ -75,10 +75,13 @@
                             安装指南文章管理
                         </a>
                         <a href="{{ route('admin.subject.index')  }}" class="list-group-item list-group-item-action">
-                            faq分类管理
+                            FAQ分类管理
                         </a>
                         <a href="{{ route('admin.faq.index')  }}" class="list-group-item list-group-item-action">
-                            faq问答管理
+                            FAQ问答管理
+                        </a>
+                        <a href="{{ route('admin.download.index')  }}" class="list-group-item list-group-item-action">
+                            下载管理
                         </a>
                         <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
                             文件目录管理

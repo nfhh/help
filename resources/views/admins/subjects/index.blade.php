@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-0">faq分类管理</h2>
+            <h2 class="h5 mb-0">FAQ分类管理</h2>
             <a class="btn btn-primary" href="{{ route('admin.subject.create') }}">添加</a>
         </div>
         <div class="card-body">

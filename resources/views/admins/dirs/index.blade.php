@@ -30,7 +30,6 @@
                         @foreach($dir->children as $child)
                             <tr>
                                 <td>-- {{ $child->name }}</td>
-                                <td>{{ $child->sort }}</td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a class="btn btn-secondary"
@@ -43,7 +42,6 @@
                     @else
                         <tr>
                             <td>{{ $dir->name }}</td>
-                            <td>{{ $dir->sort }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-secondary"

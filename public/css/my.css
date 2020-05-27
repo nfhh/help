@@ -1,3 +1,25 @@
+body {
+    background-color: #ffffff;
+}
+
 a:hover {
     text-decoration: none;
+}
+
+.min-height {
+    min-height: 500px;
+}
+
+.border-bottom-1 {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.my-tab .active {
+    border-radius: 0 !important;
+    background-color: #dadada !important;
+    border-color: #dadada !important;
+}
+
+.bg-gray {
+    background-color: #dadada;
 }

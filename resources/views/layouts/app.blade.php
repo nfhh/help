@@ -27,22 +27,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">TOS {{ trans('help.help') }}</a>
+                        <a class="nav-link" href="/toshelp">TOS {{ trans('help.help') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ trans('help.quickguide') }} </a>
+                        <a class="nav-link" href="/quickguide">{{ trans('help.quickguide') }} </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ trans('help.faq') }}</a>
+                        <a class="nav-link" href="/faq?subject_id=1">{{ trans('help.faq') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ trans('help.download') }}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ trans('help.login') }}</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-target="#lanModal" data-toggle="modal">
                             {{$lans[$lan]}}
@@ -66,23 +63,29 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="row p-3">
-                        @foreach($lans as $k=>$v)
-                            <div class="col-md-4">
-                                <a href="javascript:;" onclick="chLan(this)" data-lan="{{ $k }}">{{ $v }}</a>
-                            </div>
-                        @endforeach
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="container-fluid">
+                        <div class="row py-4">
+                            @foreach($lans as $k=>$v)
+                                <div class="col-md-4">
+                                    <a class="text-dark d-block py-2" href="javascript:;" onclick="chLan(this)"
+                                       data-lan="{{ $k }}">{{ $v }}</a>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <main class="py-4">
+    <main class="py-4 min-height">
         @yield('content')
     </main>
 
-    <footer class="footer bg-dark p-5 text-light text-center">
+    <footer class="footer bg-dark p-3 text-light text-center">
         <p class="m-1">Copyright©2020 TerraMaster All Rights Reserved.</p>
     </footer>
 </div>
@@ -90,7 +93,7 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
     function chLan(obj) {
-        $.cookie('lan', $(obj).data('lan'))
+        $.cookie('lan', $(obj).data('lan'), {path: '/'})
         location.reload()
     }
 

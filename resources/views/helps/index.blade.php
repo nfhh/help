@@ -2,38 +2,19 @@
 
 @section('content')
     <div class="container">
-        <div class="row py-5">
-            <div class="col-md-6">
-                <h1 class="display-5">帮助文档</h1>
-                <p class="text-muted">请输入搜索关键字然后点击“搜索”，。如果您的问题没有解答，请与我们联系。</p>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="user" placeholder="">
-                    <div class="input-group-append">
-                        <a href="#" class="input-group-text bg-transparent"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="nav nav-tabs" id="n-box">
-                    <a href="/faq?subject_id=1" class="nav-item nav-link">TNAS 常见问题</a>
-                    <a href="/faq?subject_id=2" class="nav-item nav-link">DAS 常见问题</a>
-                    <a href="#" class="nav-item nav-link active">TOS 帮助</a>
-                </nav>
-            </div>
-        </div>
+        @include('partials.th_h')
+        @include('partials.th_tab')
         <div class="row pt-3">
             <div class="col-md-3">
                 <div class="bg-white" id="a-box">
                     <div class="accordion" id="accordionExample">
                         @foreach($categories as $k=>$category)
-                            <div class="card">
+                            <div class="card border-0">
                                 @if(!(empty($category['children'])))
-                                    <div class="card-header p-1" id="heading{{$k}}">
+                                    <div class="card-header p-1 bg-white mb-0 border-bottom-1" id="heading{{$k}}">
                                         <h5 class="mb-0">
                                             <button
-                                                class="btn btn-link btn-block text-left text-decoration-none shadow-none"
+                                                class="btn btn-link btn-block text-left text-dark text-decoration-none shadow-none pl-0"
                                                 type="button" data-toggle="collapse"
                                                 data-target="#collapse{{$k}}">
                                                 {{ $category[$lan] }}
@@ -42,10 +23,10 @@
                                     </div>
                                     <div id="collapse{{$k}}" class="collapse @if($k==0) show @endif"
                                          data-parent="#accordionExample">
-                                        <div class="list-group list-group-flush">
+                                        <div class="list-group list-group-flush my-tab">
                                             @foreach($category['children'] as $child)
                                                 <a href="/toshelp?category_id={{$child['id']}}"
-                                                   class="list-group-item list-group-item-action p-2">
+                                                   class="list-group-item list-group-item-action px-4 text-dark">
                                                     {{ $child[$lan] }}
                                                 </a>
                                             @endforeach

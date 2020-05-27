@@ -13,6 +13,7 @@ class HelpController extends Controller
         $category_id = $request->query('category_id', 2);
         $article = Article::where('category_id', $category_id)->first();
         $categories = Category::with('children')->roots()->get()->toArray();
-        return view('helps.index', compact('categories', 'article'));
+        $parent_id = 'tos_help';
+        return view('helps.index', compact('categories', 'article', 'parent_id'));
     }
 }

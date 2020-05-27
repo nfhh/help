@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name')->default('');
             $table->enum('type', ['TNAS', 'TDAS'])->default('TNAS');
-            $table->enum('size', ['2-BAY', '4-BAY', '5-BAY', '8-BAY', '12-BAY', '16-BAY', '24-BAY'])->default('2-BAY');
+            $table->enum('size', [2, 4, 5, 8, 12, 16, 24])->default(2);
             $table->unsignedSmallInteger('sort')->default(0);
             $table->timestamps();
         });

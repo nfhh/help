@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <form class="form-inline">
-                <select class="custom-select my-1 mr-sm-2" name="dir_id" id="dir_id" required>
+                <select class="custom-select my-1 mr-sm-2 w-25" name="dir_id" id="dir_id" required>
                     @foreach($dirs as $dir)
                         @if(!($dir->children->isEmpty()))
                             <option value="{{ $dir->id }}">{{ $dir->name }}</option>
