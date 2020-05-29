@@ -12,7 +12,8 @@ class DownloadController extends Controller
 {
     public function index()
     {
-
+        $downloads = Download::with(['menu', 'product'])->paginate(10)->toArray();
+        return view('admins.downloads.index', compact('downloads'));
     }
 
     public function create()
@@ -24,25 +25,28 @@ class DownloadController extends Controller
 
     public function store(Request $request)
     {
-        Dir::create([
-            'parent_id' => $request->parent_id,
-            'name' => $request->name,
+        Download::create([
+            'body' => $request->body,
+            'product_id' => $request->product_id,
+            'menu_id' => $request->menu_id,
         ]);
-        return redirect(route('admin.dir.index'));
+        return redirect(route('admin.download.index'));
     }
 
-    public function edit(Dir $dir)
+    public function edit(Download $download)
     {
-        $dirs = Dir::with('children')->roots()->get();
-        return view('admins.dirs.edit', compact('dir', 'dirs'));
+        $products = Product::all();
+        $menus = Menu::all()->toArray();
+        return view('admins.downloads.edit', compact('products', 'menus', 'download'));
     }
 
-    public function update(Request $request, Dir $dir)
+    public function update(Request $request, Download $download)
     {
-        $dir->name = $request->name;
-        $dir->parent_id = $request->parent_id;
-        $dir->save();
-        return redirect(route('admin.dir.index'));
+        $download->product_id = $request->product_id;
+        $download->menu_id = $request->menu_id;
+        $download->body = $request->body;
+        $download->save();
+        return redirect(route('admin.download.index'));
     }
 
     public function destroy($id)

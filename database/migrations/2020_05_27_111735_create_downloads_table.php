@@ -15,6 +15,7 @@ class CreateDownloadsTable extends Migration
     {
         Schema::create('downloads', function (Blueprint $table) {
             $table->id();
+            $table->json('body');
             $table->unsignedBigInteger('menu_id')->default(0);
             $table->unsignedBigInteger('product_id')->default(0);
             $table->timestamps();

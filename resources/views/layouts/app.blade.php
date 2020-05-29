@@ -30,13 +30,13 @@
                         <a class="nav-link" href="/toshelp">TOS {{ trans('help.help') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/quickguide">{{ trans('help.quickguide') }} </a>
+                        <a class="nav-link" href="/quickguide">{{ trans('help.quick_install') }} </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/faq?subject_id=1">{{ trans('help.faq') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ trans('help.download') }}</a>
+                        <a class="nav-link" href="/download">{{ trans('help.download') }}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">

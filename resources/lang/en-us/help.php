@@ -1,7 +1,6 @@
 <?php
 return [
     'note' => 'Note',
-    'quickguide' => 'Fast Installation guide',
     'faq' => 'FAQ',
     'download' => 'Download',
     'login' => 'Login',
@@ -17,4 +16,11 @@ return [
     'product_tip3' => 'ID or model',
     'empty_res' => 'No results',
     'back' => 'Back',
+    'download_h' => 'Download Center',
+    'name' => 'Name',
+    'description' => 'Description',
+    'version' => 'Version',
+    'action' => 'Action',
+    'size' => 'Size',
+    'remark' => 'Remark',
 ];

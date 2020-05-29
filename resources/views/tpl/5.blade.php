@@ -1,5 +1,5 @@
 <ul>
     @foreach($vars as $var)
-        <li>{{ $excel[$var][$lan] }}</li>
+        <li style="text-indent: 2em;">{{ $excel[$var][$lan] }}</li>
     @endforeach
 </ul>

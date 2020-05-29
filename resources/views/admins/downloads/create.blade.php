@@ -7,8 +7,6 @@
         </div>
         <div class="card-body">
             <download route="{{ route('admin.download.store') }}"
-                      checkurl="{{ route('admin.check') }}"
-                      uploadurl="{{ route('admin.upload') }}"
                       :products="{{ $products }}"
                       :menus="{{ json_encode($menus) }}"
                       :lans="{{ json_encode($lans) }}"

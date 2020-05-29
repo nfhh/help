@@ -14,7 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function () {
-
+    $arr = [
+        ['id'=>1,'body'=>'aaa','menu_id'=>2,'product_id'=>2],
+        ['id'=>2,'body'=>'bbb','menu_id'=>1,'product_id'=>2],
+        ['id'=>3,'body'=>'ccc','menu_id'=>2,'product_id'=>2],
+    ];
+    $arrx = [
+        ['id'=>1,'body'=>['aaa','ccc'],'menu_id'=>2,'product_id'=>2],
+        ['id'=>2,'body'=>'bbb','menu_id'=>1,'product_id'=>2],
+    ];
+    $menu_id = array();
+    foreach ($arr as $key=>&$list){
+        $b = $list["body"];
+        $list["body"] = [$b];
+        foreach ($menu_id as $k => $m_id) {
+            if ($m_id == $list["menu_id"]) {
+                $p_data = $arr[$k];
+                $p_body = $p_data['body'];
+                $p_body[] = $b;
+                $p_data["body"] = $p_body;
+                $arr[$k] = $p_data;
+                unset($arr[$key]);
+            }
+        }
+        $menu_id[] = $list['menu_id'];
+    }
+   dd($arr);
 });
 
 /*Route::get('/', function () {
@@ -29,6 +54,8 @@ Auth::routes();
 Route::get('/faq', 'FaqController@index');
 Route::get('/faq/{faq}', 'FaqController@show');
 Route::get('/toshelp', 'HelpController@index');
+Route::get('/download', 'DownloadController@show');
+Route::get('/download/packages', 'DownloadController@index');
 Route::get('/quickguide', 'ProductController@show');
 Route::get('/quickguide/steps', 'ProductController@index');
 Route::get('/search', 'SearchController@index');
@@ -49,6 +76,5 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/subject', 'SubjectController');
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
-    Route::post('/upload/check', 'UploadController@check')->name('check');
-    Route::post('/upload/upload', 'UploadController@upload')->name('upload');
+    Route::resource('/asset', 'AssetController');
 });

@@ -35,6 +35,10 @@
 <script>
     export default {
         props: {
+            tourl: {
+                type: String,
+                default: ''
+            },
             product_id: {
                 type: String,
                 default: ''
@@ -121,7 +125,7 @@
         },
         methods: {
             handleClick() {
-                location.href = `/quickguide/steps?product_id=${this.curProductId}`
+                location.href = `${this.tourl}?product_id=${this.curProductId}`
             }
         }
     }
