@@ -34,10 +34,7 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        $category->name = $request->name;
-        $category->parent_id = $request->parent_id;
-        $category->sort = $request->sort;
-        $category->save();
+        $category->update($request->except('_token'));
         return redirect(route('admin.category.index'));
     }
 

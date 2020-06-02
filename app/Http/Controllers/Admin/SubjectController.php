@@ -34,10 +34,7 @@ class SubjectController extends Controller
 
     public function update(Request $request, Subject $subject)
     {
-        $subject->name = $request->name;
-        $subject->parent_id = $request->parent_id;
-        $subject->sort = $request->sort;
-        $subject->save();
+        $subject->update($request->except('_token'));
         return redirect(route('admin.subject.index'));
     }
 

@@ -28,6 +28,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="slug">slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" value="{{ $category['slug'] }}" required>
+                </div>
+                <div class="form-group">
                     <label for="name">目录名（英语）</label>
                     <input type="text" class="form-control" id="name" name="en-us" value="{{ $category['en-us'] }}" required>
                 </div>
