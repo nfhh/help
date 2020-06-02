@@ -24,7 +24,7 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-secondary"
-                                       href="{{ route('admin.subject.edit',$category['id']) }}">编辑</a>
+                                       href="{{ route('admin.category.edit',$category['id']) }}">编辑</a>
                                     <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
                                 </div>
                             </td>
@@ -36,7 +36,7 @@
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a class="btn btn-secondary"
-                                           href="{{ route('admin.subject.edit',$child['id']) }}">编辑</a>
+                                           href="{{ route('admin.category.edit',$child['id']) }}">编辑</a>
                                         <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
                                     </div>
                                 </td>
@@ -49,7 +49,7 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-secondary"
-                                       href="{{ route('admin.subject.edit',$category['id']) }}">编辑</a>
+                                       href="{{ route('admin.category.edit',$category['id']) }}">编辑</a>
                                     <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
                                 </div>
                             </td>
