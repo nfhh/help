@@ -83,6 +83,9 @@
                     <a href="{{ route('admin.download.index')  }}" class="list-group-item list-group-item-action">
                         下载管理
                     </a>
+                    <a href="{{ route('admin.feedback.index')  }}" class="list-group-item list-group-item-action">
+                        反馈管理
+                    </a>
                     <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
                         文件目录管理
                     </a>

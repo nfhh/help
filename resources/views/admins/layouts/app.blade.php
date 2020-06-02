@@ -44,6 +44,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.admin.edit') }}">
+                                    修改密码
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -86,6 +89,9 @@
                     </a>
                     <a href="{{ route('admin.download.index')  }}" class="list-group-item list-group-item-action">
                         下载管理
+                    </a>
+                    <a href="{{ route('admin.feedback.index')  }}" class="list-group-item list-group-item-action">
+                        反馈管理
                     </a>
                     <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
                         文件目录管理

@@ -13,41 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    $arr = [
-        ['id'=>1,'body'=>'aaa','menu_id'=>2,'product_id'=>2],
-        ['id'=>2,'body'=>'bbb','menu_id'=>1,'product_id'=>2],
-        ['id'=>3,'body'=>'ccc','menu_id'=>2,'product_id'=>2],
-    ];
-    $arrx = [
-        ['id'=>1,'body'=>['aaa','ccc'],'menu_id'=>2,'product_id'=>2],
-        ['id'=>2,'body'=>'bbb','menu_id'=>1,'product_id'=>2],
-    ];
-    $menu_id = array();
-    foreach ($arr as $key=>&$list){
-        $b = $list["body"];
-        $list["body"] = [$b];
-        foreach ($menu_id as $k => $m_id) {
-            if ($m_id == $list["menu_id"]) {
-                $p_data = $arr[$k];
-                $p_body = $p_data['body'];
-                $p_body[] = $b;
-                $p_data["body"] = $p_body;
-                $arr[$k] = $p_data;
-                unset($arr[$key]);
-            }
-        }
-        $menu_id[] = $list['menu_id'];
-    }
-   dd($arr);
+Route::get('/', function () {
+    return redirect('/toshelp');
 });
 
-/*Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', 'IndexController@index');
-
-*/
 
 
 Auth::routes();
@@ -59,6 +28,7 @@ Route::get('/download/packages', 'DownloadController@index');
 Route::get('/quickguide', 'ProductController@show');
 Route::get('/quickguide/steps', 'ProductController@index');
 Route::get('/search', 'SearchController@index');
+Route::post('/feedback', 'FeedbackController@store')->middleware('throttle:60,1');
 
 Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin\Auth')->group(function () {
     Route::get('login', 'LoginController@showLoginForm')->name('login');
@@ -67,6 +37,8 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin\Auth')->group(
 
 Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware('auth:admin')->group(function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/edit', 'AdminController@edit')->name('admin.edit');
+    Route::post('/update', 'AdminController@update')->name('admin.update');
     Route::resource('/category', 'CategoryController');
     Route::resource('/article', 'ArticleController');
     Route::resource('/file', 'FileController');
@@ -77,4 +49,6 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
     Route::resource('/asset', 'AssetController');
+    Route::get('/feedback', 'FeedbackController@index')->name('feedback.index');
+    Route::post('/feedback/update', 'FeedbackController@update')->name('feedback.update');
 });

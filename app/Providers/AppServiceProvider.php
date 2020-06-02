@@ -25,6 +25,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::share('urllans', [
+            'en-us' => 'us',
+            'de-de' => 'de',
+            'fr-fr' => 'fr',
+            'es-es' => 'es',
+            'it-it' => 'it',
+            'hu-hu' => 'global',
+            'pl-pl' => 'global',
+            'tr-tr' => 'global',
+            'zh-cn' => 'cn',
+            'zh-hk' => 'global',
+            'ja-jp' => 'jp',
+            'ko-kr' => 'kr',
+        ]);
+
         View::share('lans', [
             'en-us' => 'English/Global',
             'de-de' => 'Deutsch/Deutschland',

@@ -20,6 +20,7 @@ class TemplateSeeder extends Seeder
             ['name' => '方块列表'],
             ['name' => '图片'],
             ['name' => '标题加粗'],
+            ['name' => '代码块'],
         ]);
     }
 }

@@ -16,9 +16,8 @@
                         <ul class="list-group list-group-flush px-4">
                             @foreach($faqs as $faq)
                                 <li class="list-group-item py-4 px-0 article">
-                                    <h5>
-                                        <a href="/faq/{{ $faq->id }}?subject_id={{$faq->subject_id}}"
-                                           class="text-dark">
+                                    <h5><a href="/faq/{{ $faq->id }}?subject_id={{$faq->subject_id}}"
+                                           class="my-title">
                                             @php
                                                 $excel = json_decode($faq->excel, true);
                                                 echo $excel[$faq->title][$lan]

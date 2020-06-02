@@ -69,6 +69,10 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+
+        'directmail' => [
+            'transport' => 'directmail',
+        ],
     ],
 
     /*

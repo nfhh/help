@@ -99,10 +99,10 @@
             },
             curProductId() {
                 if (Object.keys(this.selected_product).length) {
-                    return this.selected_product.id
+                    return this.selected_product.name
                 }
                 if (!(typeof this.listenProducts[0] === 'undefined')) {
-                    return this.listenProducts[0].id
+                    return this.listenProducts[0].name
                 }
             },
             initSelectedProduct: {
@@ -125,7 +125,7 @@
         },
         methods: {
             handleClick() {
-                location.href = `${this.tourl}?product_id=${this.curProductId}`
+                location.href = `${this.tourl}?product=${this.curProductId}`
             }
         }
     }

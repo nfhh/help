@@ -22,10 +22,14 @@ class ProductController extends Controller
 
         $offset = ($page_num - 1) * $page_count;
 
-        $product_id = $request->query('product_id');
+        $name = $request->query('product');
+
+        $product = Product::where('name', $name)->first();
+
+        $product_id = $product->id;
 
         $steps = Step::where([
-            'product_id' => $product_id
+            'product_id' => $product->id
         ])->offset($offset)->limit($page_count)->get();
 
         $total_page = ceil($steps->count() / $page_count);
@@ -33,7 +37,6 @@ class ProductController extends Controller
         $url_params = [];
         $link = $link . ($url_params ? '?' . $url_params[0] . '&' : '?');
 
-        $product = Product::find($product_id);
 
         return view('products.index', compact('page_num', 'total_page', 'page_count', 'link', 'steps', 'product_id', 'product'));
     }

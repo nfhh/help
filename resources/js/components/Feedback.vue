@@ -4,42 +4,43 @@
             <p class="text-dark mb-0">{{ text1 }}</p>
         </div>
         <div v-if="togform" class="alert alert-primary" role="alert">
-            <p class="text-dark mb-0">{{ text2 }} <a href="">{{ text3 }}</a> / <a href="">{{
-                text4 }}</a></p>
+            <p class="text-dark mb-0">{{ text2 }} <a href="javascript:;" @click="yes">{{ text3 }}</a> / <a href="javascript:;" @click="no">{{ text4 }}</a></p>
         </div>
         <div class="card" v-if="showform">
             <div class="card-header">{{ text5 }}</div>
             <div class="card-body">
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="ch1" value="1">
-                        <label class="custom-control-label" for="ch1">{{ text6 }}</label>
+                <form action="" @submit.prevent="submitPost">
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ch1" value="1" v-model="reasons">
+                            <label class="custom-control-label" for="ch1">{{ text6 }}</label>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="ch2" value="2">
-                        <label class="custom-control-label" for="ch2">{{ text7 }}</label>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ch2" value="2" v-model="reasons">
+                            <label class="custom-control-label" for="ch2">{{ text7 }}</label>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="ch3" value="3">
-                        <label class="custom-control-label" for="ch3">{{ text8 }}</label>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ch3" value="3" v-model="reasons">
+                            <label class="custom-control-label" for="ch3">{{ text8 }}</label>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="ch4" value="4">
-                        <label class="custom-control-label" for="ch4">{{ text9 }}</label>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ch4" value="4" v-model="reasons">
+                            <label class="custom-control-label" for="ch4">{{ text9 }}</label>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">{{ text10 }}</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">{{ text11 }}</button>
-                <button type="button" class="btn btn-secondary">{{ text12 }}</button>
+                    <div class="form-group">
+                        <label for="body">{{ text10 }}</label>
+                        <textarea class="form-control" id="body" rows="3" v-model="body" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" :disabled="ds">{{ text11 }}</button>
+                    <button type="button" @click="cancel" class="btn btn-secondary">{{ text12 }}</button>
+                </form>
             </div>
         </div>
     </div>
@@ -102,8 +103,43 @@
                 aftersubmit: false,
                 togform: true,
                 showform: false,
+                reasons: [],
+                body: '',
+                ds: false
             }
         },
-        methods: {}
+        methods: {
+            yes() {
+                this.aftersubmit = true
+                this.togform = false
+            },
+            no() {
+                this.togform = false
+                this.showform = true
+            },
+            async submitPost() {
+                this.ds = true
+                try {
+                    const res = await axios.post('/feedback', {
+                        'url': location.href,
+                        'reasons': this.reasons,
+                        'body': this.body,
+                    })
+                    if (res.data.code === 0) {
+                        this.aftersubmit = true
+                    } else {
+                        alert(res.data.message)
+                    }
+                    this.showform = false
+                } catch (e) {
+                    this.ds = false
+                    alert('error.')
+                }
+            },
+            cancel() {
+                this.showform = false
+                this.togform = true
+            }
+        }
     }
 </script>

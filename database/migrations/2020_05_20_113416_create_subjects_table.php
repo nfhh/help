@@ -15,6 +15,7 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('en-us')->default('');
             $table->string('de-de')->default('');
             $table->string('fr-fr')->default('');

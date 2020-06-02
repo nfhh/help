@@ -9,7 +9,7 @@
             <form method="POST" action="{{ route('admin.subject.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="name">所属分类</label>
+                    <label for="parent_id">所属分类</label>
                     <select class="form-control" name="parent_id" id="parent_id">
                         <option value="0">顶级分类</option>
                         @foreach($subjects as $subject)
@@ -25,54 +25,58 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（英语）</label>
-                    <input type="text" class="form-control" id="name" name="en-us" required>
+                    <label for="slug">slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（德语）</label>
-                    <input type="text" class="form-control" id="name" name="de-de" required>
+                    <label for="en-us">分类名（英语）</label>
+                    <input type="text" class="form-control" id="en-us" name="en-us" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（法语）</label>
-                    <input type="text" class="form-control" id="name" name="fr-fr" required>
+                    <label for="de-de">分类名（德语）</label>
+                    <input type="text" class="form-control" id="de-de" name="de-de" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（意大利语）</label>
-                    <input type="text" class="form-control" id="name" name="it-it" required>
+                    <label for="fr-fr">分类名（法语）</label>
+                    <input type="text" class="form-control" id="fr-fr" name="fr-fr" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（西班牙语）</label>
-                    <input type="text" class="form-control" id="name" name="es-es" required>
+                    <label for="it-it">分类名（意大利语）</label>
+                    <input type="text" class="form-control" id="it-it" name="it-it" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（匈牙利语）</label>
-                    <input type="text" class="form-control" id="name" name="hu-hu" required>
+                    <label for="es-es">分类名（西班牙语）</label>
+                    <input type="text" class="form-control" id="es-es" name="es-es" required>
+                </div>
+                <div class="form-group">
+                    <label for="hu-hu">分类名（匈牙利语）</label>
+                    <input type="text" class="form-control" id="hu-hu" name="hu-hu" required>
                 </div>                <div class="form-group">
-                    <label for="name">分类名（俄语）</label>
-                    <input type="text" class="form-control" id="name" name="ru-ru" required>
+                    <label for="ru-ru">分类名（俄语）</label>
+                    <input type="text" class="form-control" id="ru-ru" name="ru-ru" required>
                 </div>                <div class="form-group">
-                    <label for="name">分类名（韩语）</label>
-                    <input type="text" class="form-control" id="name" name="ko-kr" required>
+                    <label for="ko-kr">分类名（韩语）</label>
+                    <input type="text" class="form-control" id="ko-kr" name="ko-kr" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（日语）</label>
-                    <input type="text" class="form-control" id="name" name="ja-jp" required>
+                    <label for="ja-jp">分类名（日语）</label>
+                    <input type="text" class="form-control" id="ja-jp" name="ja-jp" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（中文）</label>
-                    <input type="text" class="form-control" id="name" name="zh-cn" required>
+                    <label for="zh-cn">分类名（中文）</label>
+                    <input type="text" class="form-control" id="zh-cn" name="zh-cn" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（繁体中文）</label>
-                    <input type="text" class="form-control" id="name" name="zh-hk" required>
+                    <label for="zh-hk">分类名（繁体中文）</label>
+                    <input type="text" class="form-control" id="zh-hk" name="zh-hk" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（波兰语）</label>
-                    <input type="text" class="form-control" id="name" name="pl-pl" required>
+                    <label for="pl-pl">分类名（波兰语）</label>
+                    <input type="text" class="form-control" id="pl-pl" name="pl-pl" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">分类名（土耳其语）</label>
-                    <input type="text" class="form-control" id="name" name="tr-tr" required>
+                    <label for="tr-tr">分类名（土耳其语）</label>
+                    <input type="text" class="form-control" id="tr-tr" name="tr-tr" required>
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>

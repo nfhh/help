@@ -15,8 +15,8 @@ class DownloadController extends Controller
 
     public function index(Request $request)
     {
-        $product = Product::find($request->product_id);
-        $downloads = Download::with('menu')->where($request->all())->get()->toArray();
+        $product = Product::where('name', $request->product)->first();
+        $downloads = Download::with('menu')->where('product_id', $product->id)->get()->toArray();
 
         $menu_id = [];
         foreach ($downloads as $key => &$list) {

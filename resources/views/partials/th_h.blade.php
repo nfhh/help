@@ -1,22 +1,24 @@
-<div class="row py-5">
+<div class="row py-3">
     <div class="col-md-12">
         <h2>{{ trans('help.help_doc') }}</h2>
-        <p class="text-muted">{{ trans('help.search_tip') }}</p>
+        <p class="text-muted">{!! sprintf(trans('help.search_tip'), '<a href="https://forum.terra-master.com">','</a>') !!}</p>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 pt-3 pb-4">
         <form action="/search">
             <div class="form-group">
-                <div class="custom-control custom-radio custom-control-inline">
+                <div class="custom-control custom-radio custom-control-inline pr-5">
                     <input type="radio" id="tb1" name="tb" class="custom-control-input" value="faqs|1" checked>
-                    <label class="custom-control-label" for="tb1">TNAS {{ trans('help.faq') }}</label>
+                    <label class="custom-control-label" for="tb1">{{ trans('help.tnas_faq') }}</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline pr-5">
+                    <input type="radio" id="tb2" name="tb" class="custom-control-input" value="faqs|2"
+                           @if(request()->query('tb')==='faqs|2') checked @endif>
+                    <label class="custom-control-label" for="tb2">DAS {{ trans('help.tdas_faq') }}</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="tb2" name="tb" class="custom-control-input" value="faqs|2" @if(request()->query('tb')==='faqs|2') checked @endif>
-                    <label class="custom-control-label" for="tb2">DAS {{ trans('help.faq') }}</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="tb3" name="tb" class="custom-control-input" value="articles" @if(request()->query('tb')==='articles') checked @endif>
-                    <label class="custom-control-label" for="tb3">TOS {{ trans('help.help') }}</label>
+                    <input type="radio" id="tb3" name="tb" class="custom-control-input" value="articles"
+                           @if(request()->query('tb')==='articles') checked @endif>
+                    <label class="custom-control-label" for="tb3">{{ trans('help.tos_help') }}</label>
                 </div>
             </div>
             <div class="form-row">
