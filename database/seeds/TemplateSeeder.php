@@ -19,7 +19,8 @@ class TemplateSeeder extends Seeder
             ['name' => '数字列表'],
             ['name' => '方块列表'],
             ['name' => '图片'],
-            ['name' => '标题加粗'],
+            ['name' => '标题'],
+            ['name' => '二级标题加虚线'],
             ['name' => '代码块'],
         ]);
     }
