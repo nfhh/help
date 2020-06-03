@@ -22,6 +22,7 @@ class TemplateSeeder extends Seeder
             ['name' => '标题'],
             ['name' => '二级标题加虚线'],
             ['name' => '代码块'],
+            ['name' => '说明警告块'],
         ]);
     }
 }

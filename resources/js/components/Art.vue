@@ -19,16 +19,16 @@
             <input type="file" class="form-control-file" id="file" name="file"
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
-        <div v-for="n in variables">
+        <div v-for="(n,key) in variables">
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
             </div>
             <div class="form-group">
                 <div class="form-check form-check-inline" v-for="item in templates">
-                    <input class="form-check-input" type="radio" :id="'template_id'+item.id"
+                    <input class="form-check-input" type="radio" :id="'template_id'+item.id+key"
                            :value="item.id" v-model="n.template_id">
-                    <label class="form-check-label" :for="'template_id'+item.id">{{ item.name }}</label>
+                    <label class="form-check-label" :for="'template_id'+item.id+key">{{ item.name }}</label>
                 </div>
             </div>
             <div class="form-group">

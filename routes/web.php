@@ -12,11 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return redirect('/toshelp');
+Route::get('/test', function () {
+    $arr = [1,1,1];
+    dd(array_unique($arr));
 });
 
+Route::get('/', function () {
+    $arr = ['aaa', 'bbb', 'ccc'];
+    foreach ($arr as $v) {
+        $v = $v . ',';
+        echo rtrim($v, ',');
+    }
+//    return redirect('/toshelp');
+});
 
 
 Auth::routes();

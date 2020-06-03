@@ -1,22 +1,29 @@
 <ol>
     <?php
-    foreach ($vars as $var) {
-        if (strpos($var, '[') !== false) {
-    ?>
-            <img src="<?php echo str_replace('[', '', $var);?>">
-            <?php
+    $str = '';
+    if ($lan === 'zh-cn') {
+        $dh = '，';
+        $jh = '。';
+    } else {
+        $dh = ',';
+        $jh = '.';
+    }
+    foreach ($vars as $k => $var) {
+        if (strpos($var, '$$') !== false) {
+            $var = str_replace('$$', '', $var);
+            $str .= '<img src="' . $var . '">';
             continue;
-        }?>
-        <li>
-            <?php
-            if (strpos($var, '(') !== false) {
-                $var = str_replace('(', '', $var);
-            ?>
-                <b><?php echo $excel[$var][$lan];?></b>
-            <?php
-            } else {
-                echo $excel[$var][$lan];
-            }?>
-        </li>
-    <?php }?>
+        }
+        if (strpos($var, '(') !== false) {
+            $var = str_replace('(', '', $var);
+            $var = str_replace(')', '', $var);
+            $str .= '<li>' . $excel[$var][$lan] . $dh;
+        } elseif (strpos($var, ')') !== false) {
+            $var = str_replace('(', '', $var);
+            $var = str_replace(')', '', $var);
+            $str .= $excel[$var][$lan] . $dh . $jh . '</li>';
+        }
+    }
+    echo str_replace($dh . $jh, $jh, $str);
+    ?>
 </ol>

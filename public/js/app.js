@@ -39448,7 +39448,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -39498,7 +39498,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -39514,7 +39514,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )
@@ -39721,7 +39721,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -39771,7 +39771,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -39787,7 +39787,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )
@@ -40701,7 +40701,7 @@ var render = function() {
                           _vm._v(
                             "--" +
                               _vm._s(child["zh-cn"]) +
-                              "\n                        "
+                              "\n                    "
                           )
                         ])
                       })
@@ -40725,7 +40725,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -40775,7 +40775,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -40791,7 +40791,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )
@@ -40994,7 +40994,7 @@ var render = function() {
                           _vm._v(
                             "--" +
                               _vm._s(child["zh-cn"]) +
-                              "\n                        "
+                              "\n                    "
                           )
                         ])
                       })
@@ -41021,7 +41021,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -41071,7 +41071,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -41087,7 +41087,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )
@@ -41782,7 +41782,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -41832,7 +41832,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -41848,7 +41848,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )
@@ -42049,7 +42049,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.variables, function(n) {
+      _vm._l(_vm.variables, function(n, key) {
         return _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "variable" } }, [_vm._v("设置变量")]),
@@ -42099,7 +42099,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: { type: "radio", id: "template_id" + item.id },
+                    attrs: { type: "radio", id: "template_id" + item.id + key },
                     domProps: {
                       value: item.id,
                       checked: _vm._q(n.template_id, item.id)
@@ -42115,7 +42115,7 @@ var render = function() {
                     "label",
                     {
                       staticClass: "form-check-label",
-                      attrs: { for: "template_id" + item.id }
+                      attrs: { for: "template_id" + item.id + key }
                     },
                     [_vm._v(_vm._s(item.name))]
                   )

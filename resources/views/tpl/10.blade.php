@@ -1,4 +1,4 @@
-<div class="alert alert-secondary">
+<div class="alert alert-warning">
     <h2 class="h6"><strong>{{ trans('help.note') }}</strong></h2>
     <?php
     $str = '';

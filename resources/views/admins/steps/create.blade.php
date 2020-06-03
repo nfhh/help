@@ -6,6 +6,7 @@
             <h2 class="h5 mb-0">添加安装指南文章</h2>
         </div>
         <div class="card-body">
+            @include('admins.layouts._g')
             <step route="{{ route('admin.step.store') }}"
                  :products="{{ $products }}"
                  :templates="{{ $templates }}"></step>
