@@ -25,7 +25,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'sort' => $request->sort
         ]);
-        return redirect(route('admins.products.index'));
+        return redirect(route('admin.product.index'));
     }
 
     public function edit(Product $product)
@@ -38,7 +38,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->sort = $request->sort;
         $product->save();
-        return redirect(route('admins.products.index'));
+        return redirect(route('admin.product.index'));
     }
 
     public function destroy(Product $product)
