@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">编辑TOS帮助目录</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.subject.update',$category->id) }}">
+            <form method="POST" action="{{ route('admin.category.update',$category->id) }}">
                 @csrf
                 @method('put')
                 <div class="form-group">

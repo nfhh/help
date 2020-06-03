@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">添加TOS帮助目录</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.subject.store') }}">
+            <form method="POST" action="{{ route('admin.category.store') }}">
                 @csrf
                 <div class="form-group">
                     <label for="name">所属目录</label>
