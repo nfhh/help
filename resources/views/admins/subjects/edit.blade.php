@@ -29,61 +29,61 @@
                 </div>
                 <div class="form-group">
                     <label for="slug">slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" value="{{ $subject['slug'] }}" required>
+                    <input type="text" class="form-control" id="slug" name="slug" value="{{ $subject['slug'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（英语）</label>
-                    <input type="text" class="form-control" id="name" name="en-us" value="{{ $subject['en-us'] }}" required>
+                    <input type="text" class="form-control" id="name" name="en-us" value="{{ $subject['en-us'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（德语）</label>
-                    <input type="text" class="form-control" id="name" name="de-de" value="{{ $subject['de-de'] }}" required>
+                    <input type="text" class="form-control" id="name" name="de-de" value="{{ $subject['de-de'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（法语）</label>
-                    <input type="text" class="form-control" id="name" name="fr-fr" value="{{ $subject['fr-fr'] }}" required>
+                    <input type="text" class="form-control" id="name" name="fr-fr" value="{{ $subject['fr-fr'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（意大利语）</label>
-                    <input type="text" class="form-control" id="name" name="it-it" value="{{ $subject['it-it'] }}" required>
+                    <input type="text" class="form-control" id="name" name="it-it" value="{{ $subject['it-it'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（西班牙语）</label>
-                    <input type="text" class="form-control" id="name" name="es-es" value="{{ $subject['es-es'] }}" required>
+                    <input type="text" class="form-control" id="name" name="es-es" value="{{ $subject['es-es'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（匈牙利语）</label>
-                    <input type="text" class="form-control" id="name" name="hu-hu" value="{{ $subject['hu-hu'] }}" required>
+                    <input type="text" class="form-control" id="name" name="hu-hu" value="{{ $subject['hu-hu'] }}">
                 </div>                <div class="form-group">
                     <label for="name">分类名（俄语）</label>
-                    <input type="text" class="form-control" id="name" name="ru-ru" value="{{ $subject['ru-ru'] }}" required>
+                    <input type="text" class="form-control" id="name" name="ru-ru" value="{{ $subject['ru-ru'] }}">
                 </div>                <div class="form-group">
                     <label for="name">分类名（韩语）</label>
-                    <input type="text" class="form-control" id="name" name="ko-kr" value="{{ $subject['ko-kr'] }}" required>
+                    <input type="text" class="form-control" id="name" name="ko-kr" value="{{ $subject['ko-kr'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（日语）</label>
-                    <input type="text" class="form-control" id="name" name="ja-jp" value="{{ $subject['ja-jp'] }}" required>
+                    <input type="text" class="form-control" id="name" name="ja-jp" value="{{ $subject['ja-jp'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（中文）</label>
-                    <input type="text" class="form-control" id="name" name="zh-cn" value="{{ $subject['zh-cn'] }}" required>
+                    <input type="text" class="form-control" id="name" name="zh-cn" value="{{ $subject['zh-cn'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（繁体中文）</label>
-                    <input type="text" class="form-control" id="name" name="zh-hk" value="{{ $subject['zh-hk'] }}" required>
+                    <input type="text" class="form-control" id="name" name="zh-hk" value="{{ $subject['zh-hk'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（波兰语）</label>
-                    <input type="text" class="form-control" id="name" name="pl-pl" value="{{ $subject['pl-pl'] }}" required>
+                    <input type="text" class="form-control" id="name" name="pl-pl" value="{{ $subject['pl-pl'] }}">
                 </div>
                 <div class="form-group">
                     <label for="name">分类名（土耳其语）</label>
-                    <input type="text" class="form-control" id="name" name="tr-tr" value="{{ $subject['tr-tr'] }}" required>
+                    <input type="text" class="form-control" id="name" name="tr-tr" value="{{ $subject['tr-tr'] }}">
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>
-                    <input type="text" class="form-control" id="sort" name="sort" value="{{ $subject->sort }}" required>
+                    <input type="text" class="form-control" id="sort" name="sort" value="{{ $subject->sort }}">
                 </div>
                 <button type="submit" class="btn btn-primary">确定</button>
             </form>

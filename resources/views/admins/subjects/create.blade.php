@@ -26,61 +26,61 @@
                 </div>
                 <div class="form-group">
                     <label for="slug">slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" required>
+                    <input type="text" class="form-control" id="slug" name="slug">
                 </div>
                 <div class="form-group">
                     <label for="en-us">分类名（英语）</label>
-                    <input type="text" class="form-control" id="en-us" name="en-us" required>
+                    <input type="text" class="form-control" id="en-us" name="en-us">
                 </div>
                 <div class="form-group">
                     <label for="de-de">分类名（德语）</label>
-                    <input type="text" class="form-control" id="de-de" name="de-de" required>
+                    <input type="text" class="form-control" id="de-de" name="de-de">
                 </div>
                 <div class="form-group">
                     <label for="fr-fr">分类名（法语）</label>
-                    <input type="text" class="form-control" id="fr-fr" name="fr-fr" required>
+                    <input type="text" class="form-control" id="fr-fr" name="fr-fr">
                 </div>
                 <div class="form-group">
                     <label for="it-it">分类名（意大利语）</label>
-                    <input type="text" class="form-control" id="it-it" name="it-it" required>
+                    <input type="text" class="form-control" id="it-it" name="it-it">
                 </div>
                 <div class="form-group">
                     <label for="es-es">分类名（西班牙语）</label>
-                    <input type="text" class="form-control" id="es-es" name="es-es" required>
+                    <input type="text" class="form-control" id="es-es" name="es-es">
                 </div>
                 <div class="form-group">
                     <label for="hu-hu">分类名（匈牙利语）</label>
-                    <input type="text" class="form-control" id="hu-hu" name="hu-hu" required>
+                    <input type="text" class="form-control" id="hu-hu" name="hu-hu">
                 </div>                <div class="form-group">
                     <label for="ru-ru">分类名（俄语）</label>
-                    <input type="text" class="form-control" id="ru-ru" name="ru-ru" required>
+                    <input type="text" class="form-control" id="ru-ru" name="ru-ru">
                 </div>                <div class="form-group">
                     <label for="ko-kr">分类名（韩语）</label>
-                    <input type="text" class="form-control" id="ko-kr" name="ko-kr" required>
+                    <input type="text" class="form-control" id="ko-kr" name="ko-kr">
                 </div>
                 <div class="form-group">
                     <label for="ja-jp">分类名（日语）</label>
-                    <input type="text" class="form-control" id="ja-jp" name="ja-jp" required>
+                    <input type="text" class="form-control" id="ja-jp" name="ja-jp">
                 </div>
                 <div class="form-group">
                     <label for="zh-cn">分类名（中文）</label>
-                    <input type="text" class="form-control" id="zh-cn" name="zh-cn" required>
+                    <input type="text" class="form-control" id="zh-cn" name="zh-cn">
                 </div>
                 <div class="form-group">
                     <label for="zh-hk">分类名（繁体中文）</label>
-                    <input type="text" class="form-control" id="zh-hk" name="zh-hk" required>
+                    <input type="text" class="form-control" id="zh-hk" name="zh-hk">
                 </div>
                 <div class="form-group">
                     <label for="pl-pl">分类名（波兰语）</label>
-                    <input type="text" class="form-control" id="pl-pl" name="pl-pl" required>
+                    <input type="text" class="form-control" id="pl-pl" name="pl-pl">
                 </div>
                 <div class="form-group">
                     <label for="tr-tr">分类名（土耳其语）</label>
-                    <input type="text" class="form-control" id="tr-tr" name="tr-tr" required>
+                    <input type="text" class="form-control" id="tr-tr" name="tr-tr">
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>
-                    <input type="text" class="form-control" id="sort" name="sort" required>
+                    <input type="text" class="form-control" id="sort" name="sort">
                 </div>
                 <button type="submit" class="btn btn-primary">确定</button>
             </form>
