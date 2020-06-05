@@ -130,8 +130,8 @@
         el: '#containerx',
         data() {
             return {
-                accessid: 'LTAI4G8gwB4d1QwzqNbzVY4M',
-                accesskey: 'cvjKIbxasXY9s6eUakOfFfmx45wNYY',
+                accessid: "{{ env('OSS_ID') }}",
+                accesskey: "{{ env('OSS_KEY') }}",
                 host: "{{ env('OSS_URL') }}",
                 policyText: {
                     "expiration": "2022-01-01T12:00:00.000Z",
