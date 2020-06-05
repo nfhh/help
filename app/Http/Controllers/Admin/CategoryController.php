@@ -10,13 +10,13 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('children')->roots()->paginate(10)->toArray();
+        $categories = Category::with('grandchildren')->roots()->paginate(10)->toArray();
         return view('admins.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        $categories = Category::with('children')->roots()->get()->toArray();
+        $categories = Category::with('grandchildren')->roots()->get()->toArray();
         return view('admins.categories.create', compact('categories'));
     }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        $categories = Category::with('children')->roots()->get()->toArray();
+        $categories = Category::with('grandchildren')->roots()->get()->toArray();
         return view('admins.categories.edit', compact('category', 'categories'));
     }
 

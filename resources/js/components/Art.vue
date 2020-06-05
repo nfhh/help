@@ -5,10 +5,15 @@
             <label for="category_id">所属分类</label>
             <select class="form-control" name="category_id" id="category_id" v-model="category_id">
                 <template v-for="category of categories">
-                    <template v-if="category.children.length">
-                        <option :value="category.id" disabled>{{ category['zh-cn'] }}</option>
-                        <option v-for="child of category.children" :value="child.id">--{{ child['zh-cn'] }}
-                        </option>
+                    <template v-if="category.grandchildren.length">
+                        <option :value="category.id">{{ category['zh-cn'] }}</option>
+                        <template v-for="child of category.grandchildren">
+                            <option :value="child.id">--{{ child['zh-cn'] }}</option>
+                            <option v-if="child.grandchildren.length"
+                                    v-for="childx of child.grandchildren"
+                                    :value="childx.id">----{{ childx['zh-cn']}}
+                            </option>
+                        </template>
                     </template>
                     <option v-else :value="category.id" disabled>{{ category['zh-cn'] }}</option>
                 </template>

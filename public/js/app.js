@@ -1969,6 +1969,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     route: String,
@@ -2017,6 +2022,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39410,25 +39420,34 @@ var render = function() {
           [
             _vm._l(_vm.categories, function(category) {
               return [
-                category.children.length
+                category.grandchildren.length
                   ? [
-                      _c(
-                        "option",
-                        {
-                          attrs: { disabled: "" },
-                          domProps: { value: category.id }
-                        },
-                        [_vm._v(_vm._s(category["zh-cn"]))]
-                      ),
+                      _c("option", { domProps: { value: category.id } }, [
+                        _vm._v(_vm._s(category["zh-cn"]))
+                      ]),
                       _vm._v(" "),
-                      _vm._l(category.children, function(child) {
-                        return _c("option", { domProps: { value: child.id } }, [
-                          _vm._v(
-                            "--" +
-                              _vm._s(child["zh-cn"]) +
-                              "\n                    "
-                          )
-                        ])
+                      _vm._l(category.grandchildren, function(child) {
+                        return [
+                          _c("option", { domProps: { value: child.id } }, [
+                            _vm._v("--" + _vm._s(child["zh-cn"]))
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(child.grandchildren, function(childx) {
+                            return child.grandchildren.length
+                              ? _c(
+                                  "option",
+                                  { domProps: { value: childx.id } },
+                                  [
+                                    _vm._v(
+                                      "----" +
+                                        _vm._s(childx["zh-cn"]) +
+                                        "\n                        "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          })
+                        ]
                       })
                     ]
                   : _c(
@@ -39688,30 +39707,44 @@ var render = function() {
           [
             _vm._l(_vm.categories, function(category) {
               return [
-                category.children.length
+                category.grandchildren.length
                   ? [
-                      _c(
-                        "option",
-                        {
-                          attrs: { disabled: "" },
-                          domProps: { value: category.id }
-                        },
-                        [_vm._v(_vm._s(category["zh-cn"]))]
-                      ),
+                      _c("option", { domProps: { value: category.id } }, [
+                        _vm._v(_vm._s(category["zh-cn"]))
+                      ]),
                       _vm._v(" "),
-                      _vm._l(category.children, function(child) {
-                        return _c("option", { domProps: { value: child.id } }, [
-                          _vm._v(
-                            "--" +
-                              _vm._s(child["zh-cn"]) +
-                              "\n                    "
-                          )
-                        ])
+                      _vm._l(category.grandchildren, function(child) {
+                        return [
+                          _c("option", { domProps: { value: child.id } }, [
+                            _vm._v("--" + _vm._s(child["zh-cn"]))
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(child.grandchildren, function(childx) {
+                            return child.grandchildren.length
+                              ? _c(
+                                  "option",
+                                  { domProps: { value: childx.id } },
+                                  [
+                                    _vm._v(
+                                      "----" +
+                                        _vm._s(childx["zh-cn"]) +
+                                        "\n                        "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          })
+                        ]
                       })
                     ]
-                  : _c("option", { domProps: { value: category.id } }, [
-                      _vm._v(_vm._s(category["zh-cn"]))
-                    ])
+                  : _c(
+                      "option",
+                      {
+                        attrs: { disabled: "" },
+                        domProps: { value: category.id }
+                      },
+                      [_vm._v(_vm._s(category["zh-cn"]))]
+                    )
               ]
             })
           ],
