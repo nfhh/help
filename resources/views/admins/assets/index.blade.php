@@ -12,6 +12,8 @@
                 <tr>
                     <th scope="col">文件url</th>
                     <th scope="col">大小（字节）</th>
+                    <th scope="col">上传日期</th>
+                    <th scope="col">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,6 +21,10 @@
                     <tr>
                         <td>{{ env('OSS_URL').$asset->url }}</td>
                         <td>{{ $asset->size }}</td>
+                        <td>{{ $asset->created_at }}</td>
+                        <td>
+                            <button class="btn btn-danger" type="button" onclick="del('{{ $asset->url }}')">删除</button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -27,3 +33,17 @@
         </div>
     </div>
 @endsection
+@section('js')
+    <script>
+        function del(url) {
+            if (confirm(`确定删除 ${url} 吗？`)) {
+                axios.post("{{ route('admin.asset.destroy') }}", {
+                    'url': url,
+                }).then(response => {
+                    location.reload()
+                })
+            }
+        }
+    </script>
+@endsection
+

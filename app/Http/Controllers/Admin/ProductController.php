@@ -21,10 +21,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create([
-            'name' => $request->name,
-            'sort' => $request->sort
-        ]);
+        Product::create($request->except('token'));
         return redirect(route('admin.product.index'));
     }
 
@@ -35,9 +32,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $product->name = $request->name;
-        $product->sort = $request->sort;
-        $product->save();
+        $product->update($request->except('token'));
         return redirect(route('admin.product.index'));
     }
 

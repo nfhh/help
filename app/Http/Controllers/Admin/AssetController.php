@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AssetController extends Controller
 {
@@ -21,6 +22,13 @@ class AssetController extends Controller
 
     public function store(Request $request)
     {
-        Asset::create($request->all());
+        Asset::create($request->except('_token'));
+    }
+
+    public function destroy(Request $request)
+    {
+        $url = $request->url;
+        Storage::delete($url);
+        Asset::where('url', $url)->delete();
     }
 }

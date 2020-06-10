@@ -104,7 +104,7 @@
                     </div>
                     <div class="card-body">
                         <div id="containerx">
-                            <button class="btn btn-info" id="selectfiles">选择文件</button>
+                            <button class="btn btn-secondary" id="selectfiles">选择文件</button>
                             <button class="btn btn-primary" @click="selectFile">开始上传</button>
                             <hr>
                             <ul>
@@ -221,8 +221,7 @@
             }
         }
     })
-</script>
-<script>
+
     $('#a-box a').each(function () {
         if (location.href.includes($(this).attr('href'))) {
             $(this).addClass('active');

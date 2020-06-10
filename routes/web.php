@@ -18,12 +18,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/', function () {
-    $arr = ['aaa', 'bbb', 'ccc'];
-    foreach ($arr as $v) {
-        $v = $v . ',';
-        echo rtrim($v, ',');
-    }
-//    return redirect('/toshelp');
+    return redirect('/toshelp');
 });
 
 
@@ -56,7 +51,10 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/subject', 'SubjectController');
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
-    Route::resource('/asset', 'AssetController');
+    Route::get('/asset', 'AssetController@index')->name('asset.index');
+    Route::get('/asset/create', 'AssetController@create')->name('asset.create');
+    Route::post('/asset', 'AssetController@store')->name('asset.store');
+    Route::post('/asset/destroy', 'AssetController@destroy')->name('asset.destroy');
     Route::get('/feedback', 'FeedbackController@index')->name('feedback.index');
     Route::post('/feedback/update', 'FeedbackController@update')->name('feedback.update');
 });

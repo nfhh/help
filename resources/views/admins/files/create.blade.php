@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">上传</label>
+                    <label for="file">上传</label>
                     <input type="file" class="form-control-file" id="file" name="file" required>
                 </div>
                 <button type="submit" class="btn btn-primary">确定</button>

@@ -54,7 +54,7 @@
                         $body_arr = json_decode($article->body, true);
                     @endphp
                     @foreach($body_arr as $arr)
-                        @include('tpl.'.$arr['template_id'], ['vars' => explode(',',$arr['variables']),'excel' => $excel,'lan' => $lan])
+                        @include('tpl.'.$arr['template_id'], ['vars' => explode('|',$arr['variables']),'excel' => $excel,'lan' => $lan])
                     @endforeach
                     <feedback
                         text1="{{ trans('help.feedback_res') }}"

@@ -24,7 +24,7 @@
                             $body_arr = json_decode($step->body, true);
                         @endphp
                         @foreach($body_arr as $arr)
-                            @include('tpl.'.$arr['template_id'], ['vars' => explode(',',$arr['variables']),'excel' => $excel,'lan' => $lan])
+                            @include('tpl.'.$arr['template_id'], ['vars' => explode('|',$arr['variables']),'excel' => $excel,'lan' => $lan])
                         @endforeach
                     </div>
                     @if ($loop->iteration == $page_count)

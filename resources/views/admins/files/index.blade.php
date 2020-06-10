@@ -32,7 +32,8 @@
                 <thead>
                 <tr>
                     <th scope="col">目录</th>
-                    <th scope="col">文件<th>
+                    <th scope="col">文件</th>
+                    <th scope="col">上传日期</th>
                     <th scope="col">操作</th>
                 </tr>
                 </thead>
@@ -50,6 +51,7 @@
                                 </div>
                             </div>
                         </td>
+                        <td>{{ $file->created_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a class="btn btn-secondary"

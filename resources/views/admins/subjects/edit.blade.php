@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="slug">slug</label>
+                    <label for="slug">slug（URL地址，请使用英文及数字，如：toshelp）</label>
                     <input type="text" class="form-control" id="slug" name="slug" value="{{ $subject['slug'] }}">
                 </div>
                 <div class="form-group">

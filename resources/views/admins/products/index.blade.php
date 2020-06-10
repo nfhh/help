@@ -11,6 +11,8 @@
                 <thead>
                 <tr>
                     <th scope="col">产品型号</th>
+                    <th scope="col">盘位</th>
+                    <th scope="col">类型</th>
                     <th scope="col">排序</th>
                     <th scope="col">操作</th>
                 </tr>
@@ -19,6 +21,8 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>{{ $product->name }}</td>
+                        <td>{{ $product->size }}</td>
+                        <td>{{ $product->type }}</td>
                         <td>{{ $product->sort }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
