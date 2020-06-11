@@ -16,7 +16,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="file">上传</label>
+            <label for="file">上传文章翻译表</label>
             <input type="file" class="form-control-file" id="file" name="file"
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>

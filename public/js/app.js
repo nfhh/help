@@ -39619,7 +39619,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
@@ -39906,7 +39906,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
@@ -40910,7 +40910,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
@@ -41206,7 +41206,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
@@ -41969,7 +41969,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
@@ -42244,7 +42244,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("上传")]),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("上传文章翻译表")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control-file",
