@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pt-3">
         <div v-if="aftersubmit" class="alert alert-primary" role="alert">
             <p class="text-dark mb-0">{{ text1 }}</p>
         </div>
