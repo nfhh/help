@@ -24,11 +24,16 @@ function readExcel($file)
                 $ce[$arr[$k]] = $data;
                 $k++;
             }
-            $excel_data[$ce[$arr[2]]] = $ce;
+            $excel_data[$ce[$arr[0]]] = $ce;
         }
         $sh[] = $excel_data;
     }
-    return $sh[0];
+    $res = [];
+    foreach ($sh[0] as $k => $v) {
+        unset($v['var']);
+        $res[$k] = $v;
+    }
+    return $res;
 }
 
 function formatBytes($size, $precision = 2)

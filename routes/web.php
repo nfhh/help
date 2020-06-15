@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test', function () {
-    $arr = [1,1,1];
-    dd(array_unique($arr));
+    dump(substr('abcdefg', 0, 3));
 });
 
 Route::get('/', function () {
@@ -57,4 +56,6 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::post('/asset/destroy', 'AssetController@destroy')->name('asset.destroy');
     Route::get('/feedback', 'FeedbackController@index')->name('feedback.index');
     Route::post('/feedback/update', 'FeedbackController@update')->name('feedback.update');
+    Route::get('/var', 'VarController@index')->name('var.index');
+    Route::post('/var', 'VarController@handle')->name('var.handle');
 });
