@@ -19,6 +19,11 @@ class Category extends Model
         return $this->children()->with('grandchildren');
     }
 
+    public function nodes()
+    {
+        return $this->children()->with('nodes');
+    }
+
     public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id');

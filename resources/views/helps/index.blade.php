@@ -1,37 +1,39 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="/css/bstreeview.min.css">
+@endsection
 @section('content')
     <div class="container">
         @include('partials.th_h')
         @include('partials.th_tab')
+        @php
+            function replaceKey($data,$lan)
+            {
+                $arr1 = [];
+                foreach ($data as $key => $val) {
+                    if (is_array($val)) {
+                        if(empty($val)){
+                            continue;
+                        }
+                        $val = replaceKey($val,$lan);
+                    }
+                    if ($key === $lan) {
+                        $arr1['text'] = $val;
+                        $arr1['href'] = '/toshelp?category_id='.$data['id'];
+                    } else {
+                        $arr1[$key] = $val;
+                    }
+                }
+                return $arr1;
+            }
+                $categories = replaceKey($categories,$lan);
+        @endphp
         <div class="row pt-3">
             <div class="col-md-3">
-                <div class="bg-white" id="a-box">
-                    <div class="list-group list-group-flush my-tab">
-                        @foreach($categories as $item)
-                            @if(!(empty($item['grandchildren'])))
-                                <a href="/toshelp?category_id={{$item['id']}}"
-                                   class="list-group-item list-group-item-action px-4 text-dark">
-                                    {{ $item[$lan] }}
-                                </a>
-                                @foreach($item['grandchildren'] as $child)
-                                    <a href="/toshelp?category_id={{$child['id']}}"
-                                       class="list-group-item list-group-item-action px-4 text-dark">
-                                        {!! str_repeat('&nbsp',2) !!}{{ $child[$lan] }}
-                                    </a>
-                                    @if(!(empty($child['grandchildren'])))
-                                        @foreach($child['grandchildren'] as $childx)
-                                            <a href="/toshelp?category_id={{$childx['id']}}"
-                                               class="list-group-item list-group-item-action px-4 text-dark">
-                                                {!! str_repeat('&nbsp',4) !!}{{ $childx[$lan] }}
-                                            </a>
-                                        @endforeach
-                                    @endif
-                                @endforeach
-                            @else
-                                <option value="{{ $item['id'] }}">{{ $item['zh-cn'] }}</option>
-                            @endif
-                        @endforeach
+                <div class="bg-white">
+                    <div class="list-group list-group-flush my-tab" id="tree" data-turbolinks="false">
+
                     </div>
                 </div>
             </div>
@@ -62,4 +64,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="/js/bstreeview.js"></script>
+    <script>
+        var json = `<?php echo json_encode($categories, JSON_UNESCAPED_UNICODE);?>`;
+        $('#tree').bstreeview({data: JSON.parse(json), openNodeLinkOnNewTab: false});
+    </script>
 @endsection

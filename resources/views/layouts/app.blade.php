@@ -17,6 +17,8 @@
             white-space: normal;
         }
     </style>
+    @yield('css')
+    <script src="{{ asset('js/tbl.js') }}"></script>
 </head>
 <body>
 <div id="app">
