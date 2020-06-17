@@ -7,42 +7,30 @@
         <div class="row pt-3">
             <div class="col-md-3">
                 <div class="bg-white" id="a-box">
-                    <div class="accordion" id="accordionExample">
-                        @foreach($categories as $k=>$category)
-                            <div class="card border-0">
-                                @if(!(empty($category['children'])))
-                                    <div class="card-header p-1 bg-white mb-0 border-bottom-1" id="heading{{$k}}">
-                                        <h5 class="mb-0">
-                                            <button
-                                                class="btn btn-link btn-block text-left text-dark text-decoration-none shadow-none pl-0"
-                                                type="button" data-toggle="collapse"
-                                                data-target="#collapse{{$k}}">
-                                                {{ $category[$lan] }}
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapse{{$k}}" class="collapse @if($k==0) show @endif"
-                                         data-parent="#accordionExample">
-                                        <div class="list-group list-group-flush my-tab">
-                                            @foreach($category['children'] as $child)
-                                                <a href="/toshelp?category_id={{$child['id']}}"
-                                                   class="list-group-item list-group-item-action px-4 text-dark">
-                                                    {{ $child[$lan] }}
-                                                </a>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="card-header" id="heading{{$k}}">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                                                    data-target="#collapseOne">
-                                                {{ $category[$lan] }}
-                                            </button>
-                                        </h5>
-                                    </div>
-                                @endif
-                            </div>
+                    <div class="list-group list-group-flush my-tab">
+                        @foreach($categories as $item)
+                            @if(!(empty($item['grandchildren'])))
+                                <a href="/toshelp?category_id={{$item['id']}}"
+                                   class="list-group-item list-group-item-action px-4 text-dark">
+                                    {{ $item[$lan] }}
+                                </a>
+                                @foreach($item['grandchildren'] as $child)
+                                    <a href="/toshelp?category_id={{$child['id']}}"
+                                       class="list-group-item list-group-item-action px-4 text-dark">
+                                        {!! str_repeat('&nbsp',2) !!}{{ $child[$lan] }}
+                                    </a>
+                                    @if(!(empty($child['grandchildren'])))
+                                        @foreach($child['grandchildren'] as $childx)
+                                            <a href="/toshelp?category_id={{$childx['id']}}"
+                                               class="list-group-item list-group-item-action px-4 text-dark">
+                                                {!! str_repeat('&nbsp',4) !!}{{ $childx[$lan] }}
+                                            </a>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @else
+                                <option value="{{ $item['id'] }}">{{ $item['zh-cn'] }}</option>
+                            @endif
                         @endforeach
                     </div>
                 </div>
