@@ -33,7 +33,14 @@ function readExcel($file)
         unset($v['var']);
         $res[$k] = $v;
     }
-    return $res;
+    $result = [];
+    foreach ($res as $k => $v) {
+        if (!$k) {
+            continue;
+        }
+        $result[$k] = $v;
+    }
+    return $result;
 }
 
 function formatBytes($size, $precision = 2)
