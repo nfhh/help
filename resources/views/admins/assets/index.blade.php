@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-0">下载中心上传</h2>
+            <h2 class="h5 mb-0">下载中心文件上传</h2>
             <a class="btn btn-primary" href="{{ route('admin.asset.create') }}">上传</a>
         </div>
         <div class="card-body">

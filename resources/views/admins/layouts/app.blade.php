@@ -100,7 +100,7 @@
                         文件管理
                     </a>
                     <a href="{{ route('admin.asset.index')  }}" class="list-group-item list-group-item-action">
-                        下载中心上传
+                        下载中心文件上传
                     </a>
                     <a href="{{ route('admin.var.index')  }}" class="list-group-item list-group-item-action">
                         变量替换
