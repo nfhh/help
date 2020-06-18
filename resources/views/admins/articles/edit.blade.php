@@ -6,6 +6,7 @@
             <h2 class="h5 mb-0">编辑TOS帮助文章</h2>
         </div>
         <div class="card-body">
+            @include('admins.layouts._g')
             <arte route="{{ route('admin.article.update',$article->id) }}"
                   :categories="{{ $categories }}"
                   :templates="{{ $templates }}"

@@ -93,14 +93,14 @@
                         文件管理
                     </a>
                     <a href="{{ route('admin.asset.index')  }}" class="list-group-item list-group-item-action">
-                        大文件上传
+                        下载中心上传
                     </a>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="h5 mb-0">大文件上传</h2>
+                        <h2 class="h5 mb-0">下载中心上传</h2>
                     </div>
                     <div class="card-body">
                         <div id="containerx">
