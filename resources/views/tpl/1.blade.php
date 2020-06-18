@@ -1,13 +1,6 @@
 <p>
     <?php
     $str = '';
-    if ($lan === 'zh-cn') {
-        $dh = '，';
-        $jh = '。';
-    } else {
-        $dh = ',';
-        $jh = '.';
-    }
     foreach ($vars as $k => $var) {
         if (strpos($var, '*') !== false) {
             $var = str_replace('*', '', $var);
@@ -23,8 +16,8 @@
         } else {
             $varx = $excel[$var][$lan];
         }
-        $str .= $varx . $dh;
+        $str .= $varx;
     }
-    echo rtrim($str, $dh) . $jh;
+    echo $str;
     ?>
 </p>

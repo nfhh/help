@@ -8,17 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/my.css') }}" rel="stylesheet">
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-            list-style-type: decimal !important;
-            white-space: normal;
-        }
-    </style>
     @yield('css')
-    <script src="{{ asset('js/tbl.js') }}"></script>
 </head>
 <body>
 <div id="app">

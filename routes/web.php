@@ -10,10 +10,20 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+|[]
 */
 Route::get('/test', function () {
-    dump(substr('abcdefg', 0, 3));
+    // *aaa bbb* *ccc*
+    /*    echo str_replace('*', '', '*aaa');
+        echo str_replace('*', '', 'bbb*');
+        echo str_replace('*', '', '*ccc*');
+        echo str_replace('*', '', 'xxx');*/
+    $str = 'aaa[baidu.com]';
+    /*    preg_match('/\[(.*)\]/',$str, $matches);
+        dump($matches[1]);*/
+
+
+    dump($str);
 });
 
 Route::get('/', function () {

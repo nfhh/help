@@ -7,6 +7,6 @@
         <li>同一段落内的变量合并：{} 比如：{变量a|变量b}；</li>
         <li>字体加粗 ** 比如：*变量a|变量b*；</li>
         <li>插入图片 $$ 比如：$http://xxx.com/a.jpg$；</li>
-        <li>插入链接 &+url+变量a& 比如：&+http://www.baidu.com+变量a&。</li>
+        <li>插入链接 变量[url] 比如：变量a[https://xxx.com]。</li>
     </ul>
 </div>

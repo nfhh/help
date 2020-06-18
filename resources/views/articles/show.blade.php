@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-{{--        pos--}}
         <div class="row pt-3">
             <div class="col-md-3">
                 <div class="bg-white">
@@ -22,11 +21,16 @@
                             echo $excel[$faq->title][$lan];
                         @endphp
                     </h1>
-                    @php
-                        $body_arr = json_decode($faq->body, true);
-                    @endphp
                     @foreach($body_arr as $arr)
-                        @include('tpl.'.$arr['template_id'], ['vars' => explode('|',$arr['variables']),'excel' => $excel,'lan' => $lan])
+                        @php
+                            $body_arr = json_decode($faq->body, true);
+                            if($arr['template_id'] == 4 || $arr['template_id'] == 5){
+                                $delimiter = '\n';
+                            }else{
+                                $delimiter = '|';
+                            }
+                        @endphp
+                        @include('tpl.'.$arr['template_id'], ['vars' => explode($delimiter,$arr['variables']),'excel' => $excel,'lan' => $lan])
                     @endforeach
                 </div>
             </div>

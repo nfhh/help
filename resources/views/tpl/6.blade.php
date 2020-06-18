@@ -1,3 +1,3 @@
 <p>
-    <img src="{{ $vars[0] }}" alt="">
+    <img src="{{ $vars[0] }}">
 </p>

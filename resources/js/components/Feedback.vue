@@ -1,9 +1,9 @@
 <template>
     <div class="pt-3">
-        <div v-if="aftersubmit" class="alert alert-primary" role="alert">
+        <div v-if="aftersubmit" class="alert alert alert-secondary" role="alert">
             <p class="text-dark mb-0">{{ text1 }}</p>
         </div>
-        <div v-if="togform" class="alert alert-primary" role="alert">
+        <div v-if="togform" class="alert alert alert-secondary" role="alert">
             <p class="text-dark mb-0">{{ text2 }} <a href="javascript:;" @click="yes">{{ text3 }}</a> / <a href="javascript:;" @click="no">{{ text4 }}</a></p>
         </div>
         <div class="card" v-if="showform">

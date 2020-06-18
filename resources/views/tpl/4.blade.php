@@ -1,29 +1,26 @@
 <ol>
     <?php
     $str = '';
-    if ($lan === 'zh-cn') {
-        $dh = '，';
-        $jh = '。';
-    } else {
-        $dh = ',';
-        $jh = '.';
-    }
-    foreach ($vars as $k => $var) {
-        if (strpos($var, '$$') !== false) {
-            $var = str_replace('$$', '', $var);
-            $str .= '<img src="' . $var . '">';
+    foreach ($vars as $var) {
+        if ($var[0] === '$' && $var[strlen($var) - 1] === '$') {
+            preg_match('/\$(.*)\$/', $var, $matches1);
+            foreach (explode('|', $matches1[1]) as $img) {
+                $str .= '<img src="' . $img . '" class="img-fluid">';
+            }
             continue;
         }
-        if (strpos($var, '(') !== false) {
-            $var = str_replace('(', '', $var);
-            $var = str_replace(')', '', $var);
-            $str .= '<li>' . $excel[$var][$lan] . $dh;
-        } elseif (strpos($var, ')') !== false) {
-            $var = str_replace('(', '', $var);
-            $var = str_replace(')', '', $var);
-            $str .= $excel[$var][$lan] . $dh . $jh . '</li>';
+        preg_match('/\((.*)\)/', $var, $matches);
+        $mid = $matches[1];
+        $str .= '<li><p>';
+        if (strpos($var, '|') !== false) {
+            foreach (explode('|', $mid) as $v) {
+                $str .= $excel[$v][$lan];
+            }
+        } else {
+            $str .= $excel[$mid][$lan];
         }
+        $str .= '</p></li>';
     }
-    echo str_replace($dh . $jh, $jh, $str);
+    echo $str;
     ?>
 </ol>
