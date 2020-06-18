@@ -139,7 +139,7 @@
                 treeItem.append(node.text);
                 // Reset node href if present
                 if (node.href) {
-                    treeItem.attr('href', node.href);
+                    treeItem.attr('wire:click', `getDetail(${node.href})`);
                 }
                 // Add class to node if present
                 if (node.class) {

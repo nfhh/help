@@ -14,7 +14,7 @@
                 <option v-for="menu of menus" :value="menu.id">{{ menu['zh-cn'] }}</option>
             </select>
         </div>
-        <div v-for="(val,key) of variables">
+        <div v-for="(val,key) of variables" class="pt-3 divide">
             <div class="form-group">
                 <div class="form-check form-check-inline" v-for="(k,v) in lans">
                     <input class="form-check-input" type="radio" :id="'lan_'+v+key"
@@ -47,7 +47,7 @@
                 <input type="text" class="form-control" id="remark" name="remark" v-model="val.remark">
             </div>
         </div>
-        <div class="form-group text-center">
+        <div class="form-group text-center pt-3">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-secondary" @click="incre">+</button>
                 <button type="button" class="btn btn-secondary" @click="decre">-</button>

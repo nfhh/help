@@ -24,7 +24,7 @@
             <input type="file" class="form-control-file" id="file" name="file"
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
-        <div v-for="(n,key) in variables">
+        <div v-for="(n,key) in variables" class="pt-3 divide">
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -41,7 +41,7 @@
                 <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
-        <div class="form-group text-center">
+        <div class="form-group text-center pt-3">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-secondary" @click="incre">+</button>
                 <button type="button" class="btn btn-secondary" @click="decre">-</button>
