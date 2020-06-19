@@ -6,11 +6,11 @@ function readExcel($file)
 {
     $sh = [];
     $arr = [];
+    $ce = [];
+    $excel_data = [];
     $spreadsheet = IOFactory::load($file);
     foreach ($spreadsheet->getWorksheetIterator() as $sheet) {
-        $excel_data = [];
         foreach ($sheet->getRowIterator() as $key1 => $row) {
-            $ce = array();
             if ($key1 == 1) {
                 $a = $row->getCellIterator();
                 foreach ($a as $aa) {
@@ -41,6 +41,32 @@ function readExcel($file)
         $result[$k] = $v;
     }
     return $result;
+}
+
+function readExcel2($file)
+{
+    $sheet_data = $row_data = $key_arr = [];
+    $spreadsheet = IOFactory::load($file);
+    foreach ($spreadsheet->getWorksheetIterator() as $sheet) {
+        foreach ($sheet->getRowIterator() as $row) {
+            if ($row->getRowIndex() === 1) {
+                foreach ($row->getCellIterator() as $cell) {
+                    $key_arr[] = $cell->getValue();
+                }
+                continue;
+            }
+            $i = 0;
+            foreach ($row->getCellIterator() as $cell) {
+                $i++;
+                if (!$cell->getValue()) {
+                    continue 2;
+                }
+                $row_data[$key_arr[$i - 1]] = $cell->getValue();
+            }
+            $sheet_data[] = $row_data;
+        }
+    }
+    return $sheet_data;
 }
 
 function formatBytes($size, $precision = 2)

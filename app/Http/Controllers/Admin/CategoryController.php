@@ -22,7 +22,14 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        Category::create($request->except('_token'));
+        if ($request->has('file')) {
+            $excel_data = readExcel2($request->file);
+        }
+        foreach ($excel_data as $k => &$arr) {
+            $arr['parent_id'] = $request->parent_id;
+            $arr['sort'] = $k * 2;
+        }
+        Category::insert($excel_data);
         return redirect(route('admin.category.index'));
     }
 
