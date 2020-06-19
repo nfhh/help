@@ -19,13 +19,13 @@
                         @php
                             $excel = json_decode($faq->excel, true);
                             echo $excel[$faq->title][$lan];
+                            $body_arr = json_decode($faq->body, true);
                         @endphp
                     </h1>
                     @foreach($body_arr as $arr)
                         @php
-                            $body_arr = json_decode($faq->body, true);
-                            if($arr['template_id'] == 4 || $arr['template_id'] == 5){
-                                $delimiter = '\n';
+                            if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5){
+                                $delimiter = PHP_EOL;
                             }else{
                                 $delimiter = '|';
                             }
