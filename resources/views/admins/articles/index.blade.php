@@ -10,6 +10,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">目录id</th>
                     <th scope="col">所属目录</th>
                     <th scope="col">操作</th>
                 </tr>
@@ -17,6 +18,7 @@
                 <tbody>
                 @foreach($articles['data'] as $article)
                     <tr>
+                        <td>{{ $article['category_id'] }}</td>
                         <td>{{ $article['category']['zh-cn'] }}</td>
                         <td>
                             <div class="btn-group" role="group">
