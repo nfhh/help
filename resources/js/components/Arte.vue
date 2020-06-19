@@ -47,7 +47,7 @@
                 <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group d-none">
             <textarea name="body" class="form-control" cols="30" rows="10">{{ variables }}</textarea>
         </div>
         <div class="form-group text-center pt-3">

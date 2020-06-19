@@ -14,7 +14,11 @@
                 <option v-for="menu of menus" :value="menu.id">{{ menu['zh-cn'] }}</option>
             </select>
         </div>
-        <div v-for="(val,key) of variables" class="pt-3 divide">
+        <div v-for="(val,key) of variables" class="pt-3 divide position-relative">
+            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 0;"
+                    @click="del(key)">
+                <span>&times;</span>
+            </button>
             <div class="form-group">
                 <div class="form-check form-check-inline" v-for="(k,v) in lans">
                     <input class="form-check-input" type="radio" :id="'lan_'+v+key"
@@ -93,6 +97,9 @@
                 if (this.variables.length > 1) {
                     this.variables = this.variables.slice(0, -1)
                 }
+            },
+            del(key) {
+                this.variables.splice(key, 1)
             }
         }
     }

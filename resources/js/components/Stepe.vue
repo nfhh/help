@@ -16,7 +16,11 @@
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
 
-        <div v-for="(n,key) of variables" class="pt-3 divide">
+        <div v-for="(n,key) of variables" class="pt-3 divide position-relative">
+            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 0;"
+                    @click="del(key)">
+                <span>&times;</span>
+            </button>
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -75,6 +79,9 @@
                     this.m -= 2
                     this.variables = this.variables.slice(0, -1)
                 }
+            },
+            del(key) {
+                this.variables.splice(key, 1)
             }
         }
     }
