@@ -13,17 +13,57 @@ use Illuminate\Support\Facades\Route;
 |[]
 */
 Route::get('/test', function () {
-    // *aaa bbb* *ccc*
-    /*    echo str_replace('*', '', '*aaa');
-        echo str_replace('*', '', 'bbb*');
-        echo str_replace('*', '', '*ccc*');
-        echo str_replace('*', '', 'xxx');*/
-    $str = 'aaa[baidu.com]';
-    /*    preg_match('/\[(.*)\]/',$str, $matches);
-        dump($matches[1]);*/
+    $arr = [
+        '11111|22222|33333',
+        '44444|55555|66666'
+    ];
+    $res = [];
+    foreach ($arr as $v) {
+        $res[] = explode('|', $v);
+    }
+    print_r($res);
+});
+Route::get('/test3', function () {
+    $arr = [
+        [
+            '11111',
+            '22222',
+            '33333',
+        ],
+        [
+            '44444',
+            '55555',
+            '66666',
+        ]
+    ];
+    $str = '<table>';
+    foreach ($arr as $v) {
+        $str .= '<tr>';
+        foreach ($v as $vv) {
+            $str .= '<td>' . $vv . '</td>';
+        }
+        $str .= '</tr>';
+    }
+    $str .= '</table>';
+    echo $str;
+});
 
-
-    dump($str);
+Route::get('/test2', function () {
+    $str = <<<str
+<table>
+    <tr>
+        <td>11111</td>
+        <td>22222</td>
+        <td>33333</td>
+    </tr>
+    <tr>
+        <td>44444</td>
+        <td>55555</td>
+        <td>66666</td>
+    </tr>
+</table>
+str;
+    echo $str;
 });
 
 Route::get('/', function () {

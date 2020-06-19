@@ -12,9 +12,9 @@
                     $str .= '<b>' . $excel[$v][$lan] . '</b>';
                 } elseif ($v[strlen($v) - 1] === ']') {
                     $pattern = '/\[(.*)\]/';
-                    preg_match($pattern, $str, $matches2);
+                    preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
-                    $text = preg_replace($pattern, '', $str);
+                    $text = preg_replace($pattern, '', $v);
                     $str .= '<a href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
@@ -29,9 +29,9 @@
                     $str .= '<b>' . $excel[$v][$lan] . '</b>';
                 } elseif ($v[strlen($v) - 1] === ']') {
                     $pattern = '/\[(.*)\]/';
-                    preg_match($pattern, $str, $matches2);
+                    preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
-                    $text = preg_replace($pattern, '', $str);
+                    $text = preg_replace($pattern, '', $v);
                     $str .= '<a href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];

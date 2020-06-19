@@ -9,7 +9,7 @@
             }
             continue;
         }
-        preg_match('/\[(.*)\]/', $var, $matches);
+        preg_match('/\((.*)\)/', $var, $matches);
         $mid = $matches[1];
         $str .= '<li><p>';
         if (strpos($var, '|') !== false) {

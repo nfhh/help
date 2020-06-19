@@ -43,13 +43,15 @@
                 <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
+        <div class="form-group">
+            <textarea name="body" class="form-control" cols="30" rows="10">{{ variables }}</textarea>
+        </div>
         <div class="form-group text-center pt-3">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-secondary" @click="incre">+</button>
                 <button type="button" class="btn btn-secondary" @click="decre">-</button>
             </div>
         </div>
-        <textarea name="body" cols="30" rows="10" class="d-none">{{ variables }}</textarea>
         <button type="submit" class="btn btn-primary">确定</button>
     </form>
 </template>
