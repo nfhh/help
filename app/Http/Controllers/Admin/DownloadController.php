@@ -25,8 +25,9 @@ class DownloadController extends Controller
 
     public function store(Request $request)
     {
+        $excel_data = $request->has('file') ? readExcel2($request->file) : [];
         Download::create([
-            'body' => $request->body,
+            'body' => json_encode($excel_data),
             'product_id' => $request->product_id,
             'menu_id' => $request->menu_id,
         ]);
