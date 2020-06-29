@@ -59,7 +59,7 @@ function readExcel2($file)
             foreach ($row->getCellIterator() as $cell) {
                 $i++;
                 if (!$cell->getValue()) {
-                    continue 2;
+                    continue;
                 }
                 $row_data[$key_arr[$i - 1]] = $cell->getValue();
             }

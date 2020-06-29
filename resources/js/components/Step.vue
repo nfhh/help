@@ -1,5 +1,5 @@
 <template>
-    <form method="POST" :action="route" enctype="multipart/form-data">
+    <form method="POST" :action="route">
         <input type="hidden" name="_token" :value="token">
         <div class="form-group">
             <label for="product_id">所属产品</label>
@@ -10,15 +10,14 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="file">上传文章翻译表</label>
-            <input type="file" class="form-control-file" id="file" name="file"
-                   accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+            <label for="title">标题</label>
+            <input type="text" name="title" id="title" class="form-control">
         </div>
         <div v-for="(n,key) of variables" class="pt-3 divide position-relative">
-            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 0;"
-                    @click="del(key)">
-                <span>&times;</span>
-            </button>
+            <div class="btn-group position-absolute" role="group" style="right: 0;">
+                <button type="button" class="btn btn-sm btn-secondary" @click="add(key)">+</button>
+                <button type="button" class="btn btn-sm btn-secondary" @click="del(key)">-</button>
+            </div>
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -35,13 +34,15 @@
                 <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
+        <div class="form-group">
+            <textarea name="body" class="form-control" cols="30" rows="10" readonly>{{ variables }}</textarea>
+        </div>
         <div class="form-group text-center pt-3">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-secondary" @click="incre">+</button>
                 <button type="button" class="btn btn-secondary" @click="decre">-</button>
             </div>
         </div>
-        <textarea name="body" cols="30" rows="10" class="d-none">{{ variables }}</textarea>
         <div class="form-group">
             <label for="sortx">排序</label>
             <input class="form-control" id="sortx" name="sort" required/>
@@ -70,14 +71,21 @@
         },
         methods: {
             incre() {
-                this.m += 2
+                this.m += 4
                 this.variables.push({'variables': '', 'template_id': '1', 'sort': this.m})
             },
             decre() {
                 if (this.variables.length > 1) {
-                    this.m -= 2
+                    this.m -= 4
                     this.variables = this.variables.slice(0, -1)
                 }
+            },
+            add(key) {
+                this.variables.splice(key + 1, 0, {
+                    'variables': '',
+                    'template_id': '1',
+                    'sort': this.variables[key].sort + 1
+                })
             },
             del(key) {
                 this.variables.splice(key, 1)

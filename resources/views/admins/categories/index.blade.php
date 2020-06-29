@@ -22,7 +22,7 @@
                             <td>{{ $category['zh-cn'] }}</td>
                             <td>{{ $category['sort'] }}</td>
                             <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
+                                <div class="btn-group" role="group">
                                     <a class="btn btn-secondary"
                                        href="{{ route('admin.category.edit',$category['id']) }}">编辑</a>
                                     <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>

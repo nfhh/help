@@ -30,7 +30,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="file">目录</label>
+                    <label for="file">上传TOS帮助目录翻译表</label>
                     <input type="file" class="form-control-file" id="file" name="file">
                 </div>
                 <button type="submit" class="btn btn-primary">确定</button>

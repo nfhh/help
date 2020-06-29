@@ -58,64 +58,7 @@
             </div>
         </div>
     </nav>
-    <div class="container pt-3">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group" id="a-box">
-                    <a href="{{ route('admin.category.index')  }}" class="list-group-item list-group-item-action">
-                        TOS帮助目录管理
-                    </a>
-                    <a href="{{ route('admin.article.index')  }}" class="list-group-item list-group-item-action">
-                        TOS帮助文章管理
-                    </a>
-                    <a href="{{ route('admin.product.index')  }}" class="list-group-item list-group-item-action">
-                        安装指南型号管理
-                    </a>
-                    <a href="{{ route('admin.step.index')  }}" class="list-group-item list-group-item-action">
-                        安装指南文章管理
-                    </a>
-                    <a href="{{ route('admin.subject.index')  }}" class="list-group-item list-group-item-action">
-                        FAQ分类管理
-                    </a>
-                    <a href="{{ route('admin.faq.index')  }}" class="list-group-item list-group-item-action">
-                        FAQ问答管理
-                    </a>
-                    <a href="{{ route('admin.download.index')  }}" class="list-group-item list-group-item-action">
-                        下载管理
-                    </a>
-                    <a href="{{ route('admin.feedback.index')  }}" class="list-group-item list-group-item-action">
-                        反馈管理
-                    </a>
-                    <a href="{{ route('admin.dir.index')  }}" class="list-group-item list-group-item-action">
-                        文件目录管理
-                    </a>
-                    <a href="{{ route('admin.file.index')  }}" class="list-group-item list-group-item-action">
-                        文件管理
-                    </a>
-                    <a href="{{ route('admin.asset.index')  }}" class="list-group-item list-group-item-action">
-                        下载中心文件上传
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="h5 mb-0">下载中心文件上传</h2>
-                    </div>
-                    <div class="card-body">
-                        <div id="containerx">
-                            <button class="btn btn-secondary" id="selectfiles">选择文件</button>
-                            <button class="btn btn-primary" @click="selectFile">开始上传</button>
-                            <hr>
-                            <ul>
-                                <li v-for="file in files">上传进度@{{file.percent}}%</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('admins.layouts._left')
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.9/vue.min.js"></script>

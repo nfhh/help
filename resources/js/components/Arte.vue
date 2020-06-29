@@ -16,7 +16,7 @@
                             </option>
                         </template>
                     </template>
-                    <option v-else :value="category.id" disabled>{{ category['zh-cn'] }}</option>
+                    <option v-else :value="category.id">{{ category['zh-cn'] }}</option>
                 </template>
             </select>
         </div>
@@ -27,10 +27,10 @@
         </div>
 
         <div v-for="(n,key) of variables" class="pt-3 divide position-relative">
-            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 0;"
-                    @click="del(key)">
-                <span>&times;</span>
-            </button>
+            <div class="btn-group position-absolute" role="group" style="right: 0;">
+                <button type="button" class="btn btn-sm btn-secondary" @click="add(key)">+</button>
+                <button type="button" class="btn btn-sm btn-secondary" @click="del(key)">-</button>
+            </div>
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -79,14 +79,21 @@
         },
         methods: {
             incre() {
-                this.m += 2
+                this.m += 4
                 this.variables.push({'variables': '', 'template_id': '1', 'sort': this.m})
             },
             decre() {
                 if (this.variables.length > 1) {
-                    this.m -= 2
+                    this.m -= 4
                     this.variables = this.variables.slice(0, -1)
                 }
+            },
+            add(key) {
+                this.variables.splice(key + 1, 0, {
+                    'variables': '',
+                    'template_id': '1',
+                    'sort': this.variables[key].sort + 1
+                })
             },
             del(key) {
                 this.variables.splice(key, 1)

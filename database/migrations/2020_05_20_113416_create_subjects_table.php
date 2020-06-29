@@ -16,19 +16,19 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
+            $table->string('zh-cn')->default('');
+            $table->string('zh-hk')->default('');
             $table->string('en-us')->default('');
+            $table->string('ko-kr')->default('');
+            $table->string('ja-jp')->default('');
             $table->string('de-de')->default('');
             $table->string('fr-fr')->default('');
             $table->string('it-it')->default('');
             $table->string('es-es')->default('');
             $table->string('hu-hu')->default('');
-            $table->string('ru-ru')->default('');
-            $table->string('ko-kr')->default('');
-            $table->string('ja-jp')->default('');
-            $table->string('zh-cn')->default('');
-            $table->string('zh-hk')->default('');
             $table->string('pl-pl')->default('');
             $table->string('tr-tr')->default('');
+            $table->string('ru-ru')->default('');
             $table->unsignedSmallInteger('sort')->default(0);
             $table->unsignedInteger('parent_id')->default(0);
             $table->timestamps();

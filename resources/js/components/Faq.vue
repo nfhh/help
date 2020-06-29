@@ -5,13 +5,12 @@
             <label for="subject_id">FAQ分类</label>
             <select class="form-control" name="subject_id" id="subject_id" v-model="subject_id">
                 <template v-for="subject of subjects">
-                    <option>请选择</option>
                     <template v-if="subject.children.length">
-                        <option :value="subject.id" disabled>{{ subject['zh-cn'] }}</option>
+                        <option :value="subject.id">{{ subject['zh-cn'] }}</option>
                         <option v-for="child of subject.children" :value="child.id">--{{ child['zh-cn'] }}
                         </option>
                     </template>
-                    <option v-else :value="subject.id" disabled>{{ subject['zh-cn'] }}</option>
+                    <option v-else :value="subject.id">{{ subject['zh-cn'] }}</option>
                 </template>
             </select>
         </div>
@@ -25,10 +24,10 @@
             <input class="form-control" id="title" name="title"/>
         </div>
         <div v-for="(n,key) of variables" class="pt-3 divide position-relative">
-            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 0;"
-                    @click="del(key)">
-                <span>&times;</span>
-            </button>
+            <div class="btn-group position-absolute" role="group" style="right: 0;">
+                <button type="button" class="btn btn-sm btn-secondary" @click="add(key)">+</button>
+                <button type="button" class="btn btn-sm btn-secondary" @click="del(key)">-</button>
+            </div>
             <div class="form-group">
                 <label for="variable">设置变量</label>
                 <textarea class="form-control" id="variable" rows="4" v-model.trim="n.variables" required></textarea>
@@ -84,6 +83,13 @@
                     this.m -= 2
                     this.variables = this.variables.slice(0, -1)
                 }
+            },
+            add(key) {
+                this.variables.splice(key + 1, 0, {
+                    'variables': '',
+                    'template_id': '1',
+                    'sort': this.variables[key].sort + 1
+                })
             },
             del(key) {
                 this.variables.splice(key, 1)

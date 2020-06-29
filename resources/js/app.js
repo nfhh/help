@@ -28,8 +28,6 @@ Vue.component('stepe', require('./components/Stepe.vue').default);
 Vue.component('faq', require('./components/Faq.vue').default);
 Vue.component('faqe', require('./components/Faqe.vue').default);
 Vue.component('product', require('./components/Product.vue').default);
-Vue.component('download', require('./components/Download.vue').default);
-Vue.component('downloade', require('./components/Downloade.vue').default);
 Vue.component('feedback', require('./components/Feedback.vue').default);
 
 

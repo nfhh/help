@@ -15,8 +15,8 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->json('body');
-            $table->json('excel');
             $table->unsignedBigInteger('product_id')->default(0);
             $table->unsignedSmallInteger('sort')->default(0);
             $table->timestamps();

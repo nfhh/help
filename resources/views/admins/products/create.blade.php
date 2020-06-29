@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">添加安装指南型号</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.product.store') }}" method="post">
+            <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name">产品</label>
@@ -27,6 +27,11 @@
                             <option value="{{$v}}">{{$v}}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="file">上传此产品安装指南翻译表</label>
+                    <input type="file" class="form-control-file" id="file" name="file"
+                           accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>

@@ -29,53 +29,7 @@
             }
                 $categories = replaceKey($categories,$lan);
         @endphp
-        <div class="row pt-3">
-            <div class="col-md-3">
-                <div class="bg-white">
-                    <div class="list-group list-group-flush my-tab" id="tree" data-turbolinks="false">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="bg-white p-3 content">
-                    @php
-                        $excel = json_decode($article->excel, true);
-                        $body_arr = json_decode($article->body, true);
-                    @endphp
-                    @foreach($body_arr as $arr)
-                        @php
-                            if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5){
-                                $delimiter = PHP_EOL;
-                            }else{
-                                $delimiter = '|';
-                            }
-                        @endphp
-                        @include('tpl.'.$arr['template_id'], ['vars' => explode($delimiter,$arr['variables']),'excel' => $excel,'lan' => $lan])
-                    @endforeach
-                    <feedback
-                        text1="{{ trans('help.feedback_res') }}"
-                        text2="{{ trans('help.ask') }}"
-                        text3="{{ trans('help.yes') }}"
-                        text4="{{ trans('help.no') }}"
-                        text5="{{ trans('help.ask_p1') }}"
-                        text6="{{ trans('help.ask_ch1') }}"
-                        text7="{{ trans('help.ask_ch2') }}"
-                        text8="{{ trans('help.ask_ch3') }}"
-                        text9="{{ trans('help.ask_ch4') }}"
-                        text10="{{ trans('help.ask_p2') }}"
-                        text11="{{ trans('help.submit') }}"
-                        text12="{{ trans('help.cancel') }}"
-                    ></feedback>
-                </div>
-            </div>
-        </div>
+        <livewire:help-left :categories="$categories"/>
     </div>
 @endsection
-@section('js')
-    <script src="/js/bstreeview.js"></script>
-    <script>
-        var json = `<?php echo json_encode($categories, JSON_UNESCAPED_UNICODE);?>`;
-        $('#tree').bstreeview({data: JSON.parse(json), openNodeLinkOnNewTab: false});
-    </script>
-@endsection
+

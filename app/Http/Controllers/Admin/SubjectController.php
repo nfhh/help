@@ -22,7 +22,14 @@ class SubjectController extends Controller
 
     public function store(Request $request)
     {
-        Subject::create($request->except('_token'));
+        $excel_data = $request->has('file') ? readExcel2($request->file) : [];
+        foreach ($excel_data as $k => &$arr) {
+            $arr['parent_id'] = $request->parent_id;
+            $arr['created_at'] = now();
+            $arr['updated_at'] = now();
+        }
+        Subject::truncate();
+        Subject::insert($excel_data);
         return redirect(route('admin.subject.index'));
     }
 
@@ -30,16 +37,5 @@ class SubjectController extends Controller
     {
         $subjects = Subject::with('children')->roots()->get()->toArray();
         return view('admins.subjects.edit', compact('subject', 'subjects'));
-    }
-
-    public function update(Request $request, Subject $subject)
-    {
-        $subject->update($request->except('_token'));
-        return redirect(route('admin.subject.index'));
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

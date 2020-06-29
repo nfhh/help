@@ -17,10 +17,12 @@
         </nav>
         <div class="row py-2">
             <div class="col-md-12 bg-white">
+                @php
+                    $excel = json_decode($product->excel, true);
+                @endphp
                 @foreach ($steps as $step)
                     <div class="py-3 px-4">
                         @php
-                            $excel = json_decode($step->excel, true);
                             $body_arr = json_decode($step->body, true);
                         @endphp
                         @foreach($body_arr as $arr)
@@ -34,13 +36,9 @@
                             @include('tpl.'.$arr['template_id'], ['vars' => explode($delimiter,$arr['variables']),'excel' => $excel,'lan' => $lan])
                         @endforeach
                     </div>
-                    @if ($loop->iteration == $page_count)
-                        @break
-                    @endif
                 @endforeach
                 <div class="py-3 px-4">
-                    @component('components.pagination', ['link' => $link, 'page_num' => $page_num, 'total_page' => $total_page])
-                    @endcomponent
+                    {{ $steps->withQueryString()->links() }}
                 </div>
             </div>
         </div>

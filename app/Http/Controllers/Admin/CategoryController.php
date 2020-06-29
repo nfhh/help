@@ -22,12 +22,9 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->has('file')) {
-            $excel_data = readExcel2($request->file);
-        }
+        $excel_data = $request->has('file') ? readExcel2($request->file) : [];
         foreach ($excel_data as $k => &$arr) {
             $arr['parent_id'] = $request->parent_id;
-            $arr['sort'] = $k * 2;
         }
         Category::insert($excel_data);
         return redirect(route('admin.category.index'));

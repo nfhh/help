@@ -30,6 +30,11 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="file">上传Excel</label>
+                    <input type="file" class="form-control-file" id="file" name="file"
+                           accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                </div>
+                <div class="form-group">
                     <label for="sort">排序</label>
                     <input type="text" class="form-control" id="sort" name="sort" required value="{{ $product->sort }}">
                 </div>

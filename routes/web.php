@@ -48,9 +48,15 @@ Route::prefix(env('ADMIN_PRE'))->name('admin.')->namespace('Admin')->middleware(
     Route::resource('/article', 'ArticleController');
     Route::resource('/file', 'FileController');
     Route::resource('/product', 'ProductController');
+    Route::get('/product/step/create', 'ProductController@createStep')->name('product.steps.create');
+    Route::get('/product/step/{product_id}', 'ProductController@listStepByproductId')->name('product.steps')->where('product_id', '[0-9]+');
+    Route::post('/product/steps/copy', 'ProductController@copySteps')->name('product.steps.copy');
+    Route::get('/product/step/{step_id}/edit', 'ProductController@editStep')->name('product.steps.edit');
+    Route::post('/product/step/store', 'ProductController@storeStep')->name('product.steps.store');
+    Route::put('/product/step/update', 'ProductController@updateStep')->name('product.steps.update');
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
-    Route::resource('/subject', 'SubjectController');
+    Route::resource('/subject', 'SubjectController')->except('destroy');
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
     Route::get('/asset', 'AssetController@index')->name('asset.index');

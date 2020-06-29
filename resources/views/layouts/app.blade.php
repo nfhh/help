@@ -9,7 +9,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
-</head>
+    <livewire:styles>
+    </head>
 <body>
 <div id="app">
 
@@ -117,6 +118,7 @@
     </footer>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
+<livewire:scripts>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script>

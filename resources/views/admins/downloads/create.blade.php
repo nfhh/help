@@ -17,7 +17,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-
                     <label for="menu_id">类型</label>
                     <select name="menu_id" id="menu_id" class="form-control">
                         @foreach($menus as $menu)
