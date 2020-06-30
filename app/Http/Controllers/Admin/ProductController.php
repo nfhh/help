@@ -26,7 +26,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd(readExcel($request->file));
         $form_data = $request->except('token');
         $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file), JSON_UNESCAPED_UNICODE) : null;
         Product::create([
