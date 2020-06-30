@@ -14,13 +14,13 @@ function readExcel($file)
             if ($key1 == 1) {
                 $a = $row->getCellIterator();
                 foreach ($a as $aa) {
-                    $arr[] = $aa->getValue();
+                    $arr[] = $aa->getFormattedValue();
                 }
                 continue;
             }
             $k = 0;
             foreach ($row->getCellIterator() as $key2 => $cell) {
-                $data = $cell->getValue();
+                $data = $cell->getFormattedValue();
                 $ce[$arr[$k]] = $data;
                 $k++;
             }
@@ -51,17 +51,17 @@ function readExcel2($file)
         foreach ($sheet->getRowIterator() as $row) {
             if ($row->getRowIndex() === 1) {
                 foreach ($row->getCellIterator() as $cell) {
-                    $key_arr[] = $cell->getValue();
+                    $key_arr[] = $cell->getFormattedValue();
                 }
                 continue;
             }
             $i = 0;
             foreach ($row->getCellIterator() as $cell) {
                 $i++;
-                if (!$cell->getValue()) {
+                if (!$cell->getFormattedValue()) {
                     continue;
                 }
-                $row_data[$key_arr[$i - 1]] = $cell->getValue();
+                $row_data[$key_arr[$i - 1]] = $cell->getFormattedValue();
             }
             $sheet_data[] = $row_data;
         }
