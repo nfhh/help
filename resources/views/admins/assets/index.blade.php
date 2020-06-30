@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($assets as $asset)
                     <tr>
-                        <td>{{ env('OSS_URL').$asset->url }}</td>
+                        <td>{{ config('filesystems.disks.oss.oss_url').$asset->url }}</td>
                         <td>{{ $asset->size }}</td>
                         <td>{{ $asset->created_at }}</td>
                         <td>

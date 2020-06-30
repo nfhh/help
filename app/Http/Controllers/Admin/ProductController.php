@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Step;
 use App\Models\ProductExcel;
 use App\Models\Template;
+use App\Models\Template2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -67,7 +68,7 @@ class ProductController extends Controller
     public function createStep()
     {
         $products = Product::select('id', 'name')->get();
-        $templates = Template::all();
+        $templates = Template2::all();
         return view('admins.products.steps.create', compact('products', 'templates'));
     }
 
@@ -87,7 +88,7 @@ class ProductController extends Controller
     {
         $step = Step::find($request->step_id);
         $products = Product::select('id', 'name')->get();
-        $templates = Template::all();
+        $templates = Template2::all();
         return view('admins.products.steps.edit', compact('step', 'products', 'templates'));
     }
 

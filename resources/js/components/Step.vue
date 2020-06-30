@@ -34,7 +34,7 @@
                 <input class="form-control" id="sort" v-model="n.sort"/>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group d-none">
             <textarea name="body" class="form-control" cols="30" rows="10" readonly>{{ variables }}</textarea>
         </div>
         <div class="form-group text-center pt-3">
@@ -63,7 +63,7 @@
                 token: document.head.querySelector('meta[name="csrf-token"]').content,
                 product_id: this.products[0].id,
                 variables: [
-                    {'variables': '', 'template_id': '1', 'sort': 0}
+                    {'variables': '', 'template_id': '101', 'sort': 0}
                 ],
                 template_id: 1,
                 m: 0
@@ -72,7 +72,7 @@
         methods: {
             incre() {
                 this.m += 4
-                this.variables.push({'variables': '', 'template_id': '1', 'sort': this.m})
+                this.variables.push({'variables': '', 'template_id': '101', 'sort': this.m})
             },
             decre() {
                 if (this.variables.length > 1) {
@@ -83,7 +83,7 @@
             add(key) {
                 this.variables.splice(key + 1, 0, {
                     'variables': '',
-                    'template_id': '1',
+                    'template_id': '101',
                     'sort': this.variables[key].sort + 1
                 })
             },

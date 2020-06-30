@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +53,9 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+
+    'admin_dir' => env('APP_ADMIN_DIR', 'terraadmin'),
+    'admin_path' => env('APP_ADMIN_PATH', 'terraadmin/home'),
 
     'asset_url' => env('ASSET_URL', null),
 

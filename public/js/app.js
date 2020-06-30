@@ -2803,7 +2803,7 @@ __webpack_require__.r(__webpack_exports__);
       product_id: this.products[0].id,
       variables: [{
         'variables': '',
-        'template_id': '1',
+        'template_id': '101',
         'sort': 0
       }],
       template_id: 1,
@@ -2815,7 +2815,7 @@ __webpack_require__.r(__webpack_exports__);
       this.m += 4;
       this.variables.push({
         'variables': '',
-        'template_id': '1',
+        'template_id': '101',
         'sort': this.m
       });
     },
@@ -2828,7 +2828,7 @@ __webpack_require__.r(__webpack_exports__);
     add: function add(key) {
       this.variables.splice(key + 1, 0, {
         'variables': '',
-        'template_id': '1',
+        'template_id': '101',
         'sort': this.variables[key].sort + 1
       });
     },
@@ -41234,7 +41234,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "form-group d-none" }, [
         _c(
           "textarea",
           {

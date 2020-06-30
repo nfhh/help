@@ -18,7 +18,7 @@ class FeedbackController extends Controller
             'body' => $body,
         ]);
 
-        dispatch(new SendEmail(env('WEBMASTER_EMAIL'), [
+        dispatch(new SendEmail(config('mail.webmaster.address'), [
             'url' => $url,
             'body' => $body,
         ]));

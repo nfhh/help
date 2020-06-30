@@ -26,7 +26,8 @@ foreach ($vars as $var) {
     } else {
         $str .= $excel[$mid][$lan];
     }
-    $str .= '</p></li></ul>';
+    $str .= '</p></li>';
 }
+$str .= '</ul>';
 echo $str;
 ?>

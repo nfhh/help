@@ -14,7 +14,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return env('ADMIN_PATH');
+        return config('app.admin_path');
     }
 
     public function showLoginForm()

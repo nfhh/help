@@ -73,11 +73,11 @@
         el: '#containerx',
         data() {
             return {
-                accessid: "{{ env('OSS_ID') }}",
-                accesskey: "{{ env('OSS_KEY') }}",
-                host: "{{ env('OSS_URL') }}",
+                accessid: "{{ config('filesystems.disks.oss.access_id') }}",
+                accesskey: "{{ config('filesystems.disks.oss.access_key') }}",
+                host: "{{ config('filesystems.disks.oss.oss_url') }}",
                 policyText: {
-                    "expiration": "2022-01-01T12:00:00.000Z",
+                    "expiration": "2099-01-01T12:00:00.000Z",
                     "conditions": [
                         ["content-length-range", 0, 1048576000]
                     ]

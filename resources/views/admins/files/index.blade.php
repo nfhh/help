@@ -42,9 +42,9 @@
                     <tr>
                         <td>{{ $file->dir->name }}</td>
                         <td>
-                            <p><img src="{{ env('OSS_URL') }}{{ $file->path }}" class="img-fluid"></p>
+                            <p><img src="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}" class="img-fluid"></p>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" value="{{ env('OSS_URL') }}{{ $file->path }}">
+                                <input type="text" class="form-control" value="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}">
                                 <div class="input-group-append">
                                     <a href="javascript:;" class="input-group-text"
                                        onclick="copyToClipboard(this)">复制</a>

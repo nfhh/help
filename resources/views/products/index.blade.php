@@ -1,22 +1,23 @@
-@extends('layouts.app')
-
+@extends('layouts.white')
+@section('css')
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+@endsection
 @section('content')
-    <div class="container">
-        {{--
-                @include('partials.guide_h')
-                <product product_id="{{ $product_id }}"
-                         start="{{ trans('help.start') }}"
-                         product_tip1="{{ trans('help.product_tip1') }}"
-                         product_tip2="{{ trans('help.product_tip2') }}"
-                         product_tip3="{{ trans('help.product_tip3') }}"></product>--}}
+    <div class="container fixed-top">
         <nav>
             <ol class="breadcrumb bg-transparent">
                 <li class="breadcrumb-item"><a href="/quickguide" class="text-dark">{{ trans('help.back') }}</a></li>
                 <li class="breadcrumb-item active">{{ $product->name }}</li>
             </ol>
         </nav>
-        <div class="row py-2">
-            <div class="col-md-12 bg-white">
+    </div>
+    <div class="container h-100">
+        <div class="row align-items-center h-100 py-2">
+            <div class="col-md-8 bg-white mx-auto">
                 @php
                     $excel = json_decode($product->excel, true);
                 @endphp
@@ -25,9 +26,10 @@
                         @php
                             $body_arr = json_decode($step->body, true);
                         @endphp
+                        {{--                        107 说明灰块 111 无边框表格 110 有边框表格 105 数字列表 106 方块列表--}}
                         @foreach($body_arr as $arr)
                             @php
-                                if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5){
+                                if($arr['template_id'] == 107 || $arr['template_id'] == 111 || $arr['template_id'] == 110 || $arr['template_id'] == 105 || $arr['template_id'] == 106){
                                     $delimiter = PHP_EOL;
                                 }else{
                                     $delimiter = '|';
@@ -37,10 +39,10 @@
                         @endforeach
                     </div>
                 @endforeach
-                <div class="py-3 px-4">
-                    {{ $steps->withQueryString()->links() }}
-                </div>
             </div>
         </div>
+    </div>
+    <div class="container fixed-bottom">
+        {{ $steps->withQueryString()->links() }}
     </div>
 @endsection

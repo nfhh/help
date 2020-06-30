@@ -91,6 +91,10 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'webmaster' => [
+        'address' => env('WEBMASTER_EMAIL', 'pm@terra-master.com'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
