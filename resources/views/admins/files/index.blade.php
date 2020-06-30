@@ -42,9 +42,11 @@
                     <tr>
                         <td>{{ $file->dir->name }}</td>
                         <td>
-                            <p><img src="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}" class="img-fluid"></p>
+                            <p><img src="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}"
+                                    class="img-fluid"></p>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" value="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}">
+                                <input type="text" class="form-control"
+                                       value="{{ config('filesystems.disks.oss.oss_url') }}{{ $file->path }}">
                                 <div class="input-group-append">
                                     <a href="javascript:;" class="input-group-text"
                                        onclick="copyToClipboard(this)">复制</a>
@@ -56,7 +58,7 @@
                             <div class="btn-group" role="group">
                                 <a class="btn btn-secondary"
                                    href="javascript:;">编辑</a>
-                                <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
+                                <a href="javascript:;" onclick="del('{{ $file->path }}')" class="btn btn-danger">删除</a>
                             </div>
                         </td>
                     </tr>
@@ -71,6 +73,16 @@
         function copyToClipboard(obj) {
             $(obj).parent().prev().select();
             document.execCommand('copy');
+        }
+
+        function del(url) {
+            if (confirm(`确定删除 ${url} 吗？`)) {
+                axios.post("{{ route('admin.file.destroy') }}", {
+                    'url': url,
+                }).then(response => {
+                    location.reload()
+                })
+            }
         }
     </script>
 @endsection

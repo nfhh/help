@@ -46,7 +46,8 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::post('/update', 'AdminController@update')->name('admin.update');
     Route::resource('/category', 'CategoryController');
     Route::resource('/article', 'ArticleController');
-    Route::resource('/file', 'FileController');
+    Route::post('/file/destroy', 'FileController@destroy')->name('file.destroy');
+    Route::resource('/file', 'FileController')->except('destroy');
     Route::resource('/product', 'ProductController');
     Route::get('/product/step/create', 'ProductController@createStep')->name('product.steps.create');
     Route::get('/product/step/{product_id}', 'ProductController@listStepByproductId')->name('product.steps')->where('product_id', '[0-9]+');

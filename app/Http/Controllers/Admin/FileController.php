@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Dir;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Storage;
 
 class FileController extends Controller
 {
@@ -48,8 +49,10 @@ class FileController extends Controller
 
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-
+        $url = $request->url;
+        Storage::delete($url);
+        File::where('path', $url)->delete();
     }
 }
