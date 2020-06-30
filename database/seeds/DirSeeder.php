@@ -17,7 +17,7 @@ class DirSeeder extends Seeder
                 'name' => 'help',
             ],
             [
-                'name' => 'install',
+                'name' => 'quickguide',
             ],
             [
                 'name' => 'faq',
