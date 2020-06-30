@@ -124,4 +124,9 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function destroyStep(Request $request)
+    {
+        Step::destroy($request->id);
+    }
 }

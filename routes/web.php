@@ -55,6 +55,7 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::get('/product/step/{step_id}/edit', 'ProductController@editStep')->name('product.steps.edit');
     Route::post('/product/step/store', 'ProductController@storeStep')->name('product.steps.store');
     Route::put('/product/step/update', 'ProductController@updateStep')->name('product.steps.update');
+    Route::post('/product/step/destroy', 'ProductController@destroyStep')->name('product.steps.destroy');
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
     Route::resource('/subject', 'SubjectController')->except('destroy');
