@@ -10,6 +10,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">序号</th>
                     <th scope="col">产品型号</th>
                     <th scope="col">标题</th>
@@ -19,6 +20,7 @@
                 <tbody>
                 @foreach ($steps as $step)
                     <tr>
+                        <td>{{ $step->id }}</td>
                         <td>{{ $step->sort }}</td>
                         <td>{{ $step->product->name }}</td>
                         <td>{{ $step->title }}</td>

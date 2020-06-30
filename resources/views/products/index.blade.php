@@ -25,8 +25,9 @@
                     <div class="py-3 px-4">
                         @php
                             $body_arr = json_decode($step->body, true);
+                            array_multisort(array_column($body_arr, 'sort'), SORT_ASC, $body_arr);
                         @endphp
-                        {{--                        107 说明灰块 111 无边框表格 110 有边框表格 105 数字列表 106 方块列表--}}
+                        {{-- 107 说明灰块 111 无边框表格 110 有边框表格 105 数字列表 106 方块列表--}}
                         @foreach($body_arr as $arr)
                             @php
                                 if($arr['template_id'] == 107 || $arr['template_id'] == 111 || $arr['template_id'] == 110 || $arr['template_id'] == 105 || $arr['template_id'] == 106){

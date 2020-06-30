@@ -1,5 +1,5 @@
 <?php
-$str = '<p>';
+$str = '<p class="text-center">';
 $var = $vars[0];
 if ($var[strlen($var) - 1] === ')') {
     $pattern = '/\((.*)\)/';
