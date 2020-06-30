@@ -1,5 +1,5 @@
 <?php
-$str = '<table class="table">';
+$str = '<table class="table my-table">';
 $arr = [];
 foreach ($vars as $var) {
     $arr[] = explode('|', $var);
