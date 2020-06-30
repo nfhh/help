@@ -21,6 +21,9 @@ function readExcel($file)
             $k = 0;
             foreach ($row->getCellIterator() as $key2 => $cell) {
                 $data = $cell->getFormattedValue();
+                if (!$data) {
+                    continue;
+                }
                 $ce[$arr[$k]] = $data;
                 $k++;
             }
@@ -33,14 +36,7 @@ function readExcel($file)
         unset($v['var']);
         $res[$k] = $v;
     }
-    $result = [];
-    foreach ($res as $k => $v) {
-        if (!$k) {
-            continue;
-        }
-        $result[$k] = $v;
-    }
-    return $result;
+    return $res;
 }
 
 function readExcel2($file)

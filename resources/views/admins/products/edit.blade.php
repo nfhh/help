@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">编辑安装指南型号</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.product.update',$product->id) }}" method="post">
+            <form action="{{ route('admin.product.update',$product->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="form-group">

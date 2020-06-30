@@ -60,7 +60,7 @@ class ProductController extends Controller
 
     public function listStepByproductId($product_id)
     {
-        $steps = Step::with('product')->where('product_id', $product_id)->paginate(10);
+        $steps = Step::with('product')->where('product_id', $product_id)->get();
         $product = Product::findOrFail($product_id);
         return view('admins.products.steps.index', compact('steps', 'product'));
     }
