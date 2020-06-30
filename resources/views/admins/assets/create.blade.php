@@ -58,7 +58,28 @@
             </div>
         </div>
     </nav>
-    @include('admins.layouts._left')
+    <div class="container pt-3">
+        <div class="row">
+            @include('admins.layouts._left')
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">下载中心文件上传</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="containerx">
+                            <button class="btn btn-secondary" id="selectfiles">选择文件</button>
+                            <button class="btn btn-primary" @click="selectFile">开始上传</button>
+                            <hr>
+                            <ul>
+                                <li v-for="file in files">上传进度@{{file.percent}}%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.9/vue.min.js"></script>

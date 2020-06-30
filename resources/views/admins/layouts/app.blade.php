@@ -65,7 +65,15 @@
         </div>
     </nav>
 
-    @include('admins.layouts._left')
+    <div class="container pt-3">
+        <div class="row">
+            @include('admins.layouts._left')
+            <div class="col-md-9">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
