@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name')->default('');
             $table->enum('type', ['TNAS', 'TDAS'])->default('TNAS');
             $table->enum('size', [2, 4, 5, 8, 12, 16, 24])->default(2);
-            $table->json('excel');
+            $table->longText('excel');
             $table->unsignedSmallInteger('sort')->default(0);
             $table->timestamps();
         });

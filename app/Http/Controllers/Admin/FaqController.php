@@ -26,7 +26,7 @@ class FaqController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file), JSON_UNESCAPED_UNICODE) : null;
         Faq::create([
             'title' => $form_data['title'],
             'body' => $form_data['body'],
@@ -50,7 +50,7 @@ class FaqController extends Controller
         $faq->body = $request->body;
         if ($request->hasFile('file')) {
             $excel_data = readExcel($request->file);
-            $faq->excel = json_encode($excel_data);
+            $faq->excel = json_encode($excel_data, JSON_UNESCAPED_UNICODE);
         }
         $faq->subject_id = $request->subject_id;
         $faq->save();

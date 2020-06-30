@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->except('token');
-        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file), JSON_UNESCAPED_UNICODE) : null;
         Product::create([
             'name' => $form_data['name'],
             'size' => $form_data['size'],
@@ -52,7 +52,7 @@ class ProductController extends Controller
         $product->sort = $request->sort;
         if ($request->hasFile('file')) {
             $excel_data = readExcel($request->file);
-            $product->excel = json_encode($excel_data);
+            $product->excel = json_encode($excel_data, JSON_UNESCAPED_UNICODE);
         }
         $product->save();
         return redirect(route('admin.product.index'));

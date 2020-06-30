@@ -26,7 +26,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file, JSON_UNESCAPED_UNICODE)) : null;
         Article::create([
             'body' => $form_data['body'],
             'excel' => $excel_data,
@@ -48,7 +48,7 @@ class ArticleController extends Controller
         $article->body = $request->body;
         if ($request->hasFile('file')) {
             $excel_data = readExcel($request->file);
-            $article->excel = json_encode($excel_data);
+            $article->excel = json_encode($excel_data, JSON_UNESCAPED_UNICODE);
         }
         $article->category_id = $request->category_id;
         $article->save();

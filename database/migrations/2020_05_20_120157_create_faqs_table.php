@@ -17,7 +17,7 @@ class CreateFaqsTable extends Migration
             $table->id();
             $table->string('title');
             $table->json('body');
-            $table->json('excel');
+            $table->longText('excel');
             $table->unsignedBigInteger('subject_id')->default(0);
             $table->timestamps();
         });

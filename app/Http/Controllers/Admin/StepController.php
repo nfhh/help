@@ -26,7 +26,7 @@ class StepController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file)) : null;
+        $excel_data = $request->hasFile('file') ? json_encode(readExcel($request->file), JSON_UNESCAPED_UNICODE) : null;
         Step::create([
             'body' => $form_data['body'],
             'excel' => $excel_data,
@@ -49,7 +49,7 @@ class StepController extends Controller
         $step->body = $request->body;
         if ($request->hasFile('file')) {
             $excel_data = readExcel($request->file);
-            $step->excel = json_encode($excel_data);
+            $step->excel = json_encode($excel_data, JSON_UNESCAPED_UNICODE);
         }
         $step->product_id = $request->product_id;
         $step->sort = $request->sort;
