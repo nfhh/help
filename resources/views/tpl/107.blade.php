@@ -15,7 +15,7 @@
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
                     $text = preg_replace($pattern, '', $v);
-                    $str .= '<a href="' . $href . '">' . $excel[$text][$lan] . '</a>';
+                    $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
                 }
@@ -32,7 +32,7 @@
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
                     $text = preg_replace($pattern, '', $v);
-                    $str .= '<a href="' . $href . '">' . $excel[$text][$lan] . '</a>';
+                    $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
                 }

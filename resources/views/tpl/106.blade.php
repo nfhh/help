@@ -9,7 +9,7 @@ foreach ($vars as $var) {
                 preg_match($pattern, $img, $matches2);
                 $href = $matches2[1];
                 $img = preg_replace($pattern, '', $img);
-                $str .= '<a href="' . $href . '"><img class="img-fluid" src="' . $img . '"/></a>';
+                $str .= '<a target="_blank" href="' . $href . '"><img class="img-fluid" src="' . $img . '"/></a>';
             } else {
                 $str .= '<img src="' . $img . '" class="img-fluid">';
             }
@@ -26,7 +26,7 @@ foreach ($vars as $var) {
                 preg_match($pattern, $v, $matches3);
                 $href2 = $matches3[1];
                 $v = preg_replace($pattern, '', $v);
-                $str .= '<a href="' . $href2 . '">' . $excel[$v][$lan] . '</a>';
+                $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$v][$lan] . '</a>';
             } else {
                 $str .= $excel[$v][$lan];
             }
