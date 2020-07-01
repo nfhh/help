@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Step;
-use App\Models\ProductExcel;
-use App\Models\Template;
 use App\Models\Template2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -60,7 +58,7 @@ class ProductController extends Controller
 
     public function listStepByproductId($product_id)
     {
-        $steps = Step::with('product')->where('product_id', $product_id)->get();
+        $steps = Step::with('product')->where('product_id', $product_id)->orderBy('sort')->get();
         $product = Product::findOrFail($product_id);
         return view('admins.products.steps.index', compact('steps', 'product'));
     }

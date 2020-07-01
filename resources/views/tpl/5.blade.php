@@ -9,7 +9,7 @@ foreach ($vars as $var) {
                 preg_match($pattern, $img, $matches2);
                 $href = $matches2[1];
                 $img = preg_replace($pattern, '', $img);
-                $str .= '<a href="' . $href . '"><img class="img-fluid" src="' . $img . '/></a>';
+                $str .= '<a href="' . $href . '"><img class="img-fluid" src="' . $img . '"/></a>';
             } else {
                 $str .= '<img src="' . $img . '" class="img-fluid">';
             }
