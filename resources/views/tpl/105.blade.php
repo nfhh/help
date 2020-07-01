@@ -4,8 +4,8 @@ foreach ($vars as $var) {
     if ($var[0] === '$' && $var[strlen($var) - 1] === '$') {
         preg_match('/\$(.*)\$/', $var, $matches1);
         foreach (explode('|', $matches1[1]) as $img) {
-            if ($img[strlen($img) - 1] === ')') {
-                $pattern = '/\((.*)\)/';
+            if ($img[strlen($img) - 1] === ']') {
+                $pattern = '/\[(.*)\]/';
                 preg_match($pattern, $img, $matches2);
                 $href = $matches2[1];
                 $img = preg_replace($pattern, '', $img);

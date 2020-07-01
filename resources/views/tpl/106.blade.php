@@ -4,8 +4,8 @@ foreach ($vars as $var) {
     if ($var[0] === '$' && $var[strlen($var) - 1] === '$') {
         preg_match('/\$(.*)\$/', $var, $matches1);
         foreach (explode('|', $matches1[1]) as $img) {
-            if ($img[strlen($img) - 1] === ')') {
-                $pattern = '/\((.*)\)/';
+            if ($img[strlen($img) - 1] === ']') {
+                $pattern = '/\[(.*)\]/';
                 preg_match($pattern, $img, $matches2);
                 $href = $matches2[1];
                 $img = preg_replace($pattern, '', $img);
@@ -21,7 +21,15 @@ foreach ($vars as $var) {
     $str .= '<li><p>';
     if (strpos($var, '|') !== false) {
         foreach (explode('|', $mid) as $v) {
-            $str .= $excel[$v][$lan];
+            if ($v[strlen($v) - 1] === ']') {
+                $pattern = '/\[(.*)\]/';
+                preg_match($pattern, $v, $matches3);
+                $href2 = $matches3[1];
+                $v = preg_replace($pattern, '', $v);
+                $str .= '<a href="' . $href2 . '">' . $excel[$v][$lan] . '</a>';
+            } else {
+                $str .= $excel[$v][$lan];
+            }
         }
     } else {
         $str .= $excel[$mid][$lan];
