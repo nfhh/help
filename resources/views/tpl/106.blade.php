@@ -32,7 +32,15 @@ foreach ($vars as $var) {
             }
         }
     } else {
-        $str .= $excel[$mid][$lan];
+        if ($mid[strlen($mid) - 1] === ']') {
+            $pattern = '/\[(.*)\]/';
+            preg_match($pattern, $mid, $matches3);
+            $href2 = $matches3[1];
+            $mid = preg_replace($pattern, '', $mid);
+            $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$mid][$lan] . '</a>';
+        } else {
+            $str .= $excel[$mid][$lan];
+        }
     }
     $str .= '</p></li>';
 }

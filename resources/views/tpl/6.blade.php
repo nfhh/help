@@ -21,12 +21,29 @@ foreach ($vars as $var) {
     $str .= '<li><p>';
     if (strpos($var, '|') !== false) {
         foreach (explode('|', $mid) as $v) {
-            $str .= $excel[$v][$lan];
+            if ($v[strlen($v) - 1] === ']') {
+                $pattern = '/\[(.*)\]/';
+                preg_match($pattern, $v, $matches3);
+                $href2 = $matches3[1];
+                $v = preg_replace($pattern, '', $v);
+                $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$v][$lan] . '</a>';
+            } else {
+                $str .= $excel[$v][$lan];
+            }
         }
     } else {
-        $str .= $excel[$mid][$lan];
+        if ($mid[strlen($mid) - 1] === ']') {
+            $pattern = '/\[(.*)\]/';
+            preg_match($pattern, $mid, $matches3);
+            $href2 = $matches3[1];
+            $mid = preg_replace($pattern, '', $mid);
+            $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$mid][$lan] . '</a>';
+        } else {
+            $str .= $excel[$mid][$lan];
+        }
     }
-    $str .= '</p></li></ul>';
+    $str .= '</p></li>';
 }
+$str .= '</ul>';
 echo $str;
 ?>
