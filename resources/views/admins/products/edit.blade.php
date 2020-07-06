@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">编辑安装指南型号</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.product.update',$product->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.product.update',$product->id) }}" method="post">
                 @csrf
                 @method('put')
                 <div class="form-group">
@@ -28,11 +28,6 @@
                             <option value="{{$v}}" @if($v==$product->type) selected @endif>{{$v}}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="file">上传Excel</label>
-                    <input type="file" class="form-control-file" id="file" name="file"
-                           accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
                 </div>
                 <div class="form-group">
                     <label for="sort">排序</label>

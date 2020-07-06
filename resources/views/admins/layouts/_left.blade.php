@@ -6,6 +6,9 @@
         <a href="{{ route('admin.article.index')  }}" class="list-group-item list-group-item-action">
             TOS帮助文章管理
         </a>
+        <a href="{{ route('admin.guide_excel.create')  }}" class="list-group-item list-group-item-action">
+            上传安装指南翻译表
+        </a>
         <a href="{{ route('admin.product.index')  }}" class="list-group-item list-group-item-action">
             安装指南型号管理
         </a>

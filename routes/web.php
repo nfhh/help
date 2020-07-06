@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |[]
 */
-Route::get('/test', function () {
-    $data = [
-        ['slug' => 'Table_of_Contents', 'zh-cn' => '目录', 'zh-hk' => '目錄'],
-        ['slug' => 'Overview', 'zh-cn' => '概要', 'zh-hk' => '概要'],
-    ];
-});
 
 Route::get('/', function () {
     return redirect('/toshelp');
@@ -49,6 +43,8 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::post('/file/destroy', 'FileController@destroy')->name('file.destroy');
     Route::resource('/file', 'FileController')->except('destroy');
     Route::resource('/product', 'ProductController');
+    Route::get('/guide_excel/create', 'GuideExcelController@create')->name('guide_excel.create');
+    Route::post('/guide_excel/store', 'GuideExcelController@store')->name('guide_excel.store');
     Route::get('/product/step/create', 'ProductController@createStep')->name('product.steps.create');
     Route::get('/product/step/{product_id}', 'ProductController@listStepByproductId')->name('product.steps')->where('product_id', '[0-9]+');
     Route::post('/product/steps/copy', 'ProductController@copySteps')->name('product.steps.copy');

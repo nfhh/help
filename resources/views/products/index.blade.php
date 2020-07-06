@@ -18,9 +18,6 @@
     <div class="container pt-5 h-100">
         <div class="row align-items-center h-100 py-2">
             <div class="col-md-8 bg-white mx-auto">
-                @php
-                    $excel = json_decode($product->excel, true);
-                @endphp
                 @foreach ($steps as $step)
                     <div class="py-3 px-4">
                         @php
