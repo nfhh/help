@@ -65,6 +65,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $files->links() }}
         </div>
     </div>
 @endsection
