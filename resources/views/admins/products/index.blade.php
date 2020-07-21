@@ -54,7 +54,7 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ route('admin.product.steps.copy') }}">
                         @csrf
-                        <input type="text" class="form-control" name="old_product_id" id="old_product_id">
+                        <input type="hidden" class="form-control" name="old_product_id" id="old_product_id">
                         <div class="form-group">
                             <label for="product_id" class="col-form-label">复制到:</label>
                             <select class="form-control" name="product_id" id="product_id">
