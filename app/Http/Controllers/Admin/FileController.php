@@ -13,7 +13,8 @@ class FileController extends Controller
     public function index()
     {
         $dirs = Dir::with('children')->roots()->get();
-        $query = request()->query();
+        $dir_id = request()->query('dir_id');
+        $query = $dir_id ? ['dir_id' => $dir_id] : [];
         $files = File::with('dir')->where($query)->orderBy('id', 'DESC')->paginate(10);
         return view('admins.files.index', compact('files', 'dirs', 'query'));
     }

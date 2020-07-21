@@ -65,7 +65,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $files->links() }}
+            {{ $files->withQueryString()->links() }}
         </div>
     </div>
 @endsection
