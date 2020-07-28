@@ -29,7 +29,7 @@ return [
 	"video_guide" => "VİDEO KULLANIM REHBERLERİ",
 	"reg_product" => "Ürün Kaydı",
 	"about_terra_master" => "TerraMaster Hakkında",
-	"notes" => "Not",
+	"note" => "Not",
 	"warning" => "Uyarı",
 	"back" => "Geri",
 	"tnas" => "Ağa Bağlı Depolama (TNAS)",

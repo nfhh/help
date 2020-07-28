@@ -29,7 +29,7 @@ return [
 	"video_guide" => "VIDEO-BENUTZERHANDBÜCHER",
 	"reg_product" => "Produkt registrieren",
 	"about_terra_master" => "Über TerraMaster",
-	"notes" => "Hinweis",
+	"note" => "Hinweis",
 	"warning" => "Warnung",
 	"back" => "Zurück",
 	"tnas" => "Network Attached Storage (TNAS)",

@@ -29,7 +29,7 @@ return [
 	"video_guide" => "사용 설명서 동영상",
 	"reg_product" => "제품 등록",
 	"about_terra_master" => "TerraMaster테라마소개",
-	"notes" => "참고",
+	"note" => "참고",
 	"warning" => "경고",
 	"back" => "뒤로",
 	"tnas" => "네트워크 연결 스토리지 (TNAS)",

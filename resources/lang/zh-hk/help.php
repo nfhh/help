@@ -29,7 +29,7 @@ return [
 	"video_guide" => "視頻使用者指南",
 	"reg_product" => "產品註冊",
 	"about_terra_master" => "關於鐵威馬",
-	"notes" => "注意",
+	"note" => "注意",
 	"warning" => "警告",
 	"back" => "返回",
 	"tnas" => "网络存储（TNAS）",

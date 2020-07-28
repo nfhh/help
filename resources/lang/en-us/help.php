@@ -29,7 +29,7 @@ return [
 	"video_guide" => "VIDEO USER GUIDES",
 	"reg_product" => "Register Product",
 	"about_terra_master" => "About TerraMaster",
-	"notes" => "Notes",
+	"note" => "Notes",
 	"warning" => "Warning",
 	"back" => "Back",
 	"tnas" => "Network Attached Storage (TNAS)",

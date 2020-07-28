@@ -29,7 +29,7 @@ return [
 	"video_guide" => "使用ガイド（ビデオ）",
 	"reg_product" => "製品を登録",
 	"about_terra_master" => "TerraMasterについて",
-	"notes" => "注意",
+	"note" => "注意",
 	"warning" => "警告",
 	"back" => "戻る",
 	"tnas" => "ネットワークアタッチトストレージ(TNAS)",

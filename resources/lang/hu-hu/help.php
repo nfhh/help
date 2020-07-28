@@ -29,7 +29,7 @@ return [
 	"video_guide" => "FELHASZNÁLÓI ÚTMUTATÓ VIDEÓK",
 	"reg_product" => "Termékregisztráció",
 	"about_terra_master" => "A TerraMaster névjegye",
-	"notes" => "Jegyzet",
+	"note" => "Jegyzet",
 	"warning" => "Figyelmeztetés",
 	"back" => "Frissítés …",
 	"tnas" => "Hálózati tároló (TNAS)",

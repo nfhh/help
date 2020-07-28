@@ -29,7 +29,7 @@ return [
 	"video_guide" => "PRZEWODNIKI WIDEO UŻYTKOWNIKÓW",
 	"reg_product" => "Zarejestruj produkt",
 	"about_terra_master" => "O firmie TerraMaster",
-	"notes" => "Uwaga",
+	"note" => "Uwaga",
 	"warning" => "Ostrzeżenie",
 	"back" => "Wstecz",
 	"tnas" => "Magazyn sieciowy (TNAS)",
