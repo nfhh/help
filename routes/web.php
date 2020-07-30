@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |[]
 */
 
+
+Route::get('/test', function () {
+    $arr = [
+        'a' => '一',
+        'b' => '二',
+        'c' => '三',
+    ];
+    $cl = collect([
+        [
+            'name' => 'a',
+            'age' => 11,
+        ], [
+            'name' => 'b',
+            'age' => 12,
+        ], ['name' => 'c',
+            'age' => 13,
+        ]
+    ]);
+    $clx = $cl->map(function ($item,$key) use ($arr) {
+        return $item['name'] = $arr[$item['name']];
+    });
+    dd($clx);
+});
+
 Route::get('/', function () {
     return redirect('/toshelp');
 });

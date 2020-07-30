@@ -1,5 +1,5 @@
 <div class="alert alert-warning">
-    <h2 class="h6"><strong>{{ trans('help.note') }}</strong></h2>
+    <h2 class="h6"><strong>{{ trans('help.warning') }}</strong></h2>
     <?php
     $str = '';
     foreach ($vars as $k => $var) {

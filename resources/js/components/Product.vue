@@ -47,6 +47,10 @@
                 type: String,
                 default: ''
             },
+            selected_type_id: {
+                type: String,
+                default: ''
+            },
             product_tip1: {
                 type: String,
                 default: ''
@@ -65,7 +69,6 @@
             sizes: [],
             selected_lan: 'cn',
             products: [],
-            selected_type_id: 'TNAS',
             selected_size_id: '2',
             disabled: true,
             index: 0,
