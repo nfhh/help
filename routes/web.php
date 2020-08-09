@@ -13,30 +13,6 @@ use Illuminate\Support\Facades\Route;
 |[]
 */
 
-
-Route::get('/test', function () {
-    $arr = [
-        'a' => '一',
-        'b' => '二',
-        'c' => '三',
-    ];
-    $cl = collect([
-        [
-            'name' => 'a',
-            'age' => 11,
-        ], [
-            'name' => 'b',
-            'age' => 12,
-        ], ['name' => 'c',
-            'age' => 13,
-        ]
-    ]);
-    $clx = $cl->map(function ($item,$key) use ($arr) {
-        return $item['name'] = $arr[$item['name']];
-    });
-    dd($clx);
-});
-
 Route::get('/', function () {
     return redirect('/toshelp');
 });
@@ -89,4 +65,6 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::post('/feedback/update', 'FeedbackController@update')->name('feedback.update');
     Route::get('/var', 'VarController@index')->name('var.index');
     Route::post('/var', 'VarController@handle')->name('var.handle');
+    Route::get('/alioss', 'AliossController@dir')->name('alioss.dir');
+    Route::get('/alioss/index', 'AliossController@index')->name('alioss.index');
 });

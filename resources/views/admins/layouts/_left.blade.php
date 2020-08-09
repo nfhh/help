@@ -33,6 +33,9 @@
         <a href="{{ route('admin.asset.index')  }}" class="list-group-item list-group-item-action">
             下载中心文件上传
         </a>
+        <a href="{{ route('admin.alioss.dir')  }}" class="list-group-item list-group-item-action">
+            OSS文件
+        </a>
         <a href="{{ route('admin.var.index')  }}" class="list-group-item list-group-item-action">
             变量替换
         </a>
