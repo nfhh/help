@@ -7,6 +7,7 @@
         <li>字体加粗 ** 比如：*变量a|变量b*；</li>
         <li>列表中插入图片 $$ 比如：$http://xxx.com/a.jpg$ 如果要带链接 $http://xxx.com/a.jpg$[https://baidu.com]；</li>
         <li>纯图片样式只需url即可 比如：http://xxx.com/b.jpg 如果要链接 http://xxx.com/b.jpg[https://baidu.com]；</li>
+        <li>纯图片跳不同视频链接以英文分号分隔 比如：http://xxx.com/c.jpg[https://youku.com;https://youtube.com]；</li>
         <li>插入链接 变量[url] 比如：变量a[https://xxx.com]；</li>
         <li>表格 变量用竖线 | 分隔 比如：变量a|变量b 就是表格的一行 每行回车分隔。</li>
     </ul>
