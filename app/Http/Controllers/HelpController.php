@@ -12,8 +12,8 @@ class HelpController extends Controller
     {
         $category_id = $request->query('category_id', 2);
         $article = Article::where('category_id', $category_id)->first();
-        $categories = Category::with('nodes')->roots()->get()->toArray();
+        $fenlei = Category::findAllToTree();
         $parent_id = 'tos_help';
-        return view('helps.index', compact('categories', 'article', 'parent_id'));
+        return view('helps.index', compact('fenlei', 'article', 'parent_id'));
     }
 }

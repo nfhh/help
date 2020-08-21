@@ -7,7 +7,7 @@
  *
  * Project: https://github.com/chniter/bstreeview
  */
-;(function ($, window, document, undefined) {
+; (function ($, window, document, undefined) {
     "use strict";
     /**
      * Default bstreeview  options.
@@ -31,7 +31,6 @@
         treeviewItemStateIcon: '<i class="state-icon"></i>',
         treeviewItemIcon: '<i class="item-icon"></i>'
     };
-
     /**
      * BsTreeview Plugin constructor.
      * @param {*} element
@@ -43,7 +42,6 @@
         this.settings = $.extend({}, defaults, options);
         this.init();
     }
-
     /**
      * Avoid plugin conflict.
      */
@@ -65,7 +63,7 @@
             // Set main bstreeview class to element.
             $(this.element).addClass('bstreeview');
 
-            this.initData({nodes: this.tree});
+            this.initData({ nodes: this.tree });
             var _this = this;
             this.build($(this.element), this.tree, 0);
             // Update angle icon on collapse
@@ -77,7 +75,8 @@
                 if (e.target.hasAttribute('href')) {
                     if (_this.settings.openNodeLinkOnNewTab) {
                         window.open(e.target.getAttribute('href'), '_blank');
-                    } else {
+                    }
+                    else {
                         window.location = e.target.getAttribute('href');
                     }
                 }
@@ -140,7 +139,7 @@
                 treeItem.append(node.text);
                 // Reset node href if present
                 if (node.href) {
-                    treeItem.attr('wire:click', `getHelp(${node.id})`);
+                    treeItem.attr('href', node.href);
                 }
                 // Add class to node if present
                 if (node.class) {

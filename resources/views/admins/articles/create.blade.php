@@ -8,7 +8,7 @@
         <div class="card-body">
             @include('admins.layouts._g')
             <art route="{{ route('admin.article.store') }}"
-                 :categories="{{ $categories }}"
+                 :categories="{{ json_encode($categories) }}"
                  :templates="{{ $templates }}"></art>
         </div>
     </div>

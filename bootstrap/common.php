@@ -77,3 +77,30 @@ function formatBytes($size, $precision = 2)
     return $size;
 }
 
+function orderFormat($cate, $html = '--', $pid = 0, $level = 0)
+{
+    $arr = [];
+    foreach ($cate as $v) {
+        if ($v['parent_id'] == $pid) {
+            $v['level'] = $level + 1;
+            $v['html'] = str_repeat($html, $level);
+            $arr[] = $v;
+            $arr = array_merge($arr, orderFormat($cate, $html, $v['id'], $level + 1));
+        }
+    }
+    return $arr;
+}
+
+function layerFormat($cate, $name = 'nodes', $pid = 0)
+{
+    $arr = [];
+    foreach ($cate as $v) {
+        if ($v['parent_id'] == $pid) {
+            if (!empty(layerFormat($cate, $name, $v['id']))) {
+                $v[$name] = layerFormat($cate, $name, $v['id']);
+            }
+            $arr[] = $v;
+        }
+    }
+    return $arr;
+}

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="/css/bstreeview.min.css">
+    <link href="/css/bstreeview.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="container">
@@ -27,9 +27,49 @@
                 }
                 return $arr1;
             }
-                $categories = replaceKey($categories,$lan);
+                $fenlei = replaceKey($fenlei,$lan);
         @endphp
-        <livewire:help-left :categories="$categories"/>
+        <div class="container pt-3">
+            <div class="row">
+                <div class="col-md-3" id="tree">
+                </div>
+                <div class="col-md-9">
+                    <div class="bg-white p-3 content">
+                        @php
+                            $excel = json_decode($article->excel, true);
+                            $body_arr = json_decode($article->body, true);
+                        @endphp
+
+                        @include('layouts.split_var')
+                        <feedback
+                            text1="{{ trans('help.feedback_res') }}"
+                            text2="{{ trans('help.ask') }}"
+                            text3="{{ trans('help.yes') }}"
+                            text4="{{ trans('help.no') }}"
+                            text5="{{ trans('help.ask_p1') }}"
+                            text6="{{ trans('help.ask_ch1') }}"
+                            text7="{{ trans('help.ask_ch2') }}"
+                            text8="{{ trans('help.ask_ch3') }}"
+                            text9="{{ trans('help.ask_ch4') }}"
+                            text10="{{ trans('help.ask_p2') }}"
+                            text11="{{ trans('help.submit') }}"
+                            text12="{{ trans('help.cancel') }}"
+                        ></feedback>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+@endsection
+@section('js')
+    <script src="/js/bstreeview.js"></script>
+    <script>
+        var json = `<?php echo json_encode($fenlei, JSON_UNESCAPED_UNICODE);?>`;
+        console.log(JSON.parse(json))
+        $('#tree').bstreeview({
+            data: JSON.parse(json),
+            openNodeLinkOnNewTab: false
+        });
+    </script>
 @endsection
 

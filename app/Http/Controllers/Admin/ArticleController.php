@@ -19,7 +19,7 @@ class ArticleController extends Controller
     public function create()
     {
         $templates = Template::all();
-        $categories = Category::with('grandchildren')->roots()->get();
+        $categories = Category::findAllToOrder();
         return view('admins.articles.create', compact('categories', 'templates'));
     }
 
@@ -39,7 +39,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $templates = Template::all();
-        $categories = Category::with('grandchildren')->roots()->get();
+        $categories = Category::findAllToOrder();
         return view('admins.articles.edit', compact('article', 'categories', 'templates'));
     }
 

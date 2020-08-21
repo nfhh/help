@@ -14,19 +14,7 @@
                     <select class="form-control" name="parent_id" id="parent_id">
                         <option value="0">顶级目录</option>
                         @foreach($categories as $item)
-                            @if(!(empty($item['grandchildren'])))
-                                <option value="{{ $item['id'] }}" @if($item['id'] == $category->parent_id) selected @endif>{{ $item['zh-cn'] }}</option>
-                                @foreach($item['grandchildren'] as $child)
-                                    <option value="{{ $child['id'] }}" @if($child['id'] == $category->parent_id) selected @endif>--{{ $child['zh-cn'] }}</option>
-                                    @if(!(empty($child['grandchildren'])))
-                                        @foreach($child['grandchildren'] as $childx)
-                                            <option value="{{ $childx['id'] }}" disabled>----{{ $childx['zh-cn'] }}</option>
-                                        @endforeach
-                                    @endif
-                                @endforeach
-                            @else
-                                <option value="{{ $item['id'] }}" @if($item['id'] == $category->parent_id) selected @endif>{{ $item['zh-cn'] }}</option>
-                            @endif
+                            <option value="{{ $item['id'] }}" {{$item['id'] == $category['parent_id'] ?"selected":""}}>{{$item['html']}}{{ $item['zh-cn'] }}</option>
                         @endforeach
                     </select>
                 </div>

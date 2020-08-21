@@ -16,60 +16,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($categories['data'] as $category)
-                    @if(!(empty($category['grandchildren'])))
-                        <tr>
-                            <td>{{ $category['zh-cn'] }}</td>
-                            <td>{{ $category['sort'] }}</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <a class="btn btn-secondary"
-                                       href="{{ route('admin.category.edit',$category['id']) }}">编辑</a>
-                                    <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
-                                </div>
-                            </td>
-                        </tr>
-                        @foreach($category['grandchildren'] as $child)
-                            <tr>
-                                <td>-- {{ $child['zh-cn'] }}</td>
-                                <td>{{ $child['sort'] }}</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a class="btn btn-secondary"
-                                           href="{{ route('admin.category.edit',$child['id']) }}">编辑</a>
-                                        <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            @if(!(empty($child['grandchildren'])))
-                                @foreach($child['grandchildren'] as $childx)
-                                    <tr>
-                                        <td>---- {{ $childx['zh-cn'] }}</td>
-                                        <td>{{ $childx['sort'] }}</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a class="btn btn-secondary"
-                                                   href="{{ route('admin.category.edit',$childx['id']) }}">编辑</a>
-                                                <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        @endforeach
-                    @else
-                        <tr>
-                            <td>{{ $category['zh-cn'] }}</td>
-                            <td>{{ $category['sort'] }}</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a class="btn btn-secondary"
-                                       href="{{ route('admin.category.edit',$category['id']) }}">编辑</a>
-                                    <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
-                                </div>
-                            </td>
-                        </tr>
-                    @endif
+                @foreach($categories as $item)
+                    <tr>
+                        <td>{{$item['html']}}{{ $item['zh-cn'] }}</td>
+                        <td>{{ $item['sort'] }}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-secondary"
+                                   href="{{ route('admin.category.edit',$item['id']) }}">编辑</a>
+                                <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

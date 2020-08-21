@@ -1,11 +1,13 @@
-// Fonts
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+$fa-font-path: "/fonts";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid";
 
 .divide {
     border-bottom: 2px dashed #343a40;
@@ -101,6 +103,10 @@ p {
 
 .my-table {
     border-bottom: 1px solid #dee2e6;
+}
+
+.bstreeview {
+    height: 100%;
 }
 
 
