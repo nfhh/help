@@ -8,6 +8,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+    </style>
     @yield('css')
     </head>
 <body>

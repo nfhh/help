@@ -1,13 +1,6 @@
 @extends('layouts.white')
-@section('css')
-    <style>
-        html, body {
-            height: 100%;
-        }
-    </style>
-@endsection
 @section('content')
-    <div class="container fixed-top">
+    <div class="container">
         <nav>
             <ol class="breadcrumb bg-transparent">
                 <li class="breadcrumb-item"><a href="/quickguide" class="text-dark">{{ trans('help.back') }}</a></li>
@@ -15,8 +8,8 @@
             </ol>
         </nav>
     </div>
-    <div class="container pt-5 h-100">
-        <div class="row align-items-center h-100 py-2">
+    <div class="container">
+        <div class="row align-items-center py-2">
             <div class="col-md-8 bg-white mx-auto">
                 @foreach ($steps as $step)
                     <div class="py-3 px-4">
@@ -40,7 +33,7 @@
             </div>
         </div>
     </div>
-    <div class="container fixed-bottom">
+    <div class="container">
         {{ $steps->withQueryString()->links() }}
     </div>
 @endsection

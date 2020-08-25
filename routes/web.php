@@ -14,16 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function () {
-    $arr = [
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f',
-        'g',
-    ];
-    dd(array_chunk($arr, 2));
+
 });
 
 Route::get('/', function () {
