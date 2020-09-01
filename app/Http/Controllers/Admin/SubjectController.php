@@ -55,7 +55,7 @@ class SubjectController extends Controller
                 if ($row['var'] === $item['var']) {
                     if ($row['zh-cn'] !== $item['zh-cn'] || $row['zh-hk'] !== $item['zh-hk'] || $row['en-us'] !== $item['en-us'] || $row['ko-kr'] !== $item['ko-kr'] || $row['ja-jp'] !== $item['ja-jp'] || $row['de-de'] !== $item['de-de'] || $row['fr-fr'] !== $item['fr-fr'] || $row['it-it'] !== $item['it-it'] || $row['es-es'] !== $item['es-es'] || $row['hu-hu'] !== $item['hu-hu'] || $row['pl-pl'] !== $item['pl-pl'] || $row['tr-tr'] !== $item['tr-tr'] || $row['ru-ru'] !== $item['ru-ru']) {
                         unset($item['created_at']);
-                        unset($item['updated_at']);
+                        $item['updated_at'] = now();
                         $update[] = array_merge($item, $row);
                     }
                     $f = false;
