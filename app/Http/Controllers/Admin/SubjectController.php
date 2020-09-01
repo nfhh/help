@@ -28,7 +28,6 @@ class SubjectController extends Controller
             $arr['created_at'] = now();
             $arr['updated_at'] = now();
         }
-        Subject::truncate();
         Subject::insert($excel_data);
         return redirect(route('admin.subject.index'));
     }
