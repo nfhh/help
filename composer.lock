@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c23126024d7db18c6de23fc92ba3ac1",
+    "content-hash": "f04442981098d628bd7035d1208f7847",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -1783,6 +1783,58 @@
                 "vector"
             ],
             "time": "2020-08-28T19:41:55+00:00"
+        },
+        {
+            "name": "mavinoo/laravel-batch",
+            "version": "v2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mavinoo/laravelBatch.git",
+                "reference": "05f9ac177cc696245506127e0cdcc858daa9fe65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mavinoo/laravelBatch/zipball/05f9ac177cc696245506127e0cdcc858daa9fe65",
+                "reference": "05f9ac177cc696245506127e0cdcc858daa9fe65",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mavinoo\\Batch\\BatchServiceProvider"
+                    ],
+                    "aliases": {
+                        "Batch": "Mavinoo\\Batch\\BatchFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mavinoo\\Batch\\": "src/"
+                },
+                "files": [
+                    "src/Common/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Ghanbari",
+                    "email": "mavin.developer@gmail.com"
+                }
+            ],
+            "description": "Insert and update batch (bulk) in laravel",
+            "time": "2020-05-20T09:50:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6885,6 +6937,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

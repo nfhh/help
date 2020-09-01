@@ -60,8 +60,13 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::post('/product/step/destroy', 'ProductController@destroyStep')->name('product.steps.destroy');
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
-    Route::resource('/subject', 'SubjectController')->except('destroy');
-    Route::delete('/faq/truncate', 'FaqController@truncate')->name('faq.truncate');
+
+    Route::get('/subject','SubjectController@index')->name('subject.index');
+    Route::get('/subject/create','SubjectController@create')->name('subject.create');
+    Route::post('/subject/store','SubjectController@store')->name('subject.store');
+    Route::get('/subject/edit','SubjectController@edit')->name('subject.edit');
+    Route::put('/subject/update','SubjectController@update')->name('subject.update');
+
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
     Route::get('/asset', 'AssetController@index')->name('asset.index');
