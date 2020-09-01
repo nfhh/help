@@ -6,7 +6,7 @@
             <h2 class="h5 mb-0">FAQ分类管理</h2>
             <div class="btn-group" role="group">
                 <a class="btn btn-primary" href="{{ route('admin.subject.create') }}">添加</a>
-                <a class="btn btn-warning" href="{{ route('admin.subject.edit') }}">编辑</a>
+                <a class="btn btn-secondary" href="{{ route('admin.subject.edit') }}">编辑</a>
             </div>
         </div>
         <div class="card-body">
