@@ -42,6 +42,12 @@ class CategoryController extends Controller
         return redirect(route('admin.category.index'));
     }
 
+    public function truncate()
+    {
+        Category::truncate();
+        return back()->with('success', '清空TOS帮助目录表成功！');
+    }
+
     public function destroy($id)
     {
         //

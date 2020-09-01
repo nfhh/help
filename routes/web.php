@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::get('/home', 'HomeController@index');
     Route::get('/edit', 'AdminController@edit')->name('admin.edit');
     Route::post('/update', 'AdminController@update')->name('admin.update');
+    Route::delete('/category/truncate', 'CategoryController@truncate')->name('category.truncate');
     Route::resource('/category', 'CategoryController');
     Route::resource('/article', 'ArticleController');
     Route::post('/file/destroy', 'FileController@destroy')->name('file.destroy');
@@ -59,6 +61,7 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
     Route::resource('/subject', 'SubjectController')->except('destroy');
+    Route::delete('/faq/truncate', 'FaqController@truncate')->name('faq.truncate');
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
     Route::get('/asset', 'AssetController@index')->name('asset.index');

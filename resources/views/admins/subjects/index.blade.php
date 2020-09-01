@@ -4,9 +4,23 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h2 class="h5 mb-0">FAQ分类管理</h2>
-            <a class="btn btn-primary" href="{{ route('admin.subject.create') }}">添加</a>
+            <div class="btn-group" role="group">
+                <a class="btn btn-primary" href="{{ route('admin.subject.create') }}">添加</a>
+                <a class="btn btn-danger" href="javascript:;"
+                   onclick="if(confirm(`确定清空数据吗？`)){
+                               event.preventDefault(); document.getElementById('truncate-form').submit();
+                           }">
+                    清空数据
+                </a>
+            </div>
+            <form id="truncate-form" action="{{ route('admin.faq.truncate') }}" method="POST"
+                  style="display: none;">
+                @csrf
+                @method('delete')
+            </form>
         </div>
         <div class="card-body">
+            @include('common._message')
             <table class="table">
                 <thead>
                 <tr>

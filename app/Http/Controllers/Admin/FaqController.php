@@ -57,6 +57,12 @@ class FaqController extends Controller
         return redirect(route('admin.faq.index'));
     }
 
+    public function truncate()
+    {
+        Subject::truncate();
+        return back()->with('success', '清空FAQ分类表成功！');
+    }
+
     public function destroy($id)
     {
         //
