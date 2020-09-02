@@ -16,27 +16,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($subjects['data'] as $subject)
-                    @if(!(empty($subject['children'])))
+                @foreach($subjects as $subject)
+                    @if(!($subject->children->isEmpty()))
                         <tr>
                             <td>{{ $subject['zh-cn'] }}</td>
-                            <td>{{ $subject['sort'] }}</td>
+                            <td>{{ $subject->sort }}</td>
                         </tr>
-                        @foreach($subject['children'] as $child)
+                        @foreach($subject->children as $child)
                             <tr>
                                 <td>-- {{ $child['zh-cn'] }}</td>
-                                <td>{{ $child['sort'] }}</td>
+                                <td>{{ $child->sort }}</td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
                             <td>{{ $subject['zh-cn'] }}</td>
-                            <td>{{ $subject['sort'] }}</td>
+                            <td>{{ $subject->sort }}</td>
                         </tr>
                     @endif
                 @endforeach
                 </tbody>
             </table>
+            {{ $subjects->links() }}
         </div>
     </div>
 @endsection

@@ -11,7 +11,7 @@ class SubjectController extends Controller
 {
     public function index()
     {
-        $subjects = Subject::with('children')->roots()->paginate(10)->toArray();
+        $subjects = Subject::with('children')->roots()->paginate(10);
         return view('admins.subjects.index', compact('subjects'));
     }
 
