@@ -33,7 +33,7 @@
                                 @foreach($subject->children as $child)
                                     <tr>
                                         <td>-- {{ $child['zh-cn'] }}</td>
-                                        <td>{{ $subject->var }}</td>
+                                        <td>{{ $child->var }}</td>
                                         <td><a href="javascript:;" onclick="del({{ $child->id }})"
                                                class="btn btn-sm btn-danger">删除</a></td>
                                         <td><input type="number" class="form-control" name="sorts[{{ $child->id }}]"
@@ -65,6 +65,8 @@
                     if (res.data.code === 0) {
                         alert(res.data.message);
                         location.reload();
+                    } else {
+                        alert(res.data.message);
                     }
                 }).catch(function (err) {
                     console.log(err);
