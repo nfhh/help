@@ -66,6 +66,7 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::post('/subject/store','SubjectController@store')->name('subject.store');
     Route::get('/subject/edit','SubjectController@edit')->name('subject.edit');
     Route::put('/subject/update','SubjectController@update')->name('subject.update');
+    Route::delete('/subject/destroy/{id}','SubjectController@destroy')->name('subject.destroy');
 
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');

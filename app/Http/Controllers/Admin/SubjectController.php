@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use App\Models\Subject;
 use Mavinoo\Batch\BatchFacade;
 
@@ -11,7 +12,7 @@ class SubjectController extends Controller
 {
     public function index()
     {
-        $subjects = Subject::with('children')->roots()->paginate(10);
+        $subjects = Subject::with('children')->roots()->get();
         return view('admins.subjects.index', compact('subjects'));
     }
 
@@ -66,5 +67,36 @@ class SubjectController extends Controller
         $subject->children()->createMany($add);
 
         return redirect(route('admin.subject.index'))->with('success', '编辑FAQ分类管理成功！');
+    }
+
+    public function update()
+    {
+        $id_sort = request('sorts');
+        $update = [];
+        foreach ($id_sort as $k => $v) {
+            $update[] = [
+                'id' => $k,
+                'sort' => $v,
+            ];
+        }
+        $subjectInstance = new Subject;
+        BatchFacade::update($subjectInstance, $update, 'id');
+        return redirect(route('admin.subject.index'))->with('success', 'FAQ分类排序成功！');
+    }
+
+    public function destroy($id)
+    {
+        $faqs = Faq::where('subject_id', $id)->get();
+        if (!($faqs->isEmpty())) {
+            return response()->json([
+                'code' => -1,
+                'message' => '该分类下有文章删除失败！'
+            ]);
+        }
+        Subject::destroy($id);
+        return response()->json([
+            'code' => 0,
+            'message' => '删除分类成功！'
+        ]);
     }
 }
