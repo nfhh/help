@@ -21,7 +21,12 @@ class FaqController extends Controller
             $subjects = Subject::where('parent_id', $subject->parent_id)->get()->toArray();
             $faqs = Faq::where('subject_id', $subject_id)->paginate(10);
         }
-        return view('faqs.index', compact('subjects', 'faqs', 'parent_id'));
+
+        return view('faqs.index', [
+            'fenlei' => $subjects,
+            'faqs' => $faqs,
+            'parent_id' => $parent_id,
+        ]);
     }
 
     public function show(Faq $faq)
@@ -30,6 +35,10 @@ class FaqController extends Controller
         $subject = Subject::where('id', $subject_id)->first();
         $parent_id = $subject->parent_id;
         $subjects = Subject::where('parent_id', $parent_id)->get();
-        return view('faqs.show', compact('subjects', 'faq', 'parent_id'));
+        return view('faqs.show', [
+            'fenlei' => $subjects,
+            'faq' => $faq,
+            'parent_id' => $parent_id,
+        ]);
     }
 }

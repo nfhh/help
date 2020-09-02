@@ -8,12 +8,14 @@
         @else
             @include('partials.th_tab')
         @endif
+        @php
+            foreach($fenlei as &$item){
+                $item['text'] = $item[$lan];
+                $item['href'] = '/faq?subject_id='.$item['id'];
+            }
+        @endphp
         <div class="row pt-3">
-            <div class="col-md-3">
-                <div class="bg-white">
-                    @include('partials.left',['subjects'=>$subjects])
-                </div>
-            </div>
+            @include('common._tree')
             <div class="col-md-9">
                 <div class="bg-white p-3">
                     <h1 class="h3 pb-3">
@@ -52,3 +54,4 @@
         </div>
     </div>
 @endsection
+@include('common._tree-js')

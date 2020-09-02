@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
+@include('common._tree-css')
 @section('content')
     <div class="container">
         @include('partials.th_h')
         @include('partials.th_tab')
+        @php
+            foreach($fenlei as &$item){
+                $item['text'] = $item[$lan];
+                $item['href'] = '/faq?subject_id='.$item['id'];
+            }
+        @endphp
         <div class="row pt-3">
-            <div class="col-md-3">
-                <div class="bg-white">
-                    @include('partials.left',['subjects'=>$subjects])
-                </div>
-            </div>
+            @include('common._tree')
             <div class="col-md-9">
                 <div class="bg-white">
                     <div class="list-group list-group-flush">
@@ -50,12 +53,4 @@
         </div>
     </div>
 @endsection
-@section('js')
-    <script>
-        $('#n-box a').each(function () {
-            if ($(this).attr('href').includes(location.search)) {
-                $(this).addClass('active');
-            }
-        });
-    </script>
-@endsection
+@include('common._tree-js')

@@ -12,7 +12,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqs = Faq::with('subject')->paginate(10)->toArray();
+        $faqs = Faq::with('subject')->paginate(10);
         return view('admins.faqs.index', compact('faqs'));
     }
 
