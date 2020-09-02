@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Subject;
-use Illuminate\Http\Request;
 use Mavinoo\Batch\BatchFacade;
 
 
@@ -22,30 +21,24 @@ class SubjectController extends Controller
         return view('admins.subjects.create', compact('subjects'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $excel_data = $request->has('file') ? readExcel2($request->file) : [];
-        foreach ($excel_data as $k => &$arr) {
-            $arr['parent_id'] = $request->parent_id;
-            $arr['created_at'] = now();
-            $arr['updated_at'] = now();
-        }
-        Subject::insert($excel_data);
-        return redirect(route('admin.subject.index'));
-    }
-
-    public function edit()
-    {
-        $subjects = Subject::with('children')->roots()->get()->toArray();
-        return view('admins.subjects.edit', compact('subjects'));
-    }
-
-    public function update()
-    {
+        $subjects = Subject::all();
+        $excel_data = request()->has('file') ? readExcel2(request()->file) : [];
         $parent_id = request('parent_id');
+
+        if ($subjects->isEmpty()) {
+            foreach ($excel_data as $k => &$arr) {
+                $arr['parent_id'] = $parent_id;
+                $arr['created_at'] = now();
+                $arr['updated_at'] = now();
+            }
+            Subject::insert($excel_data);
+            return redirect(route('admin.subject.index'))->with('success', '添加FAQ分类管理成功！');
+        }
+
         $subject = Subject::findOrFail($parent_id); // str
         $subject_children = $subject->children->toArray();
-        $excel_data = request()->has('file') ? readExcel2(request()->file) : [];
 
         $update = [];
         $add = [];
