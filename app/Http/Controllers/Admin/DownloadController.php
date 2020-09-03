@@ -12,14 +12,14 @@ class DownloadController extends Controller
 {
     public function index()
     {
-        $downloads = Download::with(['menu', 'product'])->paginate(10)->toArray();
+        $downloads = Download::with(['menu', 'product'])->paginate(20);
         return view('admins.downloads.index', compact('downloads'));
     }
 
     public function create()
     {
         $products = Product::all();
-        $menus = Menu::all()->toArray();
+        $menus = Menu::all();
         return view('admins.downloads.create', compact('products', 'menus'));
     }
 
@@ -31,27 +31,35 @@ class DownloadController extends Controller
             'product_id' => $request->product_id,
             'menu_id' => $request->menu_id,
         ]);
-        return redirect(route('admin.download.index'));
+        return redirect(route('admin.download.index'))->with('success', '添加下载成功！');
     }
 
     public function edit(Download $download)
     {
         $products = Product::all();
-        $menus = Menu::all()->toArray();
+        $menus = Menu::all();
         return view('admins.downloads.edit', compact('products', 'menus', 'download'));
     }
 
     public function update(Request $request, Download $download)
     {
-        $download->product_id = $request->product_id;
-        $download->menu_id = $request->menu_id;
-        $download->body = $request->body;
-        $download->save();
-        return redirect(route('admin.download.index'));
+        $data = [];
+        if ($request->has('file')) {
+            $excel_data = readExcel2($request->file);
+            $data['body'] = json_encode($excel_data);
+        }
+        $data['product_id'] = $request->product_id;
+        $data['menu_id'] = $request->menu_id;
+        $download->update($data);
+        return redirect(route('admin.download.index'))->with('success', '编辑下载成功！');
     }
 
     public function destroy($id)
     {
-        //
+        Download::destroy($id);
+        return response()->json([
+            'code' => 0,
+            'message' => '删除成功！'
+        ]);
     }
 }

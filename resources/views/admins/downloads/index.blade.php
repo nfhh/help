@@ -7,6 +7,7 @@
             <a class="btn btn-primary" href="{{ route('admin.download.create') }}">添加</a>
         </div>
         <div class="card-body">
+            @include('common._message')
             <table class="table">
                 <thead>
                 <tr>
@@ -19,20 +20,20 @@
                 </thead>
                 <tr>
                     <?php
-                    foreach ($downloads['data'] as $download) {
-                    echo "<tr><td>{$download['product']['name']}</td><td>{$download['menu']['zh-cn']}</td>";
-                    $body = json_decode($download['body'], true);
+                    foreach ($downloads as $download) {
+                    echo "<tr><td>{$download->product->name}</td><td>{$download->menu['zh-cn']}</td>";
+                    $body = json_decode($download->body);
                     foreach ($body as $v) {
-                        if ($v['lan'] == 'zh-cn') {
-                            echo "<td>{$v['name']}</td><td>{$v['version']}</td>";
+                        if ($v->lan == 'zh-cn') {
+                            echo "<td>{$v->name}</td><td>{$v->version}</td>";
                             continue;
                         }
                     }?>
                     <td>
-                        <div class="btn-group" role="group">
+                        <div class="btn-group">
                             <a class="btn btn-secondary"
-                               href="{{ route('admin.download.edit',$download['id']) }}">编辑</a>
-                            <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
+                               href="{{ route('admin.download.edit',$download->id) }}">编辑</a>
+                            <a href="javascript:;" onclick="del({{ $download->id }})" class="btn btn-danger">删除</a>
                         </div>
                     </td>
                 </tr>
@@ -43,4 +44,22 @@
             </table>
         </div>
     </div>
+    <script>
+        function del(id) {
+            if (confirm(`确定删除id为 ${id} 的记录吗？`)) {
+                var url = '{{ route("admin.download.destroy", ":id") }}';
+                url = url.replace(':id', id);
+                axios.delete(url).then(function (res) {
+                    if (res.data.code === 0) {
+                        alert(res.data.message);
+                        location.reload();
+                    } else {
+                        alert(res.data.message);
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            }
+        }
+    </script>
 @endsection

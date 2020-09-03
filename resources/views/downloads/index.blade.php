@@ -8,6 +8,7 @@
                 <li class="breadcrumb-item active">{{ $product->name }}</li>
             </ol>
         </nav>
+        <h1 class="h2">下载中心</h1>
         <div class="row py-2">
             <div class="col-md-12 bg-white">
                 <ul class="nav nav-pills border-bottom-1 my-tab mb-3">
@@ -24,12 +25,12 @@
                             <table class="table">
                                 <thead>
                                 <tr class="table-active">
-                                    <th scope="col">{{ trans('help.name') }}</th>
-                                    <th scope="col">{{ trans('help.description') }}</th>
-                                    <th scope="col">{{ trans('help.version') }}</th>
-                                    <th scope="col">{{ trans('help.action') }}</th>
-                                    <th scope="col">{{ trans('help.size') }}</th>
-                                    <th scope="col">{{ trans('help.remark') }}</th>
+                                    <td>{{ trans('help.name') }}</td>
+                                    <td>{{ trans('help.description') }}</td>
+                                    <td>{{ trans('help.version') }}</td>
+                                    <td>{{ trans('help.action') }}</td>
+                                    <td>{{ trans('help.size') }}</td>
+                                    <td>{{ trans('help.remark') }}</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -45,7 +46,7 @@
                                         }
                                     @endphp
                                     <tr>
-                                        <th scope="row">{{ $nd['name'] }}</th>
+                                        <td>{{ $nd['name'] }}</td>
                                         <td>{{ $nd['description'] }}</td>
                                         <td>{{ $nd['version'] }}</td>
                                         <td><a href="{{ $nd['url'] }}">{{ trans('help.download') }}</a></td>
@@ -57,7 +58,6 @@
                             </table>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>

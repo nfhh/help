@@ -35,7 +35,7 @@
                                         <td>-- {{ $child['zh-cn'] }}</td>
                                         <td>{{ $child->var }}</td>
                                         <td><a href="javascript:;" onclick="del({{ $child->id }})"
-                                               class="btn btn-sm btn-danger">删除</a></td>
+                                               class="btn btn-danger">删除</a></td>
                                         <td><input type="number" class="form-control" name="sorts[{{ $child->id }}]"
                                                    value="{{ $child->sort }}"></td>
                                     </tr>

@@ -20,7 +20,7 @@
                     <label for="menu_id">类型</label>
                     <select name="menu_id" id="menu_id" class="form-control">
                         @foreach($menus as $menu)
-                            <option value="{{ $menu['id'] }}">{{ $menu['zh-cn'] }}</option>
+                            <option value="{{ $menu->id }}">{{ $menu['zh-cn'] }}</option>
                         @endforeach
                     </select>
                 </div>
