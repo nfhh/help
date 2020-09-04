@@ -14,8 +14,28 @@ use Illuminate\Support\Facades\Route;
 |[]
 */
 
-Route::get('/test', function () {
-
+Route::get('/genu', function () {
+    $users = [
+        [
+            'name' => 'nzj',
+            'email' => 'nzj@qq.com',
+            'password' => bcrypt('Terra0755'),
+        ],
+        [
+            'name' => 'hl',
+            'email' => 'hl@qq.com',
+            'password' => bcrypt('Terra0755'),
+        ], [
+            'name' => 'gql',
+            'email' => 'gql@qq.com',
+            'password' => bcrypt('Terra0755'),
+        ], [
+            'name' => 'hyp',
+            'email' => 'hyp@qq.com',
+            'password' => bcrypt('Terra0755'),
+        ]
+    ];
+    dd(\App\Models\Admin::insert($users));
 });
 
 Route::get('/', function () {
@@ -61,12 +81,12 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::resource('/step', 'StepController');
     Route::resource('/dir', 'DirController');
 
-    Route::get('/subject','SubjectController@index')->name('subject.index');
-    Route::get('/subject/create','SubjectController@create')->name('subject.create');
-    Route::post('/subject/store','SubjectController@store')->name('subject.store');
-    Route::get('/subject/edit','SubjectController@edit')->name('subject.edit');
-    Route::put('/subject/update','SubjectController@update')->name('subject.update');
-    Route::delete('/subject/destroy/{id}','SubjectController@destroy')->name('subject.destroy');
+    Route::get('/subject', 'SubjectController@index')->name('subject.index');
+    Route::get('/subject/create', 'SubjectController@create')->name('subject.create');
+    Route::post('/subject/store', 'SubjectController@store')->name('subject.store');
+    Route::get('/subject/edit', 'SubjectController@edit')->name('subject.edit');
+    Route::put('/subject/update', 'SubjectController@update')->name('subject.update');
+    Route::delete('/subject/destroy/{id}', 'SubjectController@destroy')->name('subject.destroy');
 
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
