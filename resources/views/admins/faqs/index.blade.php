@@ -17,14 +17,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($faqs['data'] as $faq)
+                    @foreach($faqs as $faq)
                         <tr>
-                            <td>{{ $faq['subject']['zh-cn'] }}</td>
-                            <td>{{ $faq['title'] }}</td>
+                            <td>{{ $faq->subject['zh-cn'] }}</td>
+                            <td>{{ $faq->title }}</td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-secondary"
-                                       href="{{ route('admin.faq.edit',$faq['id']) }}">编辑</a>
+                                       href="{{ route('admin.faq.edit',$faq->id) }}">编辑</a>
                                     <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
                                 </div>
                             </td>
@@ -32,6 +32,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{ $faqs->links() }}
             </div>
         </div>
     </div>
