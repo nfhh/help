@@ -34,11 +34,17 @@
                                                 $body = json_decode($faq->body, true);
                                                 $arr = explode(',', $body[0]['variables']);
                                                 foreach ($arr as $k => $v) {
-                                                    echo $excel[$v][$lan];
-                                                    if ($k === count($arr) - 1) {
-                                                        echo '...';
-                                                    } else {
-                                                        echo $lan === 'zh-cn' ? '，' : ',';
+                                                    if (strpos($v, '|') !== false) {
+                                                        foreach (explode('|', $v) as $kk=> $vv) {
+                                                            echo $excel[$vv][$lan];
+                                                        }
+                                                    }else{
+                                                        echo $excel[$v][$lan];
+                                                        if ($k === count($arr) - 1) {
+                                                            echo '...';
+                                                        } else {
+                                                            echo $lan === 'zh-cn' ? '，' : ',';
+                                                        }
                                                     }
                                                 }
                                             @endphp
