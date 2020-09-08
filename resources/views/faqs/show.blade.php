@@ -27,7 +27,7 @@
                     </h1>
                     @foreach($body_arr as $arr)
                         @php
-                            if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5){
+                            if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5 || $arr['template_id'] == 6){
                                 $delimiter = PHP_EOL;
                             }else{
                                 $delimiter = '|';
