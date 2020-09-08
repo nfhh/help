@@ -66,6 +66,11 @@
                             <a class="dropdown-item py-2" href="https://www.terra-master.com/{{$urllans[$lan]}}/contact-us/">{{ trans('help.contact_us') }}</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a href="https://forum.terra-master.com/" class="nav-link" target="_blank">
+                            <span class="my-text-dark h5 font-weight-bold">{{ trans('help.forum') }}</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">

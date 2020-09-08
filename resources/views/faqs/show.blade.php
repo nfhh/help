@@ -25,16 +25,7 @@
                             $body_arr = json_decode($faq->body, true);
                         @endphp
                     </h1>
-                    @foreach($body_arr as $arr)
-                        @php
-                            if($arr['template_id'] == 2 || $arr['template_id'] == 12 || $arr['template_id'] == 3 || $arr['template_id'] == 4 || $arr['template_id'] == 5 || $arr['template_id'] == 6){
-                                $delimiter = PHP_EOL;
-                            }else{
-                                $delimiter = '|';
-                            }
-                        @endphp
-                        @include('tpl.'.$arr['template_id'], ['vars' => explode($delimiter,$arr['variables']),'excel' => $excel,'lan' => $lan])
-                    @endforeach
+                    @include('layouts.split_var')
                     <feedback
                         text1="{{ trans('help.feedback_res') }}"
                         text2="{{ trans('help.ask') }}"
