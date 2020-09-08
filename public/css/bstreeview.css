@@ -35,7 +35,7 @@
 }
 
 .bstreeview .list-group-item:hover {
-    background-color:#dee2e6;
+    background-color: #dee2e6;
 }
 
 .bstreeview > .list-group-item:first-child {
@@ -47,6 +47,11 @@
     width: 12px;
     text-align: center;
 }
+
 .bstreeview .item-icon {
     margin-right: 5px;
+}
+
+.bstreeview div:last-child {
+    border-bottom: 1px solid rgba(0,0,0,.125);
 }
