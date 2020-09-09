@@ -36,6 +36,10 @@ foreach ($vars as $var) {
             $pattern = '/\[(.*)\]/';
             preg_match($pattern, $mid, $matches3);
             $href2 = $matches3[1];
+            if (strpos($href2, ';') !== false) {
+                list($cn, $en) = explode(';', $href2);
+                $href2 = \Illuminate\Support\Facades\App::getLocale() === 'zh-cn' ? $cn : $en;
+            }
             $mid = preg_replace($pattern, '', $mid);
             $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$mid][$lan] . '</a>';
         } else {
