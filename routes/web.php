@@ -42,11 +42,14 @@ Route::get('/', function () {
     return redirect('/toshelp');
 });
 
+Route::get('/test', function () {
+});
+
 
 Auth::routes();
-Route::get('/faq', 'FaqController@index');
-Route::get('/faq/{faq}', 'FaqController@show');
-Route::get('/toshelp', 'HelpController@index');
+Route::get('/faqs/{var}', 'FaqController@index');
+Route::get('/faqs/{var}/{title}', 'FaqController@show');
+Route::get('/toshelp/{var?}', 'HelpController@index');
 Route::get('/download', 'DownloadController@show');
 Route::get('/download/packages', 'DownloadController@index');
 Route::get('/quickguide', 'ProductController@show');

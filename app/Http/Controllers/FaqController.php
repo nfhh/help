@@ -4,41 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use App\Models\Subject;
-use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
-    public function index(Request $request)
+    public function index($var)
     {
-        $subject_id = $request->subject_id;
-        $subject = Subject::find($subject_id);
-        $parent_id = $subject->parent_id;
+        $subject = Subject::findOneByVar($var);
         if ($subject->parent_id === 0) {
-            $subjects = Subject::where('parent_id', $subject_id)->get()->toArray();
+            $subjects = Subject::where('parent_id', $subject->id)->get()->toArray();
             $faqs = Faq::whereIn('subject_id', array_column($subjects, 'id'))->paginate(10);
         } else {
-            $subject = Subject::where('id', $subject_id)->first();
             $subjects = Subject::where('parent_id', $subject->parent_id)->get()->toArray();
-            $faqs = Faq::where('subject_id', $subject_id)->paginate(10);
+            $faqs = Faq::with('subject')->where('subject_id', $subject->id)->paginate(10);
         }
-
         return view('faqs.index', [
             'fenlei' => $subjects,
             'faqs' => $faqs,
-            'parent_id' => $parent_id,
         ]);
     }
 
-    public function show(Faq $faq)
+    public function show($var, $title)
     {
+        $faq = Faq::where('title', $title)->first();
         $subject_id = $faq->subject_id;
         $subject = Subject::where('id', $subject_id)->first();
-        $parent_id = $subject->parent_id;
-        $subjects = Subject::where('parent_id', $parent_id)->get();
+        $subjects = Subject::where('parent_id', $subject->parent_id)->get();
         return view('faqs.show', [
             'fenlei' => $subjects,
             'faq' => $faq,
-            'parent_id' => $parent_id,
         ]);
     }
 }

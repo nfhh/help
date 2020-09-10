@@ -24,4 +24,9 @@ class Subject extends Model
     {
         $builder->where('parent_id', 0)->orderBy('sort', 'asc');
     }
+
+    public static function findOneByVar($var)
+    {
+        return self::where('var', $var)->first();
+    }
 }

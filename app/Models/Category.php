@@ -22,4 +22,9 @@ class Category extends Model
     {
         return self::orderBy('sort', 'desc')->orderBy('id', 'asc')->get()->toArray();
     }
+
+    public static function findOneByVar($var)
+    {
+        return self::where('var', $var)->first();
+    }
 }

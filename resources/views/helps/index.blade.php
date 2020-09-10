@@ -18,7 +18,7 @@
                     }
                     if ($key === $lan) {
                         $arr1['text'] = $val;
-                        $arr1['href'] = '/toshelp?category_id='.$data['id'];
+                        $arr1['href'] = '/toshelp/'.$data['var'];
                     } else {
                         $arr1[$key] = $val;
                     }

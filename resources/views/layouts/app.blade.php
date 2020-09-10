@@ -7,10 +7,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/bstreeview.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     @yield('css')
-    <livewire:styles>
-    </head>
+    <style>
+        .list-group-item.active {
+            background-color: #dadada;
+            border-color: #dadada;
+        }
+    </style>
+</head>
 <body>
 <div id="app">
 
@@ -122,21 +131,11 @@
         <p class="m-1">Copyright©2020 TerraMaster All Rights Reserved.</p>
     </footer>
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
-<livewire:scripts>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script>
     function chLan(obj) {
         $.cookie('lan', $(obj).data('lan'), {path: '/'})
         location.reload()
     }
-
-    $('#a-box a').each(function () {
-        if ($(this).attr('href').includes(location.search)) {
-            $(this).addClass('active');
-        }
-    });
 </script>
 @yield('js')
 </body>

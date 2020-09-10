@@ -4,15 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h2 class="h5 mb-0">TOS帮助目录管理</h2>
-            <div class="btn-group">
-                <a class="btn btn-primary" href="{{ route('admin.category.create') }}">添加</a>
-                <a class="btn btn-danger" href="javascript:;"
-                   onclick="if(confirm(`确定清空数据吗？`)){
-                               event.preventDefault(); document.getElementById('truncate-form').submit();
-                           }">
-                    清空数据
-                </a>
-            </div>
+            <a class="btn btn-primary" href="{{ route('admin.category.create') }}">添加</a>
             <form id="truncate-form" action="{{ route('admin.category.truncate') }}" method="POST"
                   style="display: none;">
                 @csrf

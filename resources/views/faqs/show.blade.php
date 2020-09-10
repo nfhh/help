@@ -3,15 +3,11 @@
 @section('content')
     <div class="container">
         @include('partials.th_h')
-        @if($parent_id)
-            @include('partials.th_tab',['parent_id'=>$parent_id])
-        @else
-            @include('partials.th_tab')
-        @endif
+        @include('partials.th_tab')
         @php
             foreach($fenlei as &$item){
                 $item['text'] = $item[$lan];
-                $item['href'] = '/faq?subject_id='.$item['id'];
+                $item['href'] = '/faqs/'.$item['var'];
             }
         @endphp
         <div class="row pt-3">

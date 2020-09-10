@@ -1,6 +1,6 @@
 /*! @preserve
  * bstreeview.js
- * Version: 1.2.0
+ * Version: 1.0.0
  * Authors: Sami CHNITER <sami.chniter@gmail.com>
  * Copyright 2020
  * License: Apache License 2.0
@@ -14,20 +14,17 @@
      */
     var pluginName = "bstreeview",
         defaults = {
-            expandIcon: 'fa fa-angle-down fa-fw',
-            collapseIcon: 'fa fa-angle-right fa-fw',
-            indent: 1.25,
-            parentsMarginLeft: '1.25rem',
-            openNodeLinkOnNewTab: true
-
+            expandIcon: 'fa fa-angle-down',
+            collapseIcon: 'fa fa-angle-right',
+            indent: 1.25
         };
     /**
      * bstreeview HTML templates.
      */
     var templates = {
         treeview: '<div class="bstreeview"></div>',
-        treeviewItem: '<div role="treeitem" class="list-group-item" data-toggle="collapse"></div>',
-        treeviewGroupItem: '<div role="group" class="list-group collapse" id="itemid"></div>',
+        treeviewItem: '<div href="#itemid" class="list-group-item" data-toggle="collapse"></div>',
+        treeviewGroupItem: '<div class="list-group collapse" id="itemid"></div>',
         treeviewItemStateIcon: '<i class="state-icon"></i>',
         treeviewItemIcon: '<i class="item-icon"></i>'
     };
@@ -54,9 +51,7 @@
             this.nodes = [];
             // Retrieve bstreeview Json Data.
             if (this.settings.data) {
-                if (this.settings.data.isPrototypeOf(String)) {
-                    this.settings.data = $.parseJSON(this.settings.data);
-                }
+                this.settings.data = $.parseJSON(this.settings.data);
                 this.tree = $.extend(true, [], this.settings.data);
                 delete this.settings.data;
             }
@@ -67,19 +62,10 @@
             var _this = this;
             this.build($(this.element), this.tree, 0);
             // Update angle icon on collapse
-            $(this.element).on('click', '.list-group-item', function (e) {
+            $('.bstreeview').on('click', '.list-group-item', function () {
                 $('.state-icon', this)
                     .toggleClass(_this.settings.expandIcon)
                     .toggleClass(_this.settings.collapseIcon);
-                // navigate to href if present
-                if (e.target.hasAttribute('href')) {
-                    if (_this.settings.openNodeLinkOnNewTab) {
-                        window.open(e.target.getAttribute('href'), '_blank');
-                    }
-                    else {
-                        window.location = e.target.getAttribute('href');
-                    }
-                }
             });
         },
         /**
@@ -110,8 +96,7 @@
         build: function (parentElement, nodes, depth) {
             var _this = this;
             // Calculate item padding.
-            var leftPadding = _this.settings.parentsMarginLeft;
-
+            var leftPadding = "1.25rem;";
             if (depth > 0) {
                 leftPadding = (_this.settings.indent + depth * _this.settings.indent).toString() + "rem;";
             }
@@ -120,9 +105,8 @@
             $.each(nodes, function addNodes(id, node) {
                 // Main node element.
                 var treeItem = $(templates.treeviewItem)
-                    .attr('data-target', "#" + _this.itemIdPrefix + node.nodeId)
-                    .attr('style', 'padding-left:' + leftPadding)
-                    .attr('aria-level', depth);
+                    .attr('href', "#" + _this.itemIdPrefix + node.nodeId)
+                    .attr('style', 'padding-left:' + leftPadding);
                 // Set Expand and Collapse icones.
                 if (node.nodes) {
                     var treeItemStateIcon = $(templates.treeviewItemStateIcon)
@@ -136,19 +120,8 @@
                     treeItem.append(treeItemIcon);
                 }
                 // Set node Text.
-                treeItem.append(node.text);
-                // Reset node href if present
-                if (node.href) {
-                    treeItem.attr('href', node.href);
-                }
-                // Add class to node if present
-                if (node.class) {
-                    treeItem.addClass(node.class);
-                }
-                // Add custom id to node if present
-                if (node.id) {
-                    treeItem.attr('id', node.id);
-                }
+                // treeItem.append(node.text);
+                treeItem.append(`<a href="${node.href}" class="text-decoration-none my-text-dark">${node.text}</a>`);
                 // Attach node to parent.
                 parentElement.append(treeItem);
                 // Build child nodes.

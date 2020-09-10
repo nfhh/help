@@ -8,7 +8,7 @@
         @php
             foreach($fenlei as &$item){
                 $item['text'] = $item[$lan];
-                $item['href'] = '/faq?subject_id='.$item['id'];
+                $item['href'] = '/faqs/'.$item['var'];
             }
         @endphp
         <div class="row pt-3">
@@ -19,7 +19,8 @@
                         <ul class="list-group list-group-flush px-4">
                             @foreach($faqs as $faq)
                                 <li class="list-group-item py-4 px-0 article">
-                                    <h5><a href="/faq/{{ $faq->id }}?subject_id={{$faq->subject_id}}"
+                                    <h5>
+                                        <a href="{{ '/faqs/'.$faq->subject->var .'/'. $faq->title }}"
                                            class="my-title">
                                             @php
                                                 $excel = json_decode($faq->excel, true);
@@ -28,7 +29,7 @@
                                         </a>
                                     </h5>
                                     <p class="mb-0">
-                                        <a href="/faq/{{ $faq->id }}?subject_id={{ $faq->subject_id }}"
+                                        <a href="/faqs/{{ $faq->title }}"
                                            class="text-secondary">
                                             @php
                                                 $body = json_decode($faq->body, true);
