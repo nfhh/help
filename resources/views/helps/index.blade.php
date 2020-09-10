@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @include('common._tree-css')
 @section('content')
@@ -30,27 +30,48 @@
         <div class="row pt-3">
             @include('common._tree')
             <div class="col-md-9">
-                <div class="bg-white p-3 content">
-                    @php
-                        $excel = json_decode($article->excel, true);
-                        $body_arr = json_decode($article->body, true);
-                    @endphp
-
-                    @include('layouts.split_var')
-                    <feedback
-                        text1="{{ trans('help.feedback_res') }}"
-                        text2="{{ trans('help.ask') }}"
-                        text3="{{ trans('help.yes') }}"
-                        text4="{{ trans('help.no') }}"
-                        text5="{{ trans('help.ask_p1') }}"
-                        text6="{{ trans('help.ask_ch1') }}"
-                        text7="{{ trans('help.ask_ch2') }}"
-                        text8="{{ trans('help.ask_ch3') }}"
-                        text9="{{ trans('help.ask_ch4') }}"
-                        text10="{{ trans('help.ask_p2') }}"
-                        text11="{{ trans('help.submit') }}"
-                        text12="{{ trans('help.cancel') }}"
-                    ></feedback>
+                <div class="bg-white">
+                    <div class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush px-4">
+                            @foreach($articles as $article)
+                                <li class="list-group-item py-4 px-0 article">
+                                    <h5>
+                                        <a href="{{ '/toshelp/'.$article->category->var }}"
+                                           class="my-title">
+                                            @php
+                                                $excel = json_decode($article->excel, true);
+                                                echo $article->category[$lan]
+                                            @endphp
+                                        </a>
+                                    </h5>
+                                    <p class="mb-0">
+                                        <a href="/toshelp/{{ $article->title }}"
+                                           class="text-secondary">
+                                            @php
+                                                $body = json_decode($article->body, true);
+                                                $arr = explode(',', $body[0]['variables']);
+                                                foreach ($arr as $k => $v) {
+                                                    if (strpos($v, '|') !== false) {
+                                                        foreach (explode('|', $v) as $kk=> $vv) {
+                                                            echo $excel[$vv][$lan];
+                                                        }
+                                                    }else{
+                                                        echo $excel[$v][$lan];
+                                                        if ($k === count($arr) - 1) {
+                                                            echo '...';
+                                                        } else {
+                                                            echo $lan === 'zh-cn' ? '，' : ',';
+                                                        }
+                                                    }
+                                                }
+                                            @endphp
+                                        </a>
+                                    </p>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    {{ $articles->links() }}
                 </div>
             </div>
         </div>

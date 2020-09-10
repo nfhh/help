@@ -49,7 +49,8 @@ Route::get('/test', function () {
 Auth::routes();
 Route::get('/faqs/{var}', 'FaqController@index');
 Route::get('/faqs/{var}/{title}', 'FaqController@show');
-Route::get('/toshelp/{var?}', 'HelpController@index');
+Route::get('/toshelp', 'HelpController@index');
+Route::get('/toshelp/{var}', 'HelpController@show');
 Route::get('/download', 'DownloadController@show');
 Route::get('/download/packages', 'DownloadController@index');
 Route::get('/quickguide', 'ProductController@show');

@@ -55,6 +55,7 @@
                             @endforeach
                         </ul>
                     </div>
+                    {{ $faqs->links() }}
                 </div>
             </div>
         </div>
