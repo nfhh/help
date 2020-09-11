@@ -29,6 +29,8 @@ Vue.component('faq', require('./components/Faq.vue').default);
 Vue.component('faqe', require('./components/Faqe.vue').default);
 Vue.component('product', require('./components/Product.vue').default);
 Vue.component('feedback', require('./components/Feedback.vue').default);
+Vue.component('remark', require('./components/Remark.vue').default);
+Vue.component('remarke', require('./components/Remarke.vue').default);
 
 
 /**

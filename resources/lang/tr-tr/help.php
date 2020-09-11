@@ -58,5 +58,6 @@ return [
 	"case" => "Müşteri Hikayeleri",
 	"how_buy" => "Nereden Satın Alınır",
 	"contact_us" => "Bize Ulaşın",
+	"view" => "Görünüm",
 ];
 ?>

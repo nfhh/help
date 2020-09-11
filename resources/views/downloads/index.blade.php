@@ -51,7 +51,7 @@
                                         <td>{{ $nd['version'] }}</td>
                                         <td><a href="{{ $nd['url'] }}">{{ trans('help.download') }}</a></td>
                                         <td>{{ formatBytes($nd['size']) }}</td>
-                                        <td>{{ $nd['remark'] }}</td>
+                                        <td><a href="{{ $nd['remark'] }}" target="_blank">{{ trans('help.view') }}</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -58,5 +58,6 @@ return [
 	"case" => "案例分享",
 	"how_buy" => "如何購買",
 	"contact_us" => "聯繫我們",
+	"view" => "查看",
 ];
 ?>

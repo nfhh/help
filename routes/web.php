@@ -47,6 +47,7 @@ Route::get('/test', function () {
 
 
 Auth::routes();
+Route::get('/posts/{var}', 'PostsController@show');
 Route::get('/faqs/{var}', 'FaqController@index');
 Route::get('/faqs/{var}/{title}', 'FaqController@show');
 Route::get('/toshelp', 'HelpController@index');
@@ -94,6 +95,7 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
 
     Route::resource('/faq', 'FaqController');
     Route::resource('/download', 'DownloadController');
+    Route::resource('/remark', 'RemarkController');
     Route::get('/asset', 'AssetController@index')->name('asset.index');
     Route::get('/asset/create', 'AssetController@create')->name('asset.create');
     Route::post('/asset', 'AssetController@store')->name('asset.store');

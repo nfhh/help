@@ -19,6 +19,11 @@
             background-color: #dadada;
             border-color: #dadada;
         }
+        nav#n-box a:hover {
+            background-color: #dfdfdf;
+            border-radius: unset;
+            border-left: 1px solid #fff;
+        }
     </style>
 </head>
 <body>

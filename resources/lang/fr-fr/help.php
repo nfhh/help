@@ -58,5 +58,6 @@ return [
 	"case" => "Témoignages clients",
 	"how_buy" => "Où acheter",
 	"contact_us" => "Nous contacter",
+	"view" => "Voir",
 ];
 ?>

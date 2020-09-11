@@ -58,5 +58,6 @@ return [
 	"case" => "Historie klientów",
 	"how_buy" => "Gdzie kupić",
 	"contact_us" => "Kontakt",
+	"view" => "Wyświetl",
 ];
 ?>

@@ -39,5 +39,8 @@
         <a href="{{ route('admin.var.index')  }}" class="list-group-item list-group-item-action">
             变量替换
         </a>
+        <a href="{{ route('admin.remark.index')  }}" class="list-group-item list-group-item-action">
+            单文章管理
+        </a>
     </div>
 </div>

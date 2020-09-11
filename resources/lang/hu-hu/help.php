@@ -58,5 +58,6 @@ return [
 	"case" => "Felhasználói történetek",
 	"how_buy" => "Hol vásárolhatok?",
 	"contact_us" => "Kapcsolatfelvétel",
+	"view" => "Nézés",
 ];
 ?>

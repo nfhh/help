@@ -58,5 +58,6 @@ return [
 	"case" => "고객 사례",
 	"how_buy" => "구입처",
 	"contact_us" => "연락처",
+	"view" => "보기",
 ];
 ?>
