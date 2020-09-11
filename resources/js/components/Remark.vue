@@ -7,8 +7,24 @@
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
         <div class="form-group">
+            <label for="zh-cn">页面标题（zh-cn）</label>
+            <input class="form-control" id="zh-cn" name="zh-cn"/>
+        </div>
+        <div class="form-group">
+            <label for="zh-hk">页面标题（zh-hk）</label>
+            <input class="form-control" id="zh-hk" name="zh-hk"/>
+        </div>
+        <div class="form-group">
             <label for="en-us">页面标题（en-us）</label>
             <input class="form-control" id="en-us" name="en-us"/>
+        </div>
+        <div class="form-group">
+            <label for="ko-kr">页面标题（ko-kr）</label>
+            <input class="form-control" id="ko-kr" name="ko-kr"/>
+        </div>
+        <div class="form-group">
+            <label for="ja-jp">页面标题（ja-jp）</label>
+            <input class="form-control" id="ja-jp" name="ja-jp"/>
         </div>
         <div class="form-group">
             <label for="de-de">页面标题（de-de）</label>
@@ -31,32 +47,16 @@
             <input class="form-control" id="hu-hu" name="hu-hu"/>
         </div>
         <div class="form-group">
-            <label for="ru-ru">页面标题（ru-ru）</label>
-            <input class="form-control" id="ru-ru" name="ru-ru"/>
-        </div>
-        <div class="form-group">
-            <label for="ko-kr">页面标题（ko-kr）</label>
-            <input class="form-control" id="ko-kr" name="ko-kr"/>
-        </div>
-        <div class="form-group">
-            <label for="ja-jp">页面标题（ja-jp）</label>
-            <input class="form-control" id="ja-jp" name="ja-jp"/>
-        </div>
-        <div class="form-group">
-            <label for="zh-cn">页面标题（zh-cn）</label>
-            <input class="form-control" id="zh-cn" name="zh-cn"/>
-        </div>
-        <div class="form-group">
-            <label for="zh-hk">页面标题（zh-hk）</label>
-            <input class="form-control" id="zh-hk" name="zh-hk"/>
-        </div>
-        <div class="form-group">
             <label for="pl-pl">页面标题（pl-pl）</label>
             <input class="form-control" id="pl-pl" name="pl-pl"/>
         </div>
         <div class="form-group">
             <label for="tr-tr">页面标题（tr-tr）</label>
             <input class="form-control" id="tr-tr" name="tr-tr"/>
+        </div>
+        <div class="form-group">
+            <label for="ru-ru">页面标题（ru-ru）</label>
+            <input class="form-control" id="ru-ru" name="ru-ru"/>
         </div>
         <div class="form-group">
             <label for="var">slug</label>

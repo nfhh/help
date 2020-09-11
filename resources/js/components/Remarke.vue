@@ -8,56 +8,56 @@
                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         </div>
         <div class="form-group">
-            <label for="en-us">页面标题（en-us）</label>
-            <input class="form-control" id="en-us" name="en-us" :value="remark['en-us']"/>
-        </div>
-        <div class="form-group">
-            <label for="de-de">页面标题（de-de）</label>
-            <input class="form-control" id="de-de" name="de-de" :value="remark['de-de']"/>
-        </div>
-        <div class="form-group">
-            <label for="fr-fr">页面标题（fr-fr）</label>
-            <input class="form-control" id="fr-fr" name="fr-fr" :value="remark['fr-fr']"/>
-        </div>
-        <div class="form-group">
-            <label for="it-it">页面标题（it-it）</label>
-            <input class="form-control" id="it-it" name="it-it" :value="remark['it-it']"/>
-        </div>
-        <div class="form-group">
-            <label for="es-es">页面标题（es-es）</label>
-            <input class="form-control" id="es-es" name="es-es" :value="remark['es-es']"/>
-        </div>
-        <div class="form-group">
-            <label for="hu-hu">页面标题（hu-hu）</label>
-            <input class="form-control" id="hu-hu" name="hu-hu" :value="remark['hu-hu']"/>
-        </div>
-        <div class="form-group">
-            <label for="ru-ru">页面标题（ru-ru）</label>
-            <input class="form-control" id="ru-ru" name="ru-ru" :value="remark['ru-ru']"/>
-        </div>
-        <div class="form-group">
-            <label for="ko-kr">页面标题（ko-kr）</label>
-            <input class="form-control" id="ko-kr" name="ko-kr" :value="remark['ko-kr']"/>
-        </div>
-        <div class="form-group">
-            <label for="ja-jp">页面标题（ja-jp）</label>
-            <input class="form-control" id="ja-jp" name="ja-jp" :value="remark['ja-jp']"/>
-        </div>
-        <div class="form-group">
             <label for="zh-cn">页面标题（zh-cn）</label>
-            <input class="form-control" id="zh-cn" name="zh-cn" :value="remark['zh-cn']"/>
+            <input class="form-control" id="zh-cn" name="zh-cn"/>
         </div>
         <div class="form-group">
             <label for="zh-hk">页面标题（zh-hk）</label>
-            <input class="form-control" id="zh-hk" name="zh-hk" :value="remark['zh-hk']"/>
+            <input class="form-control" id="zh-hk" name="zh-hk"/>
+        </div>
+        <div class="form-group">
+            <label for="en-us">页面标题（en-us）</label>
+            <input class="form-control" id="en-us" name="en-us"/>
+        </div>
+        <div class="form-group">
+            <label for="ko-kr">页面标题（ko-kr）</label>
+            <input class="form-control" id="ko-kr" name="ko-kr"/>
+        </div>
+        <div class="form-group">
+            <label for="ja-jp">页面标题（ja-jp）</label>
+            <input class="form-control" id="ja-jp" name="ja-jp"/>
+        </div>
+        <div class="form-group">
+            <label for="de-de">页面标题（de-de）</label>
+            <input class="form-control" id="de-de" name="de-de"/>
+        </div>
+        <div class="form-group">
+            <label for="fr-fr">页面标题（fr-fr）</label>
+            <input class="form-control" id="fr-fr" name="fr-fr"/>
+        </div>
+        <div class="form-group">
+            <label for="it-it">页面标题（it-it）</label>
+            <input class="form-control" id="it-it" name="it-it"/>
+        </div>
+        <div class="form-group">
+            <label for="es-es">页面标题（es-es）</label>
+            <input class="form-control" id="es-es" name="es-es"/>
+        </div>
+        <div class="form-group">
+            <label for="hu-hu">页面标题（hu-hu）</label>
+            <input class="form-control" id="hu-hu" name="hu-hu"/>
         </div>
         <div class="form-group">
             <label for="pl-pl">页面标题（pl-pl）</label>
-            <input class="form-control" id="pl-pl" name="pl-pl" :value="remark['pl-pl']"/>
+            <input class="form-control" id="pl-pl" name="pl-pl"/>
         </div>
         <div class="form-group">
             <label for="tr-tr">页面标题（tr-tr）</label>
-            <input class="form-control" id="tr-tr" name="tr-tr" :value="remark['tr-tr']"/>
+            <input class="form-control" id="tr-tr" name="tr-tr"/>
+        </div>
+        <div class="form-group">
+            <label for="ru-ru">页面标题（ru-ru）</label>
+            <input class="form-control" id="ru-ru" name="ru-ru"/>
         </div>
         <div class="form-group">
             <label for="var">slug</label>
