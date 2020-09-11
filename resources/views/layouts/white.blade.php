@@ -8,6 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
     <style>
         body{
             display: flex;
