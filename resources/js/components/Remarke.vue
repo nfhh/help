@@ -9,55 +9,55 @@
         </div>
         <div class="form-group">
             <label for="zh-cn">页面标题（zh-cn）</label>
-            <input class="form-control" id="zh-cn" name="zh-cn"/>
+            <input class="form-control" id="zh-cn" name="zh-cn" :value="remark['zh-cn']"/>
         </div>
         <div class="form-group">
             <label for="zh-hk">页面标题（zh-hk）</label>
-            <input class="form-control" id="zh-hk" name="zh-hk"/>
+            <input class="form-control" id="zh-hk" name="zh-hk" :value="remark['zh-hk']"/>
         </div>
         <div class="form-group">
             <label for="en-us">页面标题（en-us）</label>
-            <input class="form-control" id="en-us" name="en-us"/>
+            <input class="form-control" id="en-us" name="en-us" :value="remark['en-us']"/>
         </div>
         <div class="form-group">
             <label for="ko-kr">页面标题（ko-kr）</label>
-            <input class="form-control" id="ko-kr" name="ko-kr"/>
+            <input class="form-control" id="ko-kr" name="ko-kr" :value="remark['ko-kr']"/>
         </div>
         <div class="form-group">
             <label for="ja-jp">页面标题（ja-jp）</label>
-            <input class="form-control" id="ja-jp" name="ja-jp"/>
+            <input class="form-control" id="ja-jp" name="ja-jp" :value="remark['ja-jp']"/>
         </div>
         <div class="form-group">
             <label for="de-de">页面标题（de-de）</label>
-            <input class="form-control" id="de-de" name="de-de"/>
+            <input class="form-control" id="de-de" name="de-de" :value="remark['de-de']"/>
         </div>
         <div class="form-group">
             <label for="fr-fr">页面标题（fr-fr）</label>
-            <input class="form-control" id="fr-fr" name="fr-fr"/>
+            <input class="form-control" id="fr-fr" name="fr-fr" :value="remark['fr-fr']"/>
         </div>
         <div class="form-group">
             <label for="it-it">页面标题（it-it）</label>
-            <input class="form-control" id="it-it" name="it-it"/>
+            <input class="form-control" id="it-it" name="it-it" :value="remark['it-it']"/>
         </div>
         <div class="form-group">
             <label for="es-es">页面标题（es-es）</label>
-            <input class="form-control" id="es-es" name="es-es"/>
+            <input class="form-control" id="es-es" name="es-es" :value="remark['es-es']"/>
         </div>
         <div class="form-group">
             <label for="hu-hu">页面标题（hu-hu）</label>
-            <input class="form-control" id="hu-hu" name="hu-hu"/>
+            <input class="form-control" id="hu-hu" name="hu-hu" :value="remark['hu-hu']"/>
         </div>
         <div class="form-group">
             <label for="pl-pl">页面标题（pl-pl）</label>
-            <input class="form-control" id="pl-pl" name="pl-pl"/>
+            <input class="form-control" id="pl-pl" name="pl-pl" :value="remark['pl-pl']"/>
         </div>
         <div class="form-group">
             <label for="tr-tr">页面标题（tr-tr）</label>
-            <input class="form-control" id="tr-tr" name="tr-tr"/>
+            <input class="form-control" id="tr-tr" name="tr-tr" :value="remark['tr-tr']"/>
         </div>
         <div class="form-group">
             <label for="ru-ru">页面标题（ru-ru）</label>
-            <input class="form-control" id="ru-ru" name="ru-ru"/>
+            <input class="form-control" id="ru-ru" name="ru-ru" :value="remark['ru-ru']"/>
         </div>
         <div class="form-group">
             <label for="var">slug</label>
@@ -96,41 +96,41 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            route: String,
-            templates: Array,
-            remark: Object,
+export default {
+    props: {
+        route: String,
+        templates: Array,
+        remark: Object,
+    },
+    data() {
+        return {
+            token: document.head.querySelector('meta[name="csrf-token"]').content,
+            variables: JSON.parse(this.remark.body),
+            template_id: 1,
+            m: JSON.parse(this.remark.body).pop().sort
+        }
+    },
+    methods: {
+        incre() {
+            this.m += 4
+            this.variables.push({'variables': '', 'template_id': '1', 'sort': this.m})
         },
-        data() {
-            return {
-                token: document.head.querySelector('meta[name="csrf-token"]').content,
-                variables: JSON.parse(this.remark.body),
-                template_id: 1,
-                m: JSON.parse(this.remark.body).pop().sort
+        decre() {
+            if (this.variables.length > 1) {
+                this.m -= 4
+                this.variables = this.variables.slice(0, -1)
             }
         },
-        methods: {
-            incre() {
-                this.m += 4
-                this.variables.push({'variables': '', 'template_id': '1', 'sort': this.m})
-            },
-            decre() {
-                if (this.variables.length > 1) {
-                    this.m -= 4
-                    this.variables = this.variables.slice(0, -1)
-                }
-            },
-            add(key) {
-                this.variables.splice(key + 1, 0, {
-                    'variables': '',
-                    'template_id': '1',
-                    'sort': this.variables[key].sort + 1
-                })
-            },
-            del(key) {
-                this.variables.splice(key, 1)
-            }
+        add(key) {
+            this.variables.splice(key + 1, 0, {
+                'variables': '',
+                'template_id': '1',
+                'sort': this.variables[key].sort + 1
+            })
+        },
+        del(key) {
+            this.variables.splice(key, 1)
         }
     }
+}
 </script>
