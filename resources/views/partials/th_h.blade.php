@@ -1,6 +1,6 @@
 <div class="row py-3">
     <div class="col-md-12">
-        <h2>{{ trans('help.help_doc') }}</h2>
+        <h2 class="pb-3">{{ trans('help.help_doc') }}</h2>
         <p class="text-muted">{!! sprintf(trans('help.search_tip'), '<a href="https://forum.terra-master.com">','</a>') !!}</p>
     </div>
     <div class="col-md-12 pt-3 pb-4">
