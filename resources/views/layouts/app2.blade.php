@@ -20,15 +20,20 @@
             border-color: #dadada;
         }
 
+        nav#n-box a {
+            border-left:1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+
         nav#n-box a:hover {
             background-color: #dfdfdf;
             border-radius: unset;
-            border-right: 1px solid #fff;
             border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
         }
 
         nav#n-box a:first-child:hover {
-            border-left: 0;
+            border-left: 1px solid #dfdfdf;
         }
     </style>
 </head>
