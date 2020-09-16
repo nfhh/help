@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Download;
+use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -16,25 +17,22 @@ class DownloadController extends Controller
     public function index(Request $request)
     {
         $product = Product::where('name', $request->product)->first();
-        $downloads = Download::with('menu')->where('product_id', $product->id)->get()->toArray();
+        $downloads = Download::where('product_id', $product->id)->get()->toArray();
+        $menus = Menu::all()->toArray();
 
-        $menu_id = [];
+        $res = [];
         foreach ($downloads as $key => &$list) {
-            $b = $list['body'];
-            $list['body'] = [$b];
-            foreach ($menu_id as $k => $m_id) {
-                if ($m_id == $list['menu_id']) {
-                    $p_data = $downloads[$k];
-                    $p_body = $p_data['body'];
-                    $p_body[] = $b;
-                    $p_data['body'] = $p_body;
-                    $downloads[$k] = $p_data;
-                    unset($downloads[$key]);
-                }
+            $m_id = $list['menu_id'];
+            if (isset($res[$m_id])) {
+                $a = $res[$m_id];
+                $a[] = $list;
+                $res[$m_id] = $a;
+            } else {
+                $res[$m_id] = [$list];
             }
-            $menu_id[] = $list['menu_id'];
         }
 
-        return view('downloads.index', compact('product', 'downloads'));
+        sort($res);
+        return view('downloads.index', compact('product', 'menus', 'res'));
     }
 }

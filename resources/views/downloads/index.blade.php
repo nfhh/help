@@ -12,15 +12,15 @@
         <div class="row py-2">
             <div class="col-md-12 bg-white">
                 <ul class="nav nav-pills border-bottom-1 my-tab mb-3">
-                    @foreach($downloads as $key=>$download)
+                    @foreach($res as $key=>$download)
                         <li class="nav-item">
                             <a class="nav-link text-dark @if($key==0) active @endif" data-toggle="pill"
-                               href="#z{{$key}}">{{ $download['menu'][$lan] }}</a>
+                               href="#z{{$key}}">{{ $menus[$key][$lan] }}</a>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content">
-                    @foreach($downloads as $key=>$download)
+                    @foreach($res as $key=>$download)
                         <div class="tab-pane fade @if($key==0) show active @endif" id="z{{$key}}">
                             <table class="table">
                                 <thead>
@@ -34,9 +34,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($download['body'] as $vv)
+                                @foreach($download as $vv)
                                     @php
-                                        $arr = json_decode($vv, true);
+                                        $arr = json_decode($vv['body'], true);
                                         $nd = [];
                                         foreach ($arr as $v){
                                             if($v['lan']==$lan){
