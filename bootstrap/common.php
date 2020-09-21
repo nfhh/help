@@ -54,9 +54,9 @@ function readExcel2($file)
             $i = 0;
             foreach ($row->getCellIterator() as $cell) {
                 $i++;
-                if (!$cell->getFormattedValue()) {
+/*                if (!$cell->getFormattedValue()) { // 字段值为空的字段会被过滤掉 并不是过滤空行
                     continue;
-                }
+                }*/
                 $row_data[$key_arr[$i - 1]] = $cell->getFormattedValue();
             }
             $sheet_data[] = $row_data;
