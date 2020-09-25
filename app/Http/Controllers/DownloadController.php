@@ -19,6 +19,10 @@ class DownloadController extends Controller
         $product = Product::where('name', $request->product)->first();
         $downloads = Download::where('product_id', $product->id)->get()->toArray();
         $menus = Menu::all()->toArray();
+        $menusx = [];
+        foreach ($menus as $item){
+            $menusx[$item['id']] = $item;
+        }
 
         $res = [];
         foreach ($downloads as $key => &$list) {
@@ -31,8 +35,7 @@ class DownloadController extends Controller
                 $res[$m_id] = [$list];
             }
         }
-
-        $res = array_values($res);
-        return view('downloads.index', compact('product', 'menus', 'res'));
+        ksort($res);
+        return view('downloads.index', compact('product', 'menusx', 'res'));
     }
 }

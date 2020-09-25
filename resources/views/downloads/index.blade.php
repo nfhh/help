@@ -14,14 +14,14 @@
                 <ul class="nav nav-pills border-bottom-1 my-tab mb-3">
                     @foreach($res as $key=>$download)
                         <li class="nav-item">
-                            <a class="nav-link text-dark @if($key==0) active @endif" data-toggle="pill"
-                               href="#z{{$key}}">{{ $menus[$key][$lan] }}</a>
+                            <a class="nav-link text-dark @if($key==key($res)) active @endif" data-toggle="pill"
+                               href="#z{{$key}}">{{ $menusx[$key][$lan] }}</a>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content">
                     @foreach($res as $key=>$download)
-                        <div class="tab-pane fade @if($key==0) show active @endif" id="z{{$key}}">
+                        <div class="tab-pane fade @if($key==key($res)) show active @endif" id="z{{$key}}">
                             <table class="table">
                                 <thead>
                                 <tr class="table-active">
