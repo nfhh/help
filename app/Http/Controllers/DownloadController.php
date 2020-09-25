@@ -32,7 +32,7 @@ class DownloadController extends Controller
             }
         }
 
-        sort($res);
+        $res = array_values($res);
         return view('downloads.index', compact('product', 'menus', 'res'));
     }
 }
