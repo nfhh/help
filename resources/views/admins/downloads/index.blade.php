@@ -42,6 +42,7 @@
                 ?>
                 </tbody>
             </table>
+            {{ $downloads->links() }}
         </div>
     </div>
     <script>
