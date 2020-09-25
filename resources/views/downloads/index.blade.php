@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item active">{{ $product->name }}</li>
             </ol>
         </nav>
-        <h1 class="h2 pb-2">下载中心</h1>
+        <h1 class="h2 pb-2">{{ trans('help.download_h') }}</h1>
         <div class="row py-2">
             <div class="col-md-12 bg-white">
                 <ul class="nav nav-pills border-bottom-1 my-tab mb-3">
