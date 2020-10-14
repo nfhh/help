@@ -53,6 +53,7 @@
                                         <td>{{ formatBytes($nd['size']) }}</td>
                                         <td>
                                             <?php
+                                            if($nd['remark']){
                                             $arrx = explode(';', $nd['remark']);
                                             if (count($arrx) > 1) {
                                             list($link, $md5) = $arrx;
@@ -63,9 +64,13 @@
                                             <?php echo $md5; ?>
                                             <?php } else {
                                             list($kk, $vv) = explode(':', $arrx[0]);
-                                            ?>
-                                            <a href="<?php echo $kk; ?>"
-                                               target="_blank"><?php echo $vv;?></a>
+                                            if ($kk == 'MD5') { ?>
+                                                <?php echo $arrx[0]; ?>
+                                                <?php } else { ?>
+                                            <a href="<?php echo $vv; ?>"
+                                               target="_blank"><?php echo $kk;?></a>
+                                            <?php } ?>
+                                            <?php }?>
                                             <?php }?>
                                         </td>
                                     </tr>
