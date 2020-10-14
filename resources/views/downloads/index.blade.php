@@ -56,10 +56,11 @@
                                             $arrx = explode(';', $nd['remark']);
                                             if (count($arrx) > 1) {
                                             list($md5, $link) = $arrx;
+                                            list($kk, $vv) = explode(':', $link);
                                             ?>
-                                            <a href="<?php echo $link; ?>"
-                                               target="_blank"><?php echo trans('help.view');?></a><br/>
-                                            MD5: <?php echo $md5; ?>
+                                            <a href="<?php echo $vv; ?>"
+                                               target="_blank"><?php echo $kk;?></a><br/>
+                                            <?php echo $md5; ?>
                                             <?php } else { ?>
                                             <a href="<?php echo $arrx[0]; ?>"
                                                target="_blank"><?php echo trans('help.view');?></a>
