@@ -61,9 +61,11 @@
                                             <a href="<?php echo $vv; ?>"
                                                target="_blank"><?php echo $kk;?></a><br/>
                                             <?php echo $md5; ?>
-                                            <?php } else { ?>
-                                            <a href="<?php echo $arrx[0]; ?>"
-                                               target="_blank"><?php echo trans('help.view');?></a>
+                                            <?php } else {
+                                            list($kk, $vv) = explode(':', $arrx[0]);
+                                            ?>
+                                            <a href="<?php echo $kk; ?>"
+                                               target="_blank"><?php echo $vv;?></a>
                                             <?php }?>
                                         </td>
                                     </tr>
