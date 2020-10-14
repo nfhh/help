@@ -51,7 +51,20 @@
                                         <td>{{ $nd['version'] }}</td>
                                         <td><a href="{{ $nd['url'] }}">{{ trans('help.download') }}</a></td>
                                         <td>{{ formatBytes($nd['size']) }}</td>
-                                        <td><a href="{{ $nd['remark'] }}" target="_blank">{{ trans('help.view') }}</a></td>
+                                        <td>
+                                            <?php
+                                            $arrx = explode(';', $nd['remark']);
+                                            if (count($arrx) > 1) {
+                                            list($md5, $link) = $arrx;
+                                            ?>
+                                            <a href="<?php echo $link; ?>"
+                                               target="_blank"><?php echo trans('help.view');?></a><br/>
+                                            MD5: <?php echo $md5; ?>
+                                            <?php } else { ?>
+                                            <a href="<?php echo $arrx[0]; ?>"
+                                               target="_blank"><?php echo trans('help.view');?></a>
+                                            <?php }?>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
