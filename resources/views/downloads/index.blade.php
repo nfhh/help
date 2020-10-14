@@ -55,7 +55,7 @@
                                             <?php
                                             $arrx = explode(';', $nd['remark']);
                                             if (count($arrx) > 1) {
-                                            list($md5, $link) = $arrx;
+                                            list($link, $md5) = $arrx;
                                             list($kk, $vv) = explode(':', $link);
                                             ?>
                                             <a href="<?php echo $vv; ?>"
