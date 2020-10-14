@@ -12,7 +12,7 @@ class DownloadController extends Controller
 {
     public function index()
     {
-        $downloads = Download::with(['menu', 'product'])->paginate(20);
+        $downloads = Download::with(['menu', 'product'])->orderBy('created_at', 'DESC')->paginate(20);
         return view('admins.downloads.index', compact('downloads'));
     }
 
