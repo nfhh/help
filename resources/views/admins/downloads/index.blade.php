@@ -15,6 +15,7 @@
                     <th scope="col">类型</th>
                     <th scope="col">名称</th>
                     <th scope="col">版本</th>
+                    <th scope="col">时间</th>
                     <th scope="col">操作</th>
                 </tr>
                 </thead>
@@ -29,6 +30,7 @@
                             continue;
                         }
                     }?>
+                    <td>{{ $download->created_at }}</td>
                     <td>
                         <div class="btn-group">
                             <a class="btn btn-secondary"
