@@ -88,7 +88,7 @@
             axios.get('/api/products').then(response => {
                 this.products = response.data.data
                 this.types = [...new Set(this.products.map(item => item.type))]
-                this.sizes = [...new Set(this.products.map(item => item.size))]
+                this.sizes = [...new Set(this.products.map(item => item.size))].sort((a, b) => a - b)
             })
         },
         computed: {
