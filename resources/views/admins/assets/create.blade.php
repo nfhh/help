@@ -68,6 +68,10 @@
                     </div>
                     <div class="card-body">
                         <div id="containerx">
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="isapk">
+                                <label class="form-check-label" for="exampleCheck1">apk</label>
+                            </div>
                             <button class="btn btn-secondary" id="selectfiles">选择文件</button>
                             <button class="btn btn-primary" @click="selectFile">开始上传</button>
                             <hr>
@@ -104,6 +108,7 @@
                     ]
                 },
                 signature: '',
+                isapk: false,
                 files: [],
                 uploader: {}
             }
@@ -140,7 +145,8 @@
                         if (info.status == 200) {
                             axios.post("{{ route('admin.asset.store') }}", {
                                 'url': file.name,
-                                'size': file.size
+                                'size': file.size,
+                                'apk': self.isapk
                             }).then(response => {
 
                             })

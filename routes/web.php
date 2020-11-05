@@ -43,6 +43,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
+
 });
 
 
@@ -54,6 +55,7 @@ Route::get('/toshelp', 'HelpController@index');
 Route::get('/toshelp/{var}', 'HelpController@show');
 Route::get('/download', 'DownloadController@show');
 Route::get('/download/packages', 'DownloadController@index');
+Route::get('/download/app', 'DownloadController@downapp');
 Route::get('/quickguide', 'ProductController@show');
 Route::get('/quickguide/steps', 'ProductController@index');
 Route::get('/search', 'SearchController@index');

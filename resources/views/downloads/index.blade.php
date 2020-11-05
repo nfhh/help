@@ -49,7 +49,13 @@
                                         <td>{{ $nd['name'] }}</td>
                                         <td>{{ $nd['description'] }}</td>
                                         <td>{{ $nd['version'] }}</td>
-                                        <td><a href="{{ $nd['url'] }}">{{ trans('help.download') }}</a></td>
+                                        <td>
+                                            @if($key !=3 )
+                                            <a href="{{ $nd['url'] }}">{{ trans('help.download') }}</a>
+                                            @else
+                                                {!! QrCode::size(120)->generate(config('app.url').'/download/app'); !!}
+                                            @endif
+                                        </td>
                                         <td>{{ formatBytes($nd['size']) }}</td>
                                         <td>
                                             <?php
@@ -69,9 +75,7 @@
                                                 <?php } else { ?>
                                             <a href="<?php echo $vv; ?>"
                                                target="_blank"><?php echo $kk;?></a>
-                                            <?php } ?>
-                                            <?php }?>
-                                            <?php }?>
+                                            <?php }}}?>
                                         </td>
                                     </tr>
                                 @endforeach
