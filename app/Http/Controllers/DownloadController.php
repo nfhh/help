@@ -44,7 +44,7 @@ class DownloadController extends Controller
     public function downapp()
     {
         $agent = new Agent();
-        if ($agent->isPhone()) {
+        if ($agent->is('iPhone')) {
             return redirect()->to('https://apps.apple.com/cn/app/tnas-mobile/id1244630532');
         }
         return redirect()->to(config('filesystems.disks.oss.oss_url').Asset::where('apk',
