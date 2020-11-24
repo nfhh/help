@@ -13,6 +13,7 @@
                     <th scope="col">产品类别</th>
                     <th scope="col">盘位数量</th>
                     <th scope="col">ID/型号</th>
+                    <th scope="col">添加时间</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                         <td>{{ $email->cplb }}</td>
                         <td>{{ $email->pwsl }}</td>
                         <td>{{ $email->idxh }}</td>
+                        <td>{{ $email->created_at }}</td>
                     </tr>
                 @endforeach
                 </tbody>
