@@ -1,6 +1,6 @@
 <template>
     <form>
-        <div class="form-row">
+        <div class="form-row" v-if="!emailedx">
             <div class="col-md-4 mb-3">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" v-model="email" ref="email" autofocus/>
@@ -99,6 +99,9 @@ export default {
         })
     },
     computed: {
+        emailedx() {
+            return Cookies.get('emailed') == 1;
+        },
         curProductName() {
             if (Object.keys(this.selected_product).length) {
                 return this.selected_product.name
@@ -140,6 +143,7 @@ export default {
                 return
             }
             this.disabled = true
+            Cookies.set('emailed', 1)
             axios.post('/api/email/store', {
                 'email': this.email,
                 'cplb': this.selected_type_id,
