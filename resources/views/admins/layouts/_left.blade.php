@@ -42,5 +42,8 @@
         <a href="{{ route('admin.remark.index')  }}" class="list-group-item list-group-item-action">
             单文章管理
         </a>
+        <a href="{{ route('admin.email.index')  }}" class="list-group-item list-group-item-action">
+            下载中心用户邮箱
+        </a>
     </div>
 </div>
