@@ -43,7 +43,7 @@
             单文章管理
         </a>
         <a href="{{ route('admin.email.index')  }}" class="list-group-item list-group-item-action">
-            下载中心用户邮箱
+            快速安装指南用户邮箱
         </a>
     </div>
 </div>
