@@ -54,9 +54,9 @@ function readExcel2($file)
             $i = 0;
             foreach ($row->getCellIterator() as $cell) {
                 $i++;
-/*                if (!$cell->getFormattedValue()) { // 字段值为空的字段会被过滤掉 并不是过滤空行
-                    continue;
-                }*/
+                /*                if (!$cell->getFormattedValue()) { // 字段值为空的字段会被过滤掉 并不是过滤空行
+                                    continue;
+                                }*/
                 $row_data[$key_arr[$i - 1]] = $cell->getFormattedValue();
             }
             $sheet_data[] = $row_data;
@@ -68,11 +68,11 @@ function readExcel2($file)
 function formatBytes($size, $precision = 2)
 {
     if ($size > 0) {
-        $size = (int)$size;
+        $size = (int) $size;
         $base = log($size) / log(1024);
         $suffixes = [' bytes', ' KB', ' MB', ' GB', ' TB'];
 
-        return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
+        return round(pow(1024, $base - floor($base)), $precision).$suffixes[floor($base)];
     }
     return $size;
 }
@@ -103,4 +103,13 @@ function layerFormat($cate, $name = 'nodes', $pid = 0)
         }
     }
     return $arr;
+}
+
+function myAsset($path)
+{
+    if (app()->environment('production')) {
+        return 'https://img.terra-master.com/'.$path;
+    }
+
+    return asset($path);
 }
