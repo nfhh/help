@@ -9,9 +9,9 @@ foreach ($vars as $var) {
                 preg_match($pattern, $img, $matches2);
                 $href = $matches2[1];
                 $img = preg_replace($pattern, '', $img);
-                $str .= '<a target="_blank" href="' . $href . '"><img class="img-fluid" src="' . $img . '"/></a>';
+                $str .= '<a target="_blank" href="'.$href.'"><img class="img-fluid" src="'.$img.'"/></a>';
             } else {
-                $str .= '<img src="' . $img . '" class="img-fluid">';
+                $str .= '<img src="'.$img.'" class="img-fluid">';
             }
         }
         continue;
@@ -26,7 +26,7 @@ foreach ($vars as $var) {
                 preg_match($pattern, $v, $matches3);
                 $href2 = $matches3[1];
                 $v = preg_replace($pattern, '', $v);
-                $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$v][$lan] . '</a>';
+                $str .= '<a target="_blank" href="'.$href2.'">'.$excel[$v][$lan].'</a>';
             } else {
                 $str .= $excel[$v][$lan];
             }
@@ -36,12 +36,27 @@ foreach ($vars as $var) {
             $pattern = '/\[(.*)\]/';
             preg_match($pattern, $mid, $matches3);
             $href2 = $matches3[1];
-            if (strpos($href2, ';') !== false) {
-                list($cn, $en) = explode(';', $href2);
-                $href2 = \Illuminate\Support\Facades\App::getLocale() === 'zh-cn' ? $cn : $en;
+            $locale = app()->getLocale();
+            $href2_arr = explode(';', $href2);
+            $href2_c = count($href2_arr);
+            if ($href2_c === 2) {
+                list($cn, $en) = $href2_arr;
+                $href2 = $locale === 'zh-cn' ? $cn : $en;
+            } elseif ($href2_c === 3) {
+                list($cn, $en, $ja) = $href2_arr;
+                if ($locale === 'zh-cn') {
+                    $href2 = $cn;
+                } elseif ($locale === 'ja-jp') {
+                    $href2 = $ja;
+                } else {
+                    $href2 = $en;
+                }
+            } elseif ($href2_c === 1) {
+                $href2 = $href2_arr[0];
             }
+
             $mid = preg_replace($pattern, '', $mid);
-            $str .= '<a target="_blank" href="' . $href2 . '">' . $excel[$mid][$lan] . '</a>';
+            $str .= '<a target="_blank" href="'.$href2.'">'.$excel[$mid][$lan].'</a>';
         } else {
             $str .= $excel[$mid][$lan];
         }
