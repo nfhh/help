@@ -138,12 +138,6 @@ export default {
     },
     methods: {
         handleClick() {
-            if (!this.emailedx) {
-                if (!this.email || !(/^[\w-]+@([\w-]+\.)+(com|org|cc|cn|net)$/i.test(this.email))) {
-                    this.$refs.email.focus()
-                    return
-                }
-            }
             this.disabled = true
             Cookies.set('emailed', 1)
             axios.post('/api/email/store', {
