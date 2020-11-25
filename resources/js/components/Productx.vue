@@ -3,7 +3,8 @@
         <div class="form-row" v-if="!emailedx">
             <div class="col-md-4 mb-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" v-model="email" ref="email" autofocus/>
+                <input type="email" :class="email_error ? 'form-control is-invalid' : 'form-control'" id="email"
+                       v-model="email" ref="email" autofocus/>
             </div>
         </div>
         <div class="form-row">
@@ -81,8 +82,14 @@ export default {
         steps: [],
         cur_step: null,
         selected_product: {},
-        email: ''
+        email: '',
+        email_error: false,
     }),
+    watch: {
+        email(value) {
+            this.email_error = !value.includes('@')
+        }
+    },
     mounted() {
         if (this.product_id) {
             axios.get(`/api/products/${this.product_id}`).then(response => {
@@ -138,6 +145,14 @@ export default {
     },
     methods: {
         handleClick() {
+            if (!this.emailedx) {
+                if (!this.email || !(this.email.includes('@'))) {
+                    this.email_error = true
+                    this.$refs.email.focus()
+                    return
+                }
+            }
+            this.email_error = false
             this.disabled = true
             Cookies.set('emailed', 1)
             axios.post('/api/email/store', {
