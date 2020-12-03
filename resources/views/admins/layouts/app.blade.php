@@ -75,7 +75,7 @@
     </div>
 
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ myAsset('js/app.js') }}"></script>
 <script>
     $('#a-box a').each(function () {
         if (location.href.includes($(this).attr('href'))) {
