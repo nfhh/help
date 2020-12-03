@@ -59,5 +59,6 @@ return [
 	"how_buy" => "Dónde comprar",
 	"contact_us" => "Contacto",
 	"view" => "Visualización",
+	"email_tip" => "¿Tiene un producto TerraMaster? Introduzca su correo electrónico, seleccione el modelo o ID del producto y haga clic en \"Start\" (Iniciar).",
 ];
 ?>

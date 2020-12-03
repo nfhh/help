@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Email;
+use App\Models\Email;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

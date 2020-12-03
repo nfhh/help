@@ -87,7 +87,7 @@ export default {
     }),
     watch: {
         email(value) {
-            this.email_error = !value.includes('@')
+            this.email_error = !(value.includes('@') && value.includes('.'))
         }
     },
     mounted() {
@@ -146,7 +146,13 @@ export default {
     methods: {
         handleClick() {
             if (!this.emailedx) {
-                if (!this.email || !(this.email.includes('@'))) {
+                if (!this.email) {
+                    this.email_error = true
+                    this.$refs.email.focus()
+                    return
+                }
+
+                if (!(this.email.includes('@') && this.email.includes('.'))) {
                     this.email_error = true
                     this.$refs.email.focus()
                     return

@@ -6,6 +6,24 @@
             <h2 class="h5 mb-0">快速安装指南用户邮箱</h2>
         </div>
         <div class="card-body">
+            <form action="{{ route('admin.email.export') }}" method="post">
+                @csrf
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="start_date">开始日期</label>
+                        <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $start_date }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="end_date">结束日期</label>
+                        <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $end_date }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary">确定</button>
+                    </div>
+                </div>
+            </form>
             <table class="table">
                 <thead>
                 <tr>

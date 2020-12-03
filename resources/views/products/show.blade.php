@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        @include('partials.guide_h')
+        @include('partials.guide_hx')
         <productx tourl="/quickguide/steps"
                  start="{{ trans('help.start') }}"
                  selected_type_id="{{ trans('help.tnas') }}"

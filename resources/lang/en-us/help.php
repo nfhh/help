@@ -59,5 +59,6 @@ return [
 	"how_buy" => "Where to buy",
 	"contact_us" => "Contact Us",
 	"view" => "View",
+	"email_tip" => "Do you have a TerraMaster product? Please provide your e-mail, select a product ID or model, and click \"Start\".",
 ];
 ?>

@@ -110,4 +110,5 @@ Route::prefix(config('app.admin_dir'))->name('admin.')->namespace('Admin')->midd
     Route::get('/alioss/index', 'AliossController@index')->name('alioss.index');
 
     Route::get('/email', 'EmailController@index')->name('email.index');
+    Route::post('/export', 'EmailController@export')->name('email.export');
 });
