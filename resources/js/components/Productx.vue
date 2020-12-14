@@ -10,7 +10,7 @@
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="types"> {{ product_tip1 }}</label>
-                <select class="custom-select" id="types" v-model="selected_type_id">
+                <select class="custom-select" id="types" v-model="selected_type_idx">
                     <option v-for="(v,k) of types" :key="k" :value="v">
                         {{ v }}
                     </option>
@@ -26,10 +26,12 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="products"> {{ product_tip3 }}</label>
-                <select class="custom-select" id="products" v-model="initSelectedProduct">
+                <select :class="three_error ? 'custom-select is-invalid' : 'custom-select'" id="products"
+                        v-model="initSelectedProduct">
+                    <option value="">---</option>
                     <option v-for="item of listenProducts"
                             :key="item.id"
-                            :value="item">
+                            :value="item.name">
                         {{ item.name }}
                     </option>
                 </select>
@@ -71,34 +73,34 @@ export default {
             default: ''
         }
     },
-    data: () => ({
-        types: [],
-        sizes: [],
-        selected_lan: 'cn',
-        products: [],
-        selected_size_id: '2',
-        disabled: false,
-        index: 0,
-        steps: [],
-        cur_step: null,
-        selected_product: {},
-        email: '',
-        email_error: false,
-    }),
+    data() {
+        return {
+            types: [],
+            sizes: [],
+            selected_lan: 'cn',
+            products: [],
+            selected_size_id: '2',
+            disabled: false,
+            index: 0,
+            steps: [],
+            cur_step: null,
+            selected_product: {},
+            initSelectedProduct: '',
+            three_error: false,
+            email: '',
+            email_error: false,
+            selected_type_idx: this.selected_type_id
+        }
+    },
     watch: {
         email(value) {
             this.email_error = !(value.includes('@') && value.includes('.'))
+        },
+        initSelectedProduct(value) {
+            this.three_error = value === ''
         }
     },
     mounted() {
-        if (this.product_id) {
-            axios.get(`/api/products/${this.product_id}`).then(response => {
-                const product = response.data.data
-                this.selected_type_id = product.type
-                this.selected_size_id = product.size
-                this.initSelectedProduct = product.name
-            })
-        }
         axios.get('/api/products').then(response => {
             this.products = response.data.data
             this.types = [...new Set(this.products.map(item => item.type))]
@@ -107,39 +109,12 @@ export default {
     },
     computed: {
         emailedx() {
-            return Cookies.get('emailed') == 1;
-        },
-        curProductName() {
-            if (Object.keys(this.selected_product).length) {
-                return this.selected_product.name
-            }
-            if (!(typeof this.listenProducts[0] === 'undefined')) {
-                return this.listenProducts[0].name
-            }
-        },
-        curProductId() {
-            if (Object.keys(this.selected_product).length) {
-                return this.selected_product.name
-            }
-            if (!(typeof this.listenProducts[0] === 'undefined')) {
-                return this.listenProducts[0].name
-            }
-        },
-        initSelectedProduct: {
-            get() {
-                if (Object.keys(this.selected_product).length) {
-                    return this.selected_product
-                }
-                return this.listenProducts[0]
-            },
-            set(value) {
-                this.selected_product = value
-            }
+            return Cookies.get('emailed') == 1
         },
         listenProducts() {
-            this.initSelectedProduct = this.selected_product = {}
+            this.selected_product = {}
             return this.products.filter((item) => {
-                return item['type'] === this.selected_type_id && item['size'] === this.selected_size_id
+                return item['type'] === this.selected_type_idx && item['size'] === this.selected_size_id
             })
         }
     },
@@ -158,20 +133,24 @@ export default {
                     return
                 }
             }
+            if (this.initSelectedProduct === '') {
+                this.three_error = true
+                return
+            }
             this.email_error = false
             this.disabled = true
             Cookies.set('emailed', 1)
             axios.post('/api/email/store', {
                 'email': this.email,
-                'cplb': this.selected_type_id,
+                'cplb': this.selected_type_idx,
                 'pwsl': this.selected_size_id,
-                'idxh': this.initSelectedProduct.name,
+                'idxh': this.initSelectedProduct,
             }).then(() => {
 
             }).catch(() => {
 
             })
-            location.href = `${this.tourl}?product=${this.curProductId}`
+            location.href = `${this.tourl}?product=${this.initSelectedProduct}`
         }
     }
 }
