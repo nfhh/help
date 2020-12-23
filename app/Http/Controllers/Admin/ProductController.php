@@ -113,7 +113,12 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        //
+        $product->delete(); // bool
+        $product->steps()->delete(); // affect rows nu
+        return response()->json([
+            'code' => 0,
+            'message' => '删除成功！'
+        ]);
     }
 
     public function destroyStep(Request $request)

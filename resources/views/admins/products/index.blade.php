@@ -28,7 +28,7 @@
                             <div class="btn-group" role="group">
                                 <a class="btn btn-secondary"
                                    href="{{ route('admin.product.edit',$product->id) }}">编辑</a>
-                                <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
+                                <a href="javascript:;" onclick="del({{ $product->id }})" class="btn btn-danger">删除</a>
                                 <button type="button" data-toggle="modal" data-target="#cpModal"
                                         data-whatever="{{ $product->id }}"
                                         class="btn btn-warning">复制
@@ -82,5 +82,26 @@
             modal.find(`.modal-body option[value="${recipient}"]`).prop('disabled', true)
             modal.find(`.modal-body option:not([disabled]):first`).prop('selected', true)
         })
+
+        function del(id) {
+            if (confirm(`确定删除id为 ${id} 的记录吗？`)) {
+                var url = '{{ route("admin.product.destroy", ":id") }}';
+                url = url.replace(':id', id);
+                axios.delete(url).then(function (res) {
+                    if (res.data.code === 0) {
+                        alert(res.data.message);
+                        location.reload();
+                    } else {
+                        alert(res.data.message);
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            }
+        }
     </script>
 @endsection
+
+
+
+
