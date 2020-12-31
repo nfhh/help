@@ -7,7 +7,7 @@
                 padding-left: 10px;
                 text-align: center;
             }
-            .pagination li a,.pagination li a:hover{
+            .pagination li:last-child a,.pagination li:last-child a:hover{
                 background-color:#3A90DC;
                 color: #fff;
                 border: 1px solid #3A90DC;
@@ -20,7 +20,7 @@
                 padding-left: 10px;
                 text-align: center;
             }
-            .pagination li a,.pagination li a:hover{
+            .pagination li:last-child a,.pagination li:last-child a:hover{
                 background-color:#3A90DC;
                 color: #fff;
                 border: 1px solid #3A90DC;
@@ -33,7 +33,7 @@
             text-align: center;
         }
 
-        .pagination li a,.pagination li a:hover{
+        .pagination li:last-child a,.pagination li:last-child a:hover{
             background-color:#3A90DC;
             color: #fff;
             border: 1px solid #3A90DC;
