@@ -8,9 +8,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{{ myAsset('js/app.js') }}" defer></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
     @yield('css')
 </head>
 <body>

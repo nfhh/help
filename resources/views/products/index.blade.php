@@ -1,4 +1,45 @@
 @extends('layouts.white')
+@section('css')
+    <style>
+        @media (min-width: 1281px) {
+            .page-item {
+                width: 200px !important;
+                padding-left: 10px;
+                text-align: center;
+            }
+            .pagination li a,.pagination li a:hover{
+                background-color:#3A90DC;
+                color: #fff;
+                border: 1px solid #3A90DC;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            .page-item {
+                width: 200px !important;
+                padding-left: 10px;
+                text-align: center;
+            }
+            .pagination li a,.pagination li a:hover{
+                background-color:#3A90DC;
+                color: #fff;
+                border: 1px solid #3A90DC;
+            }
+        }
+
+        .page-item {
+            width: 100%;
+            padding-left: 10px;
+            text-align: center;
+        }
+
+        .pagination li a,.pagination li a:hover{
+            background-color:#3A90DC;
+            color: #fff;
+            border: 1px solid #3A90DC;
+        }
+    </style>
+ @endsection
 @section('content')
     <div class="container">
         <nav>
