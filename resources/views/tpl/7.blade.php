@@ -15,7 +15,7 @@
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
                     $text = preg_replace($pattern, '', $v);
-                    $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
+                    $str .= '<a target="_blankaaa" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
                 }
@@ -33,7 +33,7 @@
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
                     $text = preg_replace($pattern, '', $v);
-                    $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
+                    $str .= '<a target="_blank bbbb" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
                 }
@@ -49,8 +49,15 @@
                     $pattern = '/\[(.*)\]/';
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
+                    $locale = app()->getLocale();
+                    $href_arr = explode(';', $href);
+                    $href_c = count($href_arr);
+                    if ($href_c === 2) {
+                        list($cn, $en) = $href_arr;
+                        $href = $locale === 'zh-cn' ? $cn : $en;
+                    }
                     $text = preg_replace($pattern, '', $v);
-                    $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
+                    $str .= '<a target="_blankccc" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
                     $str .= $excel[$v][$lan];
                 }

@@ -31,6 +31,13 @@
                     $pattern = '/\[(.*)\]/';
                     preg_match($pattern, $v, $matches2);
                     $href = $matches2[1];
+                    $locale = app()->getLocale();
+                    $href_arr = explode(';', $href);
+                    $href_c = count($href_arr);
+                    if ($href_c === 2) {
+                        list($cn, $en) = $href_arr;
+                        $href = $locale === 'zh-cn' ? $cn : $en;
+                    }
                     $text = preg_replace($pattern, '', $v);
                     $str .= '<a target="_blank" href="' . $href . '">' . $excel[$text][$lan] . '</a>';
                 } else {
