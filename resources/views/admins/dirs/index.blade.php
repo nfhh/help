@@ -54,6 +54,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $dirs->links() }}
         </div>
     </div>
 @endsection

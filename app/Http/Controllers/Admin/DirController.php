@@ -10,7 +10,7 @@ class DirController extends Controller
 {
     public function index()
     {
-        $dirs = Dir::with('children')->roots()->paginate(10);
+        $dirs = Dir::with('children')->roots()->paginate(20);
         return view('admins.dirs.index', compact('dirs'));
     }
 
