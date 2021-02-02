@@ -30,7 +30,7 @@
                         <a class="dropdown-item py-2" href="/quickguide">{{ trans('help.quick_install') }}</a>
                         <a class="dropdown-item py-2" href="https://www.terra-master.com/{{$urllans[$lan]}}/video-guide/">{{ trans('help.video_guide') }}</a>
                         <a class="dropdown-item py-2" href="/toshelp">{{ trans('help.tos_help') }}</a>
-                        <a class="dropdown-item py-2" href="/faq?s=tnas">{{ trans('help.faq') }}</a>
+                        <a class="dropdown-item py-2" href="/faqs/tnas-faqs">{{ trans('help.faq') }}</a>
                         <a class="dropdown-item py-2" href="/download">{{ trans('help.download') }}</a>
                         <a class="dropdown-item py-2" href="https://www.terra-master.com/{{$urllans[$lan]}}/compatibility/">{{ trans('help.compatibility') }}</a>
                         <a class="dropdown-item py-2" href="https://www.terra-master.com/{{$urllans[$lan]}}/warranty/">{{ trans('help.reg_product') }}</a>
