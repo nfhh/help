@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light my-bg p-0">
     <div class="container">
-        <a class="navbar-brand" href="https://www.terra-master.com">
+        <a class="navbar-brand" target="_blank" href="https://www.terra-master.com">
             <img src="https://img.terra-master.com/skin/frontend/base/default/images/Terramaster_logo.svg"
                  width="90" alt="" loading="lazy">
         </a>
