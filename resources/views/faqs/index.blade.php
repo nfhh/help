@@ -20,7 +20,7 @@
                             @foreach($faqs as $faq)
                                 <li class="list-group-item py-4 px-0 article">
                                     <h5>
-                                        <a href="{{ '/faqs/'.$faq->subject->var .'/'. $faq->title }}"
+                                        <a href="/faqs/{{ $faq->subject->var }}/{{ $faq->title }}"
                                            class="my-title">
                                             @php
                                                 $excel = json_decode($faq->excel, true);
@@ -29,7 +29,7 @@
                                         </a>
                                     </h5>
                                     <p class="mb-0">
-                                        <a href="/faqs/{{$faq->subject->var}}/{{ $faq->title }}"
+                                        <a href="/faqs/{{ $faq->subject->var }}/{{ $faq->title }}"
                                            class="text-secondary">
                                             @php
                                                 $body = json_decode($faq->body, true);

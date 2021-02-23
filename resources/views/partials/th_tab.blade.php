@@ -5,7 +5,7 @@
                class="nav-item nav-link text-dark">{{ trans('help.tnas_faq') }}</a>
             <a href="/faqs/tdas-faqs"
                class="nav-item nav-link text-dark">{{ trans('help.tdas_faq') }}</a>
-            <a href="/toshelp" class="nav-item nav-link text-dark">{{ trans('help.tos_help') }}</a>
+            <a href="/toshelp" class="nav-item nav-link text-dark d-none">{{ trans('help.tos_help') }}</a>
         </nav>
     </div>
 </div>
