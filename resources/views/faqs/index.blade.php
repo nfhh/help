@@ -29,7 +29,7 @@
                                         </a>
                                     </h5>
                                     <p class="mb-0">
-                                        <a href="/faqs/{{ $faq->title }}"
+                                        <a href="/faqs/{{$faq->subject->var}}/{{ $faq->title }}"
                                            class="text-secondary">
                                             @php
                                                 $body = json_decode($faq->body, true);
