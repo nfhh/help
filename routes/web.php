@@ -14,38 +14,13 @@ use Illuminate\Support\Facades\Route;
 |[]
 */
 
-Route::get('/genu', function () {
-    $users = [
-        [
-            'name' => 'nzj',
-            'email' => 'nzj@qq.com',
-            'password' => bcrypt('Terra0755'),
-        ],
-        [
-            'name' => 'hl',
-            'email' => 'hl@qq.com',
-            'password' => bcrypt('Terra0755'),
-        ], [
-            'name' => 'gql',
-            'email' => 'gql@qq.com',
-            'password' => bcrypt('Terra0755'),
-        ], [
-            'name' => 'hyp',
-            'email' => 'hyp@qq.com',
-            'password' => bcrypt('Terra0755'),
-        ]
-    ];
-    dd(\App\Models\Admin::insert($users));
-});
-
 Route::get('/', function () {
-    return redirect('/toshelp');
+    return redirect('/faqs/tnas-faqs');
 });
 
 Route::get('/test', function () {
 
 });
-
 
 Auth::routes();
 Route::get('/posts/{var}', 'PostsController@show');

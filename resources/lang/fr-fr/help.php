@@ -4,7 +4,7 @@ return [
 	"tdas_faq" => "TDAS FAQ",
 	"faq" => "FAQS",
 	"help_doc" => "Documentations d'aide",
-	"search_tip" => "S'il vous plaît, saisissez les mots clés de recherche et cliquez sur « Rechercher ». Si vous ne trouvez pas de réponse, veuillez nous demander de l'%aide%s",
+	"search_tip" => "S'il vous plaît, saisissez les mots clés de recherche et cliquez sur « Rechercher ». Si vous ne trouvez pas de réponse, veuillez nous demander de l'%saide%s",
 	"tos_help" => "Aide TOS",
 	"quick_install" => "Guide d'installation rapide",
 	"quick_install_tip" => "S'il vous plaît, sélectionnez un ID de produit ou modèle et cliquez sur « Démarrer ». Si vous rencontrez des problèmes lors de l'installation, veuillez nous demander %de l'aide%s",
@@ -60,5 +60,6 @@ return [
 	"contact_us" => "Nous contacter",
 	"view" => "Voir",
 	"email_tip" => "Disposez-vous d'un produit TerraMaster ? Veuillez indiquer votre adresse électronique, sélectionner un ID de produit ou modèle et cliquer sur \"Démarrer\".",
+	"region_language" => "Région et Langue",
 ];
 ?>

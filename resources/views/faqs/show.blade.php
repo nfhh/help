@@ -1,5 +1,10 @@
 @extends('layouts.app2')
-
+@section('title')
+    @php
+        $excel = json_decode($faq->excel, true);
+        echo $excel[$faq->title][$lan];
+    @endphp
+@endsection
 @section('content')
     <div class="container">
         @include('partials.th_h')
@@ -16,7 +21,6 @@
                 <div class="bg-white p-3">
                     <h1 class="h3 pb-3">
                         @php
-                            $excel = json_decode($faq->excel, true);
                             echo $excel[$faq->title][$lan];
                             $body_arr = json_decode($faq->body, true);
                         @endphp

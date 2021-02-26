@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title','Best NAS Storage, RAID storage, Data Storage Master Online')_TerraMaster</title>
+    <meta name="keywords" content="@yield('keywords','')"/>
+    <meta name="description" content="@yield('description','')"/>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">

@@ -60,5 +60,6 @@ return [
 	"contact_us" => "Kapcsolatfelvétel",
 	"view" => "Nézés",
 	"email_tip" => "Do you have a TerraMaster product? Please provide your e-mail, select a product ID or model, and click \"Start\".",
+	"region_language" => "Idő és kódolás",
 ];
 ?>

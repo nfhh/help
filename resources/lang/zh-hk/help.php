@@ -60,5 +60,6 @@ return [
 	"contact_us" => "聯繫我們",
 	"view" => "查看",
 	"email_tip" => "您是否是鐵威馬用戶？請提供您的 Email，並選擇產品 ID 或者型號，然後點擊 “開始”。",
+	"region_language" => "區域與語言",
 ];
 ?>

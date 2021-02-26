@@ -60,5 +60,6 @@ return [
 	"contact_us" => "Kontakt",
 	"view" => "Anzeigen",
 	"email_tip" => "Haben Sie ein Produkt von TerraMaster? Bitte geben Sie eine Produkt-ID oder ein Modell an und klicken Sie auf „Start“.",
+	"region_language" => "Region und Sprache",
 ];
 ?>

@@ -4,7 +4,7 @@ return [
 	"tdas_faq" => "TNAS SSS",
 	"faq" => "SSS",
 	"help_doc" => "Yardım Belgeleri",
-	"search_tip" => "Lütfen arama anahtar kelimeleri girin ve \"Ara\" yı tıklayın. Cevabı bulamazsanız, lütfen bize% sYardım% s isteyin.",
+	"search_tip" => "Lütfen arama anahtar kelimeleri girin ve \"Ara\" yı tıklayın. Cevabı bulamazsanız, lütfen bize%sYardım%s isteyin.",
 	"tos_help" => "Tos Help",
 	"quick_install" => "Hızlı Kurulum Kılavuzu",
 	"quick_install_tip" => "Lütfen bir ürün kimliği veya modeli seçin ve \"Başlat\" ı tıklayın. Yükleme sırasında sorunla karşılaşırsanız, lütfen % Yardım için%s bize sorun",
@@ -60,5 +60,6 @@ return [
 	"contact_us" => "Bize Ulaşın",
 	"view" => "Görünüm",
 	"email_tip" => "Do you have a TerraMaster product? Please provide your e-mail, select a product ID or model, and click \"Start\".",
+	"region_language" => "Bölge ve Dil",
 ];
 ?>
