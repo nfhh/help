@@ -7,9 +7,6 @@
         let pathname2 = location.pathname;
         $('#tree a').each(function () {
             let href = $(this).attr('href');
-            console.log(pathname2)
-            console.log(href)
-            console.log(pathname2.includes(href))
             if (href === pathname2 || pathname2.includes(href)) {
                 $(this).parent().addClass('active');
                 $(this).parent().parent().addClass('show');

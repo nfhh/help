@@ -6,7 +6,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="container-fluid">
-                    <div class="row py-4">
+                    <div class="row py-3">
                         <div class="col-md-12 d-flex">
                             <img src="https://img.terra-master.com/media/qyyy.svg" width="30" height="30">
                             <h3 class="pl-2">{{ trans('help.region_language') }}</h3>
