@@ -56,7 +56,12 @@
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item">
+                    <a href="javascript:;" onclick="$crisp.push(['do', 'chat:open'])">
+                        <img src="https://img.terra-master.com/skin/frontend/rwd/terramaster/images/chat-icon.svg" width="30" height="30">
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link my-text-dark" href="#" data-target="#lanModal" data-toggle="modal">
                         {{$lans[$lan]}}
