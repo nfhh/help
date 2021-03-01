@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $lans = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+            $lans = $_SERVER['HTTP_ACCEPT_LANGUAGE']; // 客户端
             $lan = substr($lans, 0, strpos($lans, ','));
             switch ($lan) {
                 case 'en':
@@ -104,6 +104,10 @@ class AppServiceProvider extends ServiceProvider
                     $lan = 'en-us';
             }
             $lanx = $_COOKIE['lan'] ?? $lan;
+            if ($lanx === 'hu-hu' || $lanx === 'tr-tr') {
+                $lanx = 'en-us';
+            }
+//            dd($lanx); "ru-ru"
             View::share('lan', $lanx);
             App::setLocale($lanx);
         }

@@ -1,7 +1,7 @@
 <?php
 return [
 	"tnas_faq" => "TNAS よくある問題",
-	"tdas_faq" => "TNAS よくある問題",
+	"tdas_faq" => "TDAS よくある問題",
 	"faq" => "FAQS",
 	"help_doc" => "ヘルプ文書",
 	"search_tip" => "検索のためのキーワードを入力して、「検索」をクリックしてください。回答が見つからない場合は、%sお問い合わせ窓口%sにお問い合わせください",

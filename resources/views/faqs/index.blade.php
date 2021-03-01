@@ -24,7 +24,7 @@
                                            class="my-title">
                                             @php
                                                 $excel = json_decode($faq->excel, true);
-                                                echo $excel[$faq->title][$lan]
+                                                 echo $excel[$faq->title][$lan] ?? $excel[$faq->title]['en-us'];
                                             @endphp
                                         </a>
                                     </h5>
@@ -37,10 +37,10 @@
                                                 foreach ($arr as $k => $v) {
                                                     if (strpos($v, '|') !== false) {
                                                         foreach (explode('|', $v) as $kk=> $vv) {
-                                                            echo $excel[$vv][$lan];
+                                                            echo $excel[$vv][$lan] ?? $excel[$vv]['en-us'];
                                                         }
                                                     }else{
-                                                        echo $excel[$v][$lan];
+                                                        echo $excel[$v][$lan] ?? $excel[$v]['en-us'];
                                                         if ($k === count($arr) - 1) {
                                                             echo '...';
                                                         } else {

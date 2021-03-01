@@ -1,7 +1,7 @@
 <?php
 return [
 	"tnas_faq" => "TNAS SSS",
-	"tdas_faq" => "TNAS SSS",
+	"tdas_faq" => "TDAS SSS",
 	"faq" => "SSS",
 	"help_doc" => "Yardım Belgeleri",
 	"search_tip" => "Lütfen arama anahtar kelimeleri girin ve \"Ara\" yı tıklayın. Cevabı bulamazsanız, lütfen bize%sYardım%s isteyin.",
