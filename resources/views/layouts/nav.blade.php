@@ -57,7 +57,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item">
+                <li class="nav-item pr-2">
                     <a href="javascript:;" onclick="$crisp.push(['do', 'chat:open'])">
                         <img src="https://img.terra-master.com/skin/frontend/rwd/terramaster/images/chat-icon.svg" width="30" height="30">
                     </a>
