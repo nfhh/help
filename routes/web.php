@@ -18,9 +18,8 @@ Route::get('/', function () {
     return redirect('/faqs/tnas-faqs');
 });
 
-Route::get('/test', function () {
-
-});
+Route::get('/test', 'TestController@index');
+Route::post('/test', 'TestController@store');
 
 Auth::routes();
 Route::get('/posts/{var}', 'PostsController@show');

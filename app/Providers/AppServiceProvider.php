@@ -107,7 +107,6 @@ class AppServiceProvider extends ServiceProvider
             if ($lanx === 'hu-hu' || $lanx === 'tr-tr') {
                 $lanx = 'en-us';
             }
-//            dd($lanx); "ru-ru"
             View::share('lan', $lanx);
             App::setLocale($lanx);
         }

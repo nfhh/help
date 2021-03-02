@@ -25,7 +25,7 @@
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-secondary"
                                        href="{{ route('admin.faq.edit',$faq->id) }}">编辑</a>
-                                    <a href="javascript:alert('屏蔽危险操作，请使用编辑！')" class="btn btn-danger">删除</a>
+                                    <a href="javascript:;" onclick="del({{ $faq->id }})" class="btn btn-danger">删除</a>
                                 </div>
                             </td>
                         </tr>
@@ -36,4 +36,22 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(id) {
+            if (confirm(`确定删除id为 ${id} 的记录吗？`)) {
+                var url = '{{ route("admin.faq.destroy", ":id") }}';
+                url = url.replace(':id', id);
+                axios.delete(url).then(function (res) {
+                    if (res.data.code === 0) {
+                        alert(res.data.message);
+                        location.reload();
+                    } else {
+                        alert(res.data.message);
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            }
+        }
+    </script>
 @endsection
