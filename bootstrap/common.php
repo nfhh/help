@@ -2,6 +2,7 @@
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
+// var做key 过滤空格子
 function readExcel($file)
 {
     $sh = [];
@@ -39,6 +40,7 @@ function readExcel($file)
     return $res;
 }
 
+// 整行原样读取 不过滤空格子
 function readExcel2($file)
 {
     $sheet_data = $row_data = $key_arr = [];
@@ -63,6 +65,40 @@ function readExcel2($file)
         }
     }
     return $sheet_data;
+}
+
+// var做key 不过滤空格
+function readExcel3($file)
+{
+    $sh = [];
+    $arr = [];
+    $ce = [];
+    $excel_data = [];
+    $spreadsheet = IOFactory::load($file);
+    foreach ($spreadsheet->getWorksheetIterator() as $sheet) {
+        foreach ($sheet->getRowIterator() as $key1 => $row) {
+            if ($key1 == 1) {
+                $a = $row->getCellIterator();
+                foreach ($a as $aa) {
+                    $arr[] = $aa->getFormattedValue();
+                }
+                continue;
+            }
+            $k = 0;
+            foreach ($row->getCellIterator() as $key2 => $cell) {
+                $ce[$arr[$k]] = $cell->getFormattedValue();
+                $k++;
+            }
+            $excel_data[$ce[$arr[0]]] = $ce;
+        }
+        $sh[] = $excel_data;
+    }
+    $res = [];
+    foreach ($sh[0] as $k => $v) {
+        unset($v['var']);
+        $res[$k] = $v;
+    }
+    return $res;
 }
 
 function formatBytes($size, $precision = 2)
