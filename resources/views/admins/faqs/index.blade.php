@@ -19,7 +19,13 @@
                     <tbody>
                     @foreach($faqs as $faq)
                         <tr>
-                            <td>{{ $faq->subject['zh-cn'] }}</td>
+                            <td>
+                                @php
+                                    $var = $faq->subject['var']
+                                @endphp
+                                【{{ substr($var,0,strpos($var,'-')) ?: substr($var,0,strpos($var,'_'))}}】
+                                {{ $faq->subject['zh-cn'] }}
+                            </td>
                             <td>{{ $faq->title }}</td>
                             <td>
                                 <div class="btn-group" role="group">
