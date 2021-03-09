@@ -13,7 +13,7 @@
                 <div class="custom-control custom-radio custom-control-inline pr-5">
                     <input type="radio" id="tb2" name="tb" class="custom-control-input" value="faqs|2"
                            @if(request()->query('tb')==='faqs|2') checked @endif>
-                    <label class="custom-control-label" for="tb2">DAS {{ trans('help.tdas_faq') }}</label>
+                    <label class="custom-control-label" for="tb2">{{ trans('help.tdas_faq') }}</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline d-none">
                     <input type="radio" id="tb3" name="tb" class="custom-control-input" value="articles"
